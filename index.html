@@ -379,6 +379,18 @@ html[lang="he"] .footer-col h4{letter-spacing:.06em;text-transform:none;font-siz
 }
 .footer-bottom .disclaimer{max-width:62em;font-size:11.5px;line-height:1.7;color:#525B69}
 
+/* ============ STORY ============ */
+#story{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+#story::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 45% 60% at 15% 25%,rgba(198,167,94,.09),transparent 65%)}
+#story .container{position:relative}
+#story .section-head h2{color:#fff}
+#story p.st{color:var(--gray-l);font-weight:300;font-size:17.5px;max-width:46em;margin-bottom:18px;line-height:1.85}
+.press-card{margin-top:44px;border:1px solid var(--line-dark);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:rgba(255,255,255,.03)}
+.press-card .pl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;display:block}
+html[lang="he"] .press-card .pl{letter-spacing:.06em;text-transform:none;font-size:13px}
+.press-card h3{font-size:19px;font-weight:500;line-height:1.5;max-width:34em;color:#fff}
+.press-card .btn{white-space:nowrap}
+
 /* ============ PAYMENTS / ORDER WIZARD ============ */
 #pay{background:var(--paper)}
 .steps{display:flex;margin-bottom:40px;border:1px solid var(--line);background:var(--white)}
@@ -571,25 +583,67 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <span class="practice-num">01</span>
         <h3 data-i18n="svc1h">אימות חתימה ואישור מסמכים</h3>
         <div class="desc"><span data-i18n="svc1p">אימות חתימה על ייפוי כוח, תצהירים, מסמכי בנק ומסמכים רשמיים — בתיאום מהיר, כולל קבלה במשרד באותו יום.</span><span class="note" data-i18n="svc1n">שירות אקספרס · מענה באותו יום</span></div>
-        <a href="#contact" class="practice-arrow" aria-label="Contact"><span class="arr">←</span></a>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
       </div>
       <div class="practice-row reveal">
         <span class="practice-num">02</span>
         <h3 data-i18n="svc2h">ליווי משפטי שוטף לעסקים</h3>
         <div class="desc"><span data-i18n="svc2p">ריטיינר חודשי הכולל ייעוץ זמין, בדיקת חוזים, מכתבי התראה וליווי מול ספקים, לקוחות ועובדים.</span><span class="note" data-i18n="svc2n">3 מסלולים · חודש היכרות מ־₪890</span></div>
-        <a href="#pricing" class="practice-arrow" aria-label="Pricing"><span class="arr">←</span></a>
+        <a href="#pricing" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
       </div>
       <div class="practice-row reveal">
         <span class="practice-num">03</span>
         <h3 data-i18n="svc3h">חוזים ודיני מסחר</h3>
         <div class="desc"><span data-i18n="svc3p">ניסוח ובדיקת הסכמי התקשרות, הסכמי שותפות, תנאי שימוש, הסכמי סודיות והסכמי עבודה.</span><span class="note" data-i18n="svc3n">הצעת מחיר תוך יום עסקים</span></div>
-        <a href="#contact" class="practice-arrow" aria-label="Contact"><span class="arr">←</span></a>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
       </div>
       <div class="practice-row reveal">
         <span class="practice-num">04</span>
+        <h3 data-i18n="svc9h">בדיקת חוזים לפני חתימה</h3>
+        <div class="desc"><span data-i18n="svc9p">עוברים שורה־שורה, מסמנים סעיפים מסוכנים ומחזירים דוח ברור: מה בסדר, מה לשנות, ועל מה אסור לחתום.</span><span class="note" data-i18n="svc9n">דוח ברור תוך יום עסקים</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">05</span>
         <h3 data-i18n="svc4h">מקרקעין ונדל"ן</h3>
         <div class="desc"><span data-i18n="svc4p">ליווי עסקאות מכר ורכישה, הסכמי שכירות מסחריים, בדיקות נאותות ורישום זכויות.</span><span class="note" data-i18n="svc4n">ליווי מלא מהמו"מ ועד הטאבו</span></div>
-        <a href="#contact" class="practice-arrow" aria-label="Contact"><span class="arr">←</span></a>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">06</span>
+        <h3 data-i18n="svc5h">סיוע בהכנת תביעה קטנה</h3>
+        <div class="desc"><span data-i18n="svc5p">ניתוח סיכויים, ניסוח כתב תביעה או הגנה, ארגון ראיות והכנה אישית לדיון — כי בתביעות קטנות הייצוג בדיון אישי על פי חוק, וההכנה היא היתרון.</span><span class="note" data-i18n="svc5n">ליווי עד ליום הדיון</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">07</span>
+        <h3 data-i18n="svc6h">רישום סימני מסחר</h3>
+        <div class="desc"><span data-i18n="svc6p">בדיקת כשירות וזמינות, הגשה לרשם סימני המסחר, מענה להשגות וליווי עד הרישום — הגנה על השם, הלוגו והמוניטין שבניתם.</span><span class="note" data-i18n="svc6n">הנכס שמגן על המותג</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">08</span>
+        <h3 data-i18n="svc7h">רישום חברות</h3>
+        <div class="desc"><span data-i18n="svc7p">הקמת חברה בע"מ מקצה לקצה: מבנה התאגדות, תקנון מותאם, רישום ברשם החברות והסכם מייסדים — המסמך שרוב השותפים מדלגים עליו ומתחרטים.</span><span class="note" data-i18n="svc7n">כולל ייעוץ הסכם מייסדים</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">09</span>
+        <h3 data-i18n="svc8h">רישום עמותות וניהול תקין</h3>
+        <div class="desc"><span data-i18n="svc8p">ניסוח תקנון ומטרות, רישום ברשם העמותות וליווי לאישור ניהול תקין — המפתח לתמיכות ולתרומות.</span><span class="note" data-i18n="svc8n">ליווי הוועד והאסיפה הכללית</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">10</span>
+        <h3 data-i18n="svc10h">מכתבי התראה וגבייה</h3>
+        <div class="desc"><span data-i18n="svc10p">מכתב התראה על נייר של משרד עורכי דין סוגר חלק ניכר מהחובות בלי בית משפט. ניסוח ממוקד, מעקב, וליווי להליכי גבייה.</span><span class="note" data-i18n="svc10n">החוב לא מחכה — גם אתם לא</span></div>
+        <a href="#contact" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
+      </div>
+      <div class="practice-row reveal">
+        <span class="practice-num">11</span>
+        <h3 data-i18n="svc11h">נסח טאבו ומסמכים אונליין</h3>
+        <div class="desc"><span data-i18n="svc11p">נסח רגיל, היסטורי, מרוכז או נסח חברה — מזמינים באתר, משלמים אגרה מאובטחת ומקבלים למייל, בליווי המשרד.</span><span class="note" data-i18n="svc11n">הזמנה אונליין למטה ›</span></div>
+        <a href="#pay" class="practice-arrow" aria-label="More"><span class="arr">←</span></a>
       </div>
     </div>
 
@@ -715,9 +769,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <p data-i18n="abP2">לצד העבודה המשפטית, מייקל הוא יזם בעצמו — ומכיר מקרוב את האתגרים של ניהול עסק בישראל: תזרים, ספקים, עובדים ורגולציה. הניסיון הזה מתורגם לייעוץ פרקטי שמכוון לשורה התחתונה, לא לחוות דעת של 40 עמודים.</p>
       <div class="creds">
         <div class="cred"><b data-i18n="cr1b">חבר לשכת עוה"ד</b><span data-i18n="cr1t">רישיון עריכת דין בתוקף</span></div>
-        <div class="cred"><b data-i18n="cr2b">מיקוד עסקי</b><span data-i18n="cr2t">ליווי עסקים קטנים ובינוניים</span></div>
-        <div class="cred"><b data-i18n="cr3b">אזור שירות</b><span data-i18n="cr3t">תל אביב והמרכז</span></div>
-        <div class="cred"><b data-i18n="cr4b">4 שפות</b><span data-i18n="cr4t">עברית · אנגלית · רוסית · צרפתית</span></div>
+        <div class="cred"><b data-i18n="cr2b">20+ שנות עסקים</b><span data-i18n="cr2t">גדל וניהל בעסק משפחתי — תפעול, ספקים, תזרים</span></div>
+        <div class="cred"><b data-i18n="cr3b">יזם פעיל</b><span data-i18n="cr3t">הקים מותג מסחר אלקטרוני עם אלפי מוצרים</span></div>
+        <div class="cred"><b data-i18n="cr4b">מילואימניק פעיל</b><span data-i18n="cr4t">מאות ימי שירות — עמידה בלחץ וסדרי עדיפויות</span></div>
+        <div class="cred"><b data-i18n="cr5b">אזור שירות</b><span data-i18n="cr5t">תל אביב והמרכז</span></div>
+        <div class="cred"><b data-i18n="cr6b">4 שפות</b><span data-i18n="cr6t">עברית · אנגלית · רוסית · צרפתית</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="stEyebrow">הסיפור שלנו</span>
+      <h2 data-i18n="stTitle">עורך הדין שהיה בצד של בעל העסק</h2>
+    </div>
+    <div class="reveal">
+      <p class="st" data-i18n="stP1">יש עורכי דין שלמדו על עסקים מהספרים. מייקל ברג למד עליהם מהמחסן — מגיע בחמש בבוקר עם אבא לרומנטקס, מותג הטקסטיל המשפחתי שנכנס כמעט לכל בית בישראל, אורז הזמנות וחוזר רק בערב. שם למד מהי משמעת, מהי אחריות לעובדים, ומה שווה כל שקל.</p>
+      <p class="st" data-i18n="stP2">ושם למד גם את השיעור הקשה מכולם: מה קורה לעסק משפחתי בלי הגנה משפטית אמיתית. אחרי עשרות שנים העסק קרס — בין היתר בעקבות מסמכים שנראו תקינים וייעוץ שנשמע מקצועי. "או שאני נשבר, או שאני בונה את עצמי מחדש" — כך סיכם את הרגע הזה בריאיון לוואלה.</p>
+      <p class="st" data-i18n="stP3">הוא בחר לבנות: אחרי מאות ימי מילואים הקים מחדש את העסק המשפחתי, הוסמך כעורך דין — והקים את ברג ושות׳ על הבנה אחת: חוזה טוב, בדיקה בזמן וייעוץ נכון הם ההבדל בין עסק שממשיך לעסק שנעלם. כל לקוח מקבל כאן את מה שלמשפחת ברג לא היה.</p>
+      <div class="press-card">
+        <div>
+          <span class="pl" data-i18n="pressLabel">כתבו עלינו · וואלה כסף</span>
+          <h3 data-i18n="pressTitle">"איבדנו הכל, אבל נשארנו אנחנו": המילואימניק שבונה מחדש את העסק המשפחתי</h3>
+        </div>
+        <a class="btn btn-gold" href="https://finance.walla.co.il/item/3796621" target="_blank" rel="noopener" data-i18n="pressCta">לכתבה המלאה</a>
       </div>
     </div>
   </div>
@@ -906,7 +983,7 @@ a3tag:"מקרקעין",a3h:"שכירות מסחרית: 5 סעיפים בחוזה
 photoPh:"מקום לתמונת פרופיל מקצועית",abEyebrow:"אודות המשרד",abTitle:'עו"ד מייקל ברג',
 abP1:"עורך דין מוסמך, חבר לשכת עורכי הדין בישראל, המתמחה בליווי משפטי שוטף לעסקים, דיני חוזים ומקרקעין. המשרד נבנה על עיקרון פשוט: לבעל עסק מגיע עורך דין שעונה מהר, מדבר ברור, ומתמחר מראש.",
 abP2:"לצד העבודה המשפטית, מייקל הוא יזם בעצמו — ומכיר מקרוב את האתגרים של ניהול עסק בישראל: תזרים, ספקים, עובדים ורגולציה. הניסיון הזה מתורגם לייעוץ פרקטי שמכוון לשורה התחתונה, לא לחוות דעת של 40 עמודים.",
-cr1b:'חבר לשכת עוה"ד',cr1t:"רישיון עריכת דין בתוקף",cr2b:"מיקוד עסקי",cr2t:"ליווי עסקים קטנים ובינוניים",cr3b:"אזור שירות",cr3t:"תל אביב והמרכז",cr4b:"4 שפות",cr4t:"עברית · אנגלית · רוסית · צרפתית",
+cr1b:'חבר לשכת עוה"ד',cr1t:"רישיון עריכת דין בתוקף",cr2b:"20+ שנות עסקים",cr2t:"גדל וניהל בעסק משפחתי — תפעול, ספקים, תזרים",cr3b:"יזם פעיל",cr3t:"הקים מותג מסחר אלקטרוני עם אלפי מוצרים",cr4b:"מילואימניק פעיל",cr4t:"מאות ימי שירות — עמידה בלחץ וסדרי עדיפויות",cr5b:"אזור שירות",cr5t:"תל אביב והמרכז",cr6b:"4 שפות",cr6t:"עברית · אנגלית · רוסית · צרפתית",
 ctEyebrow:"הצעד הראשון",ctTitle:"נדבר?",ctSub:"שיחת ייעוץ ראשונה — ללא עלות וללא התחייבות. השאירו פרטים או כתבו ישירות בוואטסאפ.",
 ctInfoTitle:"פרטי התקשרות",ctWa:"וואטסאפ — מענה מהיר",ctLoc:"תל אביב · פגישות בתיאום מראש",ctHours:"א'–ה' 09:00–19:00 · אימות חתימה בתיאום אקספרס",
 fName:"שם מלא",fNamePh:"ישראל ישראלי",fPhone:"טלפון",fTopic:"במה נוכל לעזור?",
@@ -927,6 +1004,18 @@ inclNote:"המחיר כולל אגרה, טיפול והפקה למייל",payNow
 paySecure:"עמוד התשלום מאובטח בתקן PCI-DSS · אשראי · ביט · Apple Pay",
 doneNote:'המסמך נשלח לדוא"ל בשעות הפעילות — בדרך כלל תוך שעה.',
 wizErr:"נא למלא את שדות החובה",waOrderMsg:"הזמנת מסמך מהאתר:",quotePrice:"הצעת מחיר אישית",introMonth:'לחודש הראשון + מע"מ',afterIntro:"מהחודש השני — מחיר חודשי מותאם אישית",barCall:"התקשרו עכשיו",barWa:"וואטסאפ",
+svc5h:"סיוע בהכנת תביעה קטנה",svc5p:"ניתוח סיכויים, ניסוח כתב תביעה או הגנה, ארגון ראיות והכנה אישית לדיון — כי בתביעות קטנות הייצוג בדיון אישי על פי חוק, וההכנה היא היתרון.",svc5n:"ליווי עד ליום הדיון",
+svc6h:"רישום סימני מסחר",svc6p:"בדיקת כשירות וזמינות, הגשה לרשם סימני המסחר, מענה להשגות וליווי עד הרישום — הגנה על השם, הלוגו והמוניטין שבניתם.",svc6n:"הנכס שמגן על המותג",
+svc7h:"רישום חברות",svc7p:'הקמת חברה בע"מ מקצה לקצה: מבנה התאגדות, תקנון מותאם, רישום ברשם החברות והסכם מייסדים — המסמך שרוב השותפים מדלגים עליו ומתחרטים.',svc7n:"כולל ייעוץ הסכם מייסדים",
+svc8h:"רישום עמותות וניהול תקין",svc8p:"ניסוח תקנון ומטרות, רישום ברשם העמותות וליווי לאישור ניהול תקין — המפתח לתמיכות ולתרומות.",svc8n:"ליווי הוועד והאסיפה הכללית",
+svc9h:"בדיקת חוזים לפני חתימה",svc9p:"עוברים שורה־שורה, מסמנים סעיפים מסוכנים ומחזירים דוח ברור: מה בסדר, מה לשנות, ועל מה אסור לחתום.",svc9n:"דוח ברור תוך יום עסקים",
+svc10h:"מכתבי התראה וגבייה",svc10p:"מכתב התראה על נייר של משרד עורכי דין סוגר חלק ניכר מהחובות בלי בית משפט. ניסוח ממוקד, מעקב, וליווי להליכי גבייה.",svc10n:"החוב לא מחכה — גם אתם לא",
+svc11h:"נסח טאבו ומסמכים אונליין",svc11p:"נסח רגיל, היסטורי, מרוכז או נסח חברה — מזמינים באתר, משלמים אגרה מאובטחת ומקבלים למייל, בליווי המשרד.",svc11n:"הזמנה אונליין למטה ›",
+stEyebrow:"הסיפור שלנו",stTitle:"עורך הדין שהיה בצד של בעל העסק",
+stP1:"יש עורכי דין שלמדו על עסקים מהספרים. מייקל ברג למד עליהם מהמחסן — מגיע בחמש בבוקר עם אבא לרומנטקס, מותג הטקסטיל המשפחתי שנכנס כמעט לכל בית בישראל, אורז הזמנות וחוזר רק בערב. שם למד מהי משמעת, מהי אחריות לעובדים, ומה שווה כל שקל.",
+stP2:'ושם למד גם את השיעור הקשה מכולם: מה קורה לעסק משפחתי בלי הגנה משפטית אמיתית. אחרי עשרות שנים העסק קרס — בין היתר בעקבות מסמכים שנראו תקינים וייעוץ שנשמע מקצועי. "או שאני נשבר, או שאני בונה את עצמי מחדש" — כך סיכם את הרגע הזה בריאיון לוואלה.',
+stP3:"הוא בחר לבנות: אחרי מאות ימי מילואים הקים מחדש את העסק המשפחתי, הוסמך כעורך דין — והקים את ברג ושות׳ על הבנה אחת: חוזה טוב, בדיקה בזמן וייעוץ נכון הם ההבדל בין עסק שממשיך לעסק שנעלם. כל לקוח מקבל כאן את מה שלמשפחת ברג לא היה.",
+pressLabel:"כתבו עלינו · וואלה כסף",pressTitle:'"איבדנו הכל, אבל נשארנו אנחנו": המילואימניק שבונה מחדש את העסק המשפחתי',pressCta:"לכתבה המלאה",
 ftRights:'© 2026 ברג ושות׳ — משרד עורכי דין · כל הזכויות שמורות',
 ftDisc:"התכנים באתר, לרבות העדכונים המשפטיים היומיים, הינם מידע כללי בלבד ואינם מהווים ייעוץ משפטי או תחליף לו. אין להסתמך על האמור ללא קבלת ייעוץ פרטני המותאם לנסיבות המקרה."
 },
@@ -964,7 +1053,7 @@ a3tag:"Real Estate",a3h:"Commercial leases: 5 clauses that can cost you dearly",
 photoPh:"Professional profile photo placeholder",abEyebrow:"About the Office",abTitle:"Adv. Michael Berg",
 abP1:"A licensed attorney and member of the Israel Bar Association, focusing on ongoing legal counsel for businesses, contract law and real estate. The office is built on a simple principle: business owners deserve a lawyer who answers fast, speaks clearly, and prices upfront.",
 abP2:"Alongside his legal practice, Michael is an entrepreneur himself — intimately familiar with the challenges of running a business in Israel: cash flow, suppliers, employees and regulation. That experience translates into practical advice aimed at the bottom line, not 40-page legal opinions.",
-cr1b:"Israel Bar Member",cr1t:"Active law license",cr2b:"Business Focus",cr2t:"Counsel for SMBs",cr3b:"Service Area",cr3t:"Tel Aviv & Central Israel",cr4b:"4 Languages",cr4t:"Hebrew · English · Russian · French",
+cr1b:"Israel Bar Member",cr1t:"Active law license",cr2b:"20+ Years in Business",cr2t:"Grew up in and ran a family business — operations, suppliers, cash flow",cr3b:"Active Entrepreneur",cr3t:"Built an e-commerce brand with thousands of products",cr4b:"IDF Reservist",cr4t:"Hundreds of days of service — pressure-tested priorities",cr5b:"Service Area",cr5t:"Tel Aviv & Central Israel",cr6b:"4 Languages",cr6t:"Hebrew · English · Russian · French",
 ctEyebrow:"The First Step",ctTitle:"Let's Talk",ctSub:"First consultation — free and with no obligation. Leave your details or message us directly on WhatsApp.",
 ctInfoTitle:"Contact Details",ctWa:"WhatsApp — fast response",ctLoc:"Tel Aviv · Meetings by appointment",ctHours:"Sun–Thu 09:00–19:00 · Express signature verification by appointment",
 fName:"Full name",fNamePh:"John Doe",fPhone:"Phone",fTopic:"How can we help?",
@@ -985,6 +1074,18 @@ inclNote:"Price includes the government fee, handling and email delivery",payNow
 paySecure:"PCI-DSS secure payment page · Credit card · Bit · Apple Pay",
 doneNote:"Documents are emailed during business hours — usually within an hour.",
 wizErr:"Please fill in the required fields",waOrderMsg:"Document order from the website:",quotePrice:"Personalized quote",introMonth:"first month + VAT",afterIntro:"From month two — personalized monthly rate",barCall:"Call Now",barWa:"WhatsApp",
+svc5h:"Small Claims Assistance",svc5p:"Case assessment, drafting the claim or defense, organizing evidence and personal hearing prep. By law, representation at small-claims hearings is personal — preparation is the real advantage.",svc5n:"Ready for your day in court",
+svc6h:"Trademark Registration",svc6p:"Availability check, filing with the Trademark Registrar, responding to objections and support through registration — protecting the name, logo and reputation you built.",svc6n:"The asset that guards your brand",
+svc7h:"Company Registration",svc7p:"End-to-end incorporation: the right structure, tailored articles, Registrar filing and a founders' agreement — the document most partners skip and regret.",svc7n:"Founders' agreement included",
+svc8h:"Nonprofit (Amuta) Registration",svc8p:"Charter and objectives drafting, Registrar filing and support toward proper-management certification — the key to grants and donations.",svc8n:"Board & assembly support",
+svc9h:"Contract Review Before Signing",svc9p:"Line-by-line review, flagging risky clauses, and a clear report: what's fine, what to change, and what never to sign.",svc9n:"Clear report within one business day",
+svc10h:"Demand Letters & Collections",svc10p:"A demand letter on law-office letterhead closes a large share of debts without court. Focused drafting, follow-up, and collection support when needed.",svc10n:"Your debt won't wait — neither should you",
+svc11h:"Tabu Extracts & Documents Online",svc11p:"Standard, historical, condominium or company extracts — order on the site, pay securely and receive by email, backed by the office.",svc11n:"Order online below ›",
+stEyebrow:"Our Story",stTitle:"The lawyer who stood on the business owner's side",
+stP1:"Some lawyers learned about business from books. Michael Berg learned it from the warehouse — arriving at five in the morning with his father at Romantex, the family textile brand found in almost every Israeli home, packing orders and returning only at night. That's where he learned discipline, responsibility for employees, and what every shekel is worth.",
+stP2:"And that's where he learned the hardest lesson of all: what happens to a family business without real legal protection. After decades, the business collapsed — partly through documents that looked proper and advice that sounded professional. \"Either I break, or I rebuild myself,\" as he told Walla.",
+stP3:"He chose to rebuild: after hundreds of days of reserve duty he re-founded the family business, qualified as a lawyer — and built Berg & Co on one understanding: a good contract, a timely review and the right advice are the difference between a business that survives and one that disappears. Every client here gets what the Berg family never had.",
+pressLabel:"In the Press · Walla Finance",pressTitle:"\"We lost everything, but we still had each other\": the reservist rebuilding the family business",pressCta:"Read the article",
 ftRights:"© 2026 Berg & Co Law Firm · All rights reserved",
 ftDisc:"The content on this website, including the daily legal briefs, is general information only and does not constitute legal advice or a substitute for it. Do not rely on it without obtaining individual advice tailored to your circumstances."
 },
@@ -1022,7 +1123,7 @@ a3tag:"Недвижимость",a3h:"Коммерческая аренда: 5 �
 photoPh:"Место для профессионального фото",abEyebrow:"О конторе",abTitle:"Адвокат Михаэль Берг",
 abP1:"Лицензированный адвокат, член Коллегии адвокатов Израиля, специализируется на постоянном юридическом сопровождении бизнеса, договорном праве и недвижимости. Контора построена на простом принципе: владелец бизнеса заслуживает адвоката, который быстро отвечает, говорит понятно и называет цену заранее.",
 abP2:"Помимо юридической практики, Михаэль сам предприниматель — и не понаслышке знает трудности ведения бизнеса в Израиле: денежный поток, поставщики, сотрудники и регулирование. Этот опыт превращается в практичные советы, нацеленные на результат, а не в заключения на 40 страниц.",
-cr1b:"Член Коллегии адвокатов",cr1t:"Действующая лицензия",cr2b:"Бизнес-фокус",cr2t:"Сопровождение малого и среднего бизнеса",cr3b:"Регион обслуживания",cr3t:"Тель-Авив и центр страны",cr4b:"4 языка",cr4t:"Иврит · Английский · Русский · Французский",
+cr1b:"Член Коллегии адвокатов",cr1t:"Действующая лицензия",cr2b:"20+ лет в бизнесе",cr2t:"Вырос и работал в семейном бизнесе — операции, поставщики, денежный поток",cr3b:"Действующий предприниматель",cr3t:"Построил e-commerce бренд с тысячами товаров",cr4b:"Резервист ЦАХАЛа",cr4t:"Сотни дней службы — проверенные приоритеты",cr5b:"Регион обслуживания",cr5t:"Тель-Авив и центр страны",cr6b:"4 языка",cr6t:"Иврит · Английский · Русский · Французский",
 ctEyebrow:"Первый шаг",ctTitle:"Поговорим?",ctSub:"Первая консультация — бесплатно и без обязательств. Оставьте данные или напишите напрямую в WhatsApp.",
 ctInfoTitle:"Контактные данные",ctWa:"WhatsApp — быстрый ответ",ctLoc:"Тель-Авив · Встречи по записи",ctHours:"Вс–Чт 09:00–19:00 · Экспресс-заверение подписи по записи",
 fName:"Полное имя",fNamePh:"Иван Иванов",fPhone:"Телефон",fTopic:"Чем можем помочь?",
@@ -1043,6 +1144,18 @@ inclNote:"Цена включает госпошлину, обработку и 
 paySecure:"Защищённая страница оплаты PCI-DSS · Карта · Bit · Apple Pay",
 doneNote:"Документ отправляется на email в рабочие часы — обычно в течение часа.",
 wizErr:"Заполните обязательные поля",waOrderMsg:"Заказ документа с сайта:",quotePrice:"Индивидуальная цена",introMonth:"первый месяц + НДС",afterIntro:"Со второго месяца — индивидуальный тариф",barCall:"Позвонить",barWa:"WhatsApp",
+svc5h:"Помощь с мелкими исками",svc5p:"Оценка перспектив, составление иска или возражения, подготовка доказательств и личная подготовка к заседанию. По закону представительство в суде мелких исков — личное, поэтому подготовка решает всё.",svc5n:"Готовы к дню заседания",
+svc6h:"Регистрация товарных знаков",svc6p:"Проверка доступности, подача заявки в реестр, ответы на возражения и сопровождение до регистрации — защита имени, логотипа и репутации.",svc6n:"Актив, защищающий бренд",
+svc7h:"Регистрация компаний",svc7p:"Создание компании под ключ: структура, устав под ваш бизнес, регистрация и соглашение учредителей — документ, который партнёры пропускают и жалеют.",svc7n:"Включая соглашение учредителей",
+svc8h:"Регистрация НКО (амутот)",svc8p:"Устав и цели, регистрация в реестре и сопровождение к сертификату надлежащего управления — ключ к грантам и пожертвованиям.",svc8n:"Сопровождение правления",
+svc9h:"Проверка договора перед подписью",svc9p:"Построчная проверка, отметка опасных пунктов и понятный отчёт: что в порядке, что менять, что не подписывать никогда.",svc9n:"Отчёт в течение рабочего дня",
+svc10h:"Претензии и взыскание долгов",svc10p:"Претензия на бланке адвокатской конторы закрывает значительную часть долгов без суда. Точная формулировка, контроль и сопровождение взыскания.",svc10n:"Долг не ждёт — и вы не ждите",
+svc11h:"Выписки Табу и документы онлайн",svc11p:"Обычная, историческая, сводная или выписка о компании — закажите на сайте, оплатите безопасно и получите на email.",svc11n:"Заказать онлайн ниже ›",
+stEyebrow:"Наша история",stTitle:"Адвокат, который был на стороне владельца бизнеса",
+stP1:"Одни юристы узнали о бизнесе из книг. Михаэль Берг узнал о нём на складе — приезжая в пять утра с отцом в «Романтекс», семейный текстильный бренд, знакомый почти каждому израильскому дому. Там он узнал, что такое дисциплина, ответственность за сотрудников и цена каждого шекеля.",
+stP2:"И там же он получил самый тяжёлый урок: что происходит с семейным бизнесом без настоящей юридической защиты. После десятилетий работы бизнес рухнул — в том числе из-за документов, выглядевших правильно, и советов, звучавших профессионально. «Или я сломаюсь, или отстрою себя заново», — сказал он в интервью Walla.",
+stP3:"Он выбрал строить: после сотен дней резервистской службы восстановил семейное дело, получил лицензию адвоката — и создал «Берг и Ко» на одном понимании: хороший договор, проверка вовремя и верный совет — разница между бизнесом, который живёт, и бизнесом, который исчезает.",
+pressLabel:"Пресса о нас · Walla Финансы",pressTitle:"«Мы потеряли всё, но остались мы»: резервист, восстанавливающий семейный бизнес",pressCta:"Читать статью",
 ftRights:"© 2026 Адвокатская контора «Берг и Ко» · Все права защищены",
 ftDisc:"Материалы сайта, включая ежедневные юридические обзоры, являются общей информацией и не являются юридической консультацией или её заменой. Не полагайтесь на них без получения индивидуальной консультации с учётом ваших обстоятельств."
 },
@@ -1080,7 +1193,7 @@ a3tag:"Immobilier",a3h:"Bail commercial : 5 clauses qui peuvent vous coûter che
 photoPh:"Emplacement pour photo professionnelle",abEyebrow:"À propos du cabinet",abTitle:"Maître Michael Berg",
 abP1:"Avocat inscrit au Barreau d'Israël, spécialisé dans l'accompagnement juridique continu des entreprises, le droit des contrats et l'immobilier. Le cabinet repose sur un principe simple : un chef d'entreprise mérite un avocat qui répond vite, parle clairement et annonce ses tarifs à l'avance.",
 abP2:"Parallèlement à sa pratique, Michael est lui-même entrepreneur — il connaît de près les défis de la gestion d'une entreprise en Israël : trésorerie, fournisseurs, salariés et réglementation. Cette expérience se traduit par des conseils pratiques orientés résultats, et non par des avis de 40 pages.",
-cr1b:"Membre du Barreau d'Israël",cr1t:"Licence d'avocat en vigueur",cr2b:"Orientation business",cr2t:"Accompagnement des PME",cr3b:"Zone de service",cr3t:"Tel Aviv et le centre d'Israël",cr4b:"4 langues",cr4t:"Hébreu · Anglais · Russe · Français",
+cr1b:"Membre du Barreau d'Israël",cr1t:"Licence d'avocat en vigueur",cr2b:"20+ ans dans les affaires",cr2t:"A grandi et travaillé dans l'entreprise familiale — opérations, fournisseurs, trésorerie",cr3b:"Entrepreneur actif",cr3t:"A bâti une marque e-commerce aux milliers de produits",cr4b:"Réserviste de Tsahal",cr4t:"Des centaines de jours de service — priorités éprouvées",cr5b:"Zone de service",cr5t:"Tel Aviv et le centre d'Israël",cr6b:"4 langues",cr6t:"Hébreu · Anglais · Russe · Français",
 ctEyebrow:"Le premier pas",ctTitle:"Parlons-en",ctSub:"Première consultation — gratuite et sans engagement. Laissez vos coordonnées ou écrivez-nous directement sur WhatsApp.",
 ctInfoTitle:"Coordonnées",ctWa:"WhatsApp — réponse rapide",ctLoc:"Tel Aviv · Rendez-vous sur réservation",ctHours:"Dim–Jeu 9h00–19h00 · Certification express sur rendez-vous",
 fName:"Nom complet",fNamePh:"Jean Dupont",fPhone:"Téléphone",fTopic:"Comment pouvons-nous aider ?",
@@ -1101,6 +1214,18 @@ inclNote:"Le prix inclut la taxe, le traitement et l'envoi par email",payNow:"Pr
 paySecure:"Page de paiement sécurisée PCI-DSS · Carte · Bit · Apple Pay",
 doneNote:"Le document est envoyé par email pendant les heures d'ouverture — généralement sous une heure.",
 wizErr:"Veuillez remplir les champs obligatoires",waOrderMsg:"Commande de document depuis le site :",quotePrice:"Devis personnalisé",introMonth:"1er mois + TVA",afterIntro:"Dès le deuxième mois — tarif mensuel personnalisé",barCall:"Appeler",barWa:"WhatsApp",
+svc5h:"Assistance aux petites créances",svc5p:"Évaluation du dossier, rédaction de la demande ou de la défense, préparation des preuves et de l'audience. La représentation y est personnelle selon la loi — la préparation fait toute la différence.",svc5n:"Prêt pour l'audience",
+svc6h:"Enregistrement de marques",svc6p:"Vérification de disponibilité, dépôt auprès du registre, réponses aux objections et suivi jusqu'à l'enregistrement — protéger le nom, le logo et la réputation.",svc6n:"L'actif qui protège votre marque",
+svc7h:"Création de sociétés",svc7p:"Constitution de A à Z : structure adaptée, statuts sur mesure, dépôt au registre et pacte de fondateurs — le document que trop d'associés négligent.",svc7n:"Pacte de fondateurs inclus",
+svc8h:"Création d'associations (amoutot)",svc8p:"Statuts et objectifs, enregistrement au registre et accompagnement vers la certification de bonne gestion — la clé des subventions et des dons.",svc8n:"Accompagnement du conseil",
+svc9h:"Relecture de contrat avant signature",svc9p:"Relecture ligne par ligne, signalement des clauses à risque et rapport clair : ce qui va, ce qu'il faut changer, ce qu'il ne faut jamais signer.",svc9n:"Rapport sous un jour ouvré",
+svc10h:"Mises en demeure et recouvrement",svc10p:"Une mise en demeure sur papier d'avocat règle une grande partie des créances sans procès. Rédaction ciblée, suivi et accompagnement du recouvrement.",svc10n:"La dette n'attend pas — vous non plus",
+svc11h:"Extraits Tabou et documents en ligne",svc11p:"Extrait standard, historique, de copropriété ou de société — commandez sur le site, payez en toute sécurité et recevez par email.",svc11n:"Commander en ligne ci-dessous ›",
+stEyebrow:"Notre histoire",stTitle:"L'avocat qui était du côté du chef d'entreprise",
+stP1:"Certains avocats ont appris les affaires dans les livres. Michael Berg les a apprises à l'entrepôt — arrivant à cinq heures du matin avec son père chez Romantex, la marque textile familiale présente dans presque chaque foyer israélien. C'est là qu'il a appris la discipline, la responsabilité envers les employés et la valeur de chaque shekel.",
+stP2:"Et c'est là qu'il a reçu la leçon la plus dure : ce qui arrive à une entreprise familiale sans véritable protection juridique. Après des décennies, l'entreprise s'est effondrée — notamment à cause de documents d'apparence correcte et de conseils au ton professionnel. « Soit je me brise, soit je me reconstruis », confiait-il à Walla.",
+stP3:"Il a choisi de reconstruire : après des centaines de jours de réserve, il a relancé l'entreprise familiale, obtenu son titre d'avocat — et fondé Berg & Co sur une conviction : un bon contrat, une relecture à temps et le bon conseil font la différence entre une entreprise qui dure et une qui disparaît.",
+pressLabel:"La presse en parle · Walla Finance",pressTitle:"« Nous avons tout perdu, mais nous sommes restés » : le réserviste qui reconstruit l'entreprise familiale",pressCta:"Lire l'article",
 ftRights:"© 2026 Cabinet Berg & Co · Tous droits réservés",
 ftDisc:"Le contenu de ce site, y compris les briefs juridiques quotidiens, constitue une information générale et ne saurait constituer un conseil juridique ni s'y substituer. Ne vous y fiez pas sans obtenir un conseil individualisé adapté à votre situation."
 }
