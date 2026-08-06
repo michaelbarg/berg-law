@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ברג ושות׳ — מחולל קרוסלות ממותג</title>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#0E141E;--gold:#C6A75E;--paper:#F7F6F2;--line:#E6E4DD;--gray:#646B76}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Assistant',sans-serif;background:var(--paper);color:#171C24;padding:24px 16px;max-width:900px;margin:0 auto}
+header{background:var(--dark);color:#fff;padding:22px 26px;margin-bottom:20px}
+header h1{font-family:'Frank Ruhl Libre',serif;font-size:20px}
+header p{color:#9AA1AC;font-size:13.5px;margin-top:4px}
+.panel{background:#fff;border:1px solid var(--line);padding:20px;margin-bottom:20px}
+label{font-size:13.5px;font-weight:700;display:block;margin-bottom:8px}
+textarea{width:100%;min-height:180px;padding:14px;border:1px solid var(--line);font-family:'Assistant';font-size:15px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--gold)}
+.hint{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6}
+.btn{background:var(--dark);color:var(--gold);border:none;padding:13px 26px;font-family:'Assistant';font-weight:700;font-size:15px;cursor:pointer;margin-top:14px}
+.btn:hover{background:#1B2534}
+.btn-gold{background:var(--gold);color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:8px}
+.slide-card{background:#fff;border:1px solid var(--line);padding:10px}
+.slide-card canvas{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.slide-card a{display:block;text-align:center;margin-top:8px;font-size:13px;font-weight:700;color:var(--dark);background:var(--paper);padding:8px;border:1px solid var(--line)}
+.slide-card a:hover{border-color:var(--gold);color:#A8894A}
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<header>
+  <h1>מחולל קרוסלות — ברג ושות׳</h1>
+  <p>כתוב שקפים → קבל תמונות 1080×1080 בשפה המיתוגית · לאינסטגרם וללינקדאין</p>
+</header>
+
+<div class="panel">
+  <label>תוכן השקפים (הפרד שקפים בשורה ריקה)</label>
+  <textarea id="src">החתימה הכי מסוכנת בעסק שלך ✍️
+
+"ערבות אישית" —
+הנושה מגיע אליך הביתה,
+לא רק לחברה
+
+בדיקה 1:
+להגביל בסכום ובזמן
+
+בדיקה 2:
+לדרוש חלופה —
+פיקדון או שטר מוגבל
+
+בדיקה 3:
+לוודא שהערבות לא "צפה"
+על עסקאות עתידיות
+
+לפני שחותמים —
+ברג ושות׳</textarea>
+  <div class="hint">טיפים: השקף הראשון = שקף פתיחה (מקבל עיצוב גדול). שורות קצרות נראות הכי טוב. אפשר אימוג'י. השקף האחרון מומלץ כ-CTA.</div>
+  <button class="btn" onclick="build()">צור קרוסלה 🎨</button>
+</div>
+
+<div class="panel" id="outPanel" style="display:none">
+  <div class="topbar">
+    <label style="margin:0">השקפים המוכנים — לחץ להורדה</label>
+    <button class="btn btn-gold" style="margin:0" onclick="downloadAll()">הורד הכול</button>
+  </div>
+  <div class="grid" id="out"></div>
+</div>
+
+<script>
+const S = 1080, M = 90; // canvas size, margin
+const COL = { bg:'#0E141E', gold:'#C6A75E', white:'#FFFFFF', gray:'#9AA1AC', frame:'rgba(198,167,94,.5)' };
+let canvases = [];
+
+function wrap(ctx, text, maxW){
+  const out = [];
+  for (const raw of text.split('\n')){
+    const words = raw.split(' ').filter(Boolean);
+    if(!words.length){ out.push(''); continue; }
+    let line = words[0];
+    for (let i=1;i<words.length;i++){
+      const t = line + ' ' + words[i];
+      if (ctx.measureText(t).width <= maxW) line = t;
+      else { out.push(line); line = words[i]; }
+    }
+    out.push(line);
+  }
+  return out;
+}
+
+function drawSlide(text, idx, total){
+  const c = document.createElement('canvas');
+  c.width = S; c.height = S;
+  const x = c.getContext('2d');
+  // bg + subtle columns
+  x.fillStyle = COL.bg; x.fillRect(0,0,S,S);
+  x.strokeStyle = 'rgba(255,255,255,.03)';
+  for(let gx=0; gx<S; gx+=108){ x.beginPath(); x.moveTo(gx,0); x.lineTo(gx,S); x.stroke(); }
+  // glow
+  const g = x.createRadialGradient(S*0.8,S*0.15,50,S*0.8,S*0.15,700);
+  g.addColorStop(0,'rgba(198,167,94,.10)'); g.addColorStop(1,'rgba(198,167,94,0)');
+  x.fillStyle = g; x.fillRect(0,0,S,S);
+  // § watermark on cover & last
+  if (idx===0 || idx===total-1){
+    x.fillStyle = 'rgba(255,255,255,.04)';
+    x.font = '900 640px "Frank Ruhl Libre", serif';
+    x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+    x.fillText('§', -60, S-40);
+  }
+  // gold frame
+  x.strokeStyle = COL.frame; x.lineWidth = 2;
+  x.strokeRect(34,34,S-68,S-68);
+  // top rule + slide counter
+  x.fillStyle = COL.gold; x.fillRect(S-M-120, M+6, 120, 4);
+  x.font = '700 30px Assistant'; x.textAlign='left'; x.fillStyle = COL.gray;
+  x.fillText(`${idx+1} / ${total}`, M, M+18);
+
+  // main text
+  x.direction = 'rtl'; x.textAlign = 'right'; x.textBaseline = 'top';
+  const isCover = idx===0;
+  let size = isCover ? 92 : 72;
+  const maxW = S - M*2, maxH = S - 420;
+  let lines;
+  while (size > 40){
+    x.font = `${isCover?900:700} ${size}px "Frank Ruhl Libre", serif`;
+    lines = wrap(x, text, maxW);
+    if (lines.length * size * 1.35 <= maxH) break;
+    size -= 4;
+  }
+  const lh = size * 1.35;
+  let y = (S - lines.length*lh)/2 - 30;
+  x.fillStyle = COL.white;
+  for (const ln of lines){
+    // gold-highlight lines starting with ✓ or number+':'
+    x.fillStyle = /^(✓|בדיקה|שלב|\d+[.:])/u.test(ln.trim()) ? COL.gold : COL.white;
+    x.fillText(ln, S-M, y);
+    y += lh;
+  }
+  // footer brand
+  x.textAlign = 'right';
+  x.font = '700 34px "Frank Ruhl Libre", serif'; x.fillStyle = COL.white;
+  x.fillText('ברג ושות׳ · משרד עורכי דין', S-M, S-M-58);
+  x.font = '700 28px Assistant'; x.fillStyle = COL.gold;
+  x.direction = 'ltr'; x.textAlign = 'left';
+  x.fillText('berg-law.co.il', M, S-M-50);
+  x.direction = 'rtl';
+  return c;
+}
+
+async function build(){
+  await document.fonts.load('900 92px "Frank Ruhl Libre"');
+  await document.fonts.load('700 34px Assistant');
+  const blocks = document.getElementById('src').value.split(/\n\s*\n/).map(b=>b.trim()).filter(Boolean);
+  if(!blocks.length) return;
+  const out = document.getElementById('out');
+  out.innerHTML = ''; canvases = [];
+  blocks.forEach((b,i)=>{
+    const c = drawSlide(b, i, blocks.length);
+    canvases.push(c);
+    const card = document.createElement('div');
+    card.className = 'slide-card';
+    card.appendChild(c);
+    const a = document.createElement('a');
+    a.textContent = `⬇ הורד שקף ${i+1}`;
+    a.href = c.toDataURL('image/png');
+    a.download = `berg-carousel-${String(i+1).padStart(2,'0')}.png`;
+    card.appendChild(a);
+    out.appendChild(card);
+  });
+  document.getElementById('outPanel').style.display = 'block';
+  document.getElementById('outPanel').scrollIntoView({behavior:'smooth'});
+}
+
+function downloadAll(){
+  canvases.forEach((c,i)=>{
+    setTimeout(()=>{
+      const a = document.createElement('a');
+      a.href = c.toDataURL('image/png');
+      a.download = `berg-carousel-${String(i+1).padStart(2,'0')}.png`;
+      a.click();
+    }, i*350);
+  });
+}
+</script>
+</body>
+</html>
