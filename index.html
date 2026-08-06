@@ -5,6 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ברג ושות׳ — משרד עורכי דין | עו"ד מייקל ברג</title>
 <meta name="description" content="משרד ברג ושות׳ — ליווי משפטי שוטף לעסקים, אימות חתימה ואישור מסמכים, חוזים ומקרקעין. עדכון משפטי יומי.">
+<meta name="theme-color" content="#0E141E">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAABuklEQVR4nGPkE5FjGMqAaaAdQClggVA7JjsMqDPIAR65BxiGQQwMeQ+woPEh8TKYAVpqH/IxMOqBgQajHhhoMOqBgQajHhhoMOqBgQajHhhoMOqBgQbo/QFSgYmWUEumHqb4n7//f/z8+/nb78cvv915/OXoxdd3n3yh0C6sgFIP4DSXmZGHi4WHi0VShNNMWzjKQ/7Gg0/TVt++9egzdS2iXxLSUODrLTS00BWhrrF0zQOsLEzl8ZpighxUNJPSJHTm2jus3WhWFiZpMU4vaylfW2lGRoQ4JztzrLdC75IbFNoLB7SKgd9//j149nXa6tsrdz9Ek7I3EuPioFreo3kS2nzoGZoIGyuTtjI/tcynuQfefvz57tMvNEE1OV5qmU+PTPz8zXc0ETFBdmoZTg8P/Pr9D02En4eVWobTwwP//v1HE2FlpZq9A9MWYmUe4h5ArhkoBEO+NTrqgYEGox4YaECrHhl+oKsiAJloOXLhdcvcq5Q4YMjHwKgHBhrQqkdGNzDkY2DUAwMNRj0w0GDUAwMNRj0w0GDUAwMNRj0w0GDUAwMN0PsDQ24F7JCPgSHvAcbR1esDDABzEVrldIc86QAAAABJRU5ErkJggg==">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ברג ושות׳ — משרד עורכי דין">
+<meta property="og:title" content="ברג ושות׳ — משרד עורכי דין | Berg &amp; Co Law Firm">
+<meta property="og:description" content="ליווי משפטי לעסקים · אימות חתימה · נסחי טאבו אונליין · ב-4 שפות. חודש היכרות לריטיינר החל מ-890 ₪.">
+<meta property="og:url" content="https://berg-law.co.il">
+<meta property="og:image" content="https://berg-law.co.il/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://berg-law.co.il/og.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LegalService",
+"name":"ברג ושות׳ — משרד עורכי דין","alternateName":"Berg & Co Law Firm",
+"url":"https://berg-law.co.il","image":"https://berg-law.co.il/og.jpg",
+"telephone":"+972-54-666-5615","email":"michael@passparto.com",
+"founder":{"@type":"Person","name":"Michael Berg"},
+"areaServed":"Tel Aviv and Central Israel",
+"address":{"@type":"PostalAddress","addressLocality":"Tel Aviv","addressCountry":"IL"},
+"openingHours":"Su-Th 09:00-19:00","priceRange":"₪₪",
+"sameAs":["https://finance.walla.co.il/item/3796621"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Playfair+Display:wght@400;500;700;900&family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -401,6 +425,15 @@ html[lang="he"] .footer-col h4{letter-spacing:.06em;text-transform:none;font-siz
 }
 .wa-float:hover{transform:scale(1.08)}
 
+.mobile-bar{display:none}
+@media (max-width:840px){
+  .mobile-bar{display:flex;position:fixed;bottom:0;right:0;left:0;z-index:95;box-shadow:0 -6px 20px rgba(0,0,0,.15)}
+  .mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 10px;font-weight:700;font-size:15px}
+  .mobile-bar .mb-call{background:var(--dark);color:var(--gold)}
+  .mobile-bar .mb-wa{background:#25D366;color:#fff}
+  .wa-float{display:none}
+  body{padding-bottom:52px}
+}
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -829,6 +862,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   </div>
 </footer>
 
+<div class="mobile-bar">
+  <a class="mb-call" href="tel:+972546665615">📞 <span data-i18n="barCall">התקשרו עכשיו</span></a>
+  <a class="mb-wa" href="https://wa.me/972546665615" target="_blank" rel="noopener">💬 <span data-i18n="barWa">וואטסאפ</span></a>
+</div>
+
 <a class="wa-float" id="waFloat" href="https://wa.me/972546665615" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <script>
@@ -888,7 +926,7 @@ sumDoc:"מסמך",sumDetails:"פרטים",sumClient:"מזמין",totalLbl:'סה"
 inclNote:"המחיר כולל אגרה, טיפול והפקה למייל",payNow:"מעבר לתשלום מאובטח",
 paySecure:"עמוד התשלום מאובטח בתקן PCI-DSS · אשראי · ביט · Apple Pay",
 doneNote:'המסמך נשלח לדוא"ל בשעות הפעילות — בדרך כלל תוך שעה.',
-wizErr:"נא למלא את שדות החובה",waOrderMsg:"הזמנת מסמך מהאתר:",quotePrice:"הצעת מחיר אישית",introMonth:'לחודש הראשון + מע"מ',afterIntro:"מהחודש השני — מחיר חודשי מותאם אישית",
+wizErr:"נא למלא את שדות החובה",waOrderMsg:"הזמנת מסמך מהאתר:",quotePrice:"הצעת מחיר אישית",introMonth:'לחודש הראשון + מע"מ',afterIntro:"מהחודש השני — מחיר חודשי מותאם אישית",barCall:"התקשרו עכשיו",barWa:"וואטסאפ",
 ftRights:'© 2026 ברג ושות׳ — משרד עורכי דין · כל הזכויות שמורות',
 ftDisc:"התכנים באתר, לרבות העדכונים המשפטיים היומיים, הינם מידע כללי בלבד ואינם מהווים ייעוץ משפטי או תחליף לו. אין להסתמך על האמור ללא קבלת ייעוץ פרטני המותאם לנסיבות המקרה."
 },
@@ -946,7 +984,7 @@ sumDoc:"Document",sumDetails:"Details",sumClient:"Ordered by",totalLbl:"Total",
 inclNote:"Price includes the government fee, handling and email delivery",payNow:"Proceed to Secure Payment",
 paySecure:"PCI-DSS secure payment page · Credit card · Bit · Apple Pay",
 doneNote:"Documents are emailed during business hours — usually within an hour.",
-wizErr:"Please fill in the required fields",waOrderMsg:"Document order from the website:",quotePrice:"Personalized quote",introMonth:"first month + VAT",afterIntro:"From month two — personalized monthly rate",
+wizErr:"Please fill in the required fields",waOrderMsg:"Document order from the website:",quotePrice:"Personalized quote",introMonth:"first month + VAT",afterIntro:"From month two — personalized monthly rate",barCall:"Call Now",barWa:"WhatsApp",
 ftRights:"© 2026 Berg & Co Law Firm · All rights reserved",
 ftDisc:"The content on this website, including the daily legal briefs, is general information only and does not constitute legal advice or a substitute for it. Do not rely on it without obtaining individual advice tailored to your circumstances."
 },
@@ -1004,7 +1042,7 @@ sumDoc:"Документ",sumDetails:"Данные",sumClient:"Заказчик"
 inclNote:"Цена включает госпошлину, обработку и отправку на email",payNow:"Перейти к оплате",
 paySecure:"Защищённая страница оплаты PCI-DSS · Карта · Bit · Apple Pay",
 doneNote:"Документ отправляется на email в рабочие часы — обычно в течение часа.",
-wizErr:"Заполните обязательные поля",waOrderMsg:"Заказ документа с сайта:",quotePrice:"Индивидуальная цена",introMonth:"первый месяц + НДС",afterIntro:"Со второго месяца — индивидуальный тариф",
+wizErr:"Заполните обязательные поля",waOrderMsg:"Заказ документа с сайта:",quotePrice:"Индивидуальная цена",introMonth:"первый месяц + НДС",afterIntro:"Со второго месяца — индивидуальный тариф",barCall:"Позвонить",barWa:"WhatsApp",
 ftRights:"© 2026 Адвокатская контора «Берг и Ко» · Все права защищены",
 ftDisc:"Материалы сайта, включая ежедневные юридические обзоры, являются общей информацией и не являются юридической консультацией или её заменой. Не полагайтесь на них без получения индивидуальной консультации с учётом ваших обстоятельств."
 },
@@ -1062,7 +1100,7 @@ sumDoc:"Document",sumDetails:"Détails",sumClient:"Commandé par",totalLbl:"Tota
 inclNote:"Le prix inclut la taxe, le traitement et l'envoi par email",payNow:"Procéder au paiement sécurisé",
 paySecure:"Page de paiement sécurisée PCI-DSS · Carte · Bit · Apple Pay",
 doneNote:"Le document est envoyé par email pendant les heures d'ouverture — généralement sous une heure.",
-wizErr:"Veuillez remplir les champs obligatoires",waOrderMsg:"Commande de document depuis le site :",quotePrice:"Devis personnalisé",introMonth:"1er mois + TVA",afterIntro:"Dès le deuxième mois — tarif mensuel personnalisé",
+wizErr:"Veuillez remplir les champs obligatoires",waOrderMsg:"Commande de document depuis le site :",quotePrice:"Devis personnalisé",introMonth:"1er mois + TVA",afterIntro:"Dès le deuxième mois — tarif mensuel personnalisé",barCall:"Appeler",barWa:"WhatsApp",
 ftRights:"© 2026 Cabinet Berg & Co · Tous droits réservés",
 ftDisc:"Le contenu de ce site, y compris les briefs juridiques quotidiens, constitue une information générale et ne saurait constituer un conseil juridique ni s'y substituer. Ne vous y fiez pas sans obtenir un conseil individualisé adapté à votre situation."
 }
