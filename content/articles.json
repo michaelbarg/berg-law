@@ -1,0 +1,101 @@
+[
+  {
+    "date": "06.08.2026",
+    "tag": {
+      "he": "דיני חברות",
+      "en": "Corporate Law",
+      "ru": "Корпоративное право",
+      "fr": "Droit des sociétés"
+    },
+    "title": {
+      "he": "ערבות אישית של בעל מניות: מתי בית המשפט \"מרים את המסך\"",
+      "en": "Personal guarantees by shareholders: when courts \u201cpierce the corporate veil\u201d",
+      "ru": "Личное поручительство акционера: когда суд «поднимает корпоративную завесу»",
+      "fr": "Caution personnelle d'un actionnaire : quand le tribunal « lève le voile social »"
+    },
+    "body": {
+      "he": "סקירת מגמות עדכניות בפסיקה בנוגע לאחריות אישית של בעלי שליטה בחברות קטנות, ומה מומלץ לעשות לפני חתימה על ערבות אישית מול ספק או בנק.",
+      "en": "A review of current case-law trends on personal liability of controlling shareholders in small companies, and what to do before signing a personal guarantee for a supplier or bank.",
+      "ru": "Обзор актуальных тенденций судебной практики о личной ответственности владельцев малых компаний, и что стоит сделать перед подписанием поручительства перед поставщиком или банком.",
+      "fr": "Revue des tendances actuelles de la jurisprudence sur la responsabilité personnelle des actionnaires de petites sociétés, et les précautions à prendre avant de signer une caution envers un fournisseur ou une banque."
+    },
+    "gzTag": {
+      "he": "פסיקה",
+      "en": "Case law",
+      "ru": "Судебная практика",
+      "fr": "Jurisprudence"
+    },
+    "gzTitle": {
+      "he": "אחריות אישית של בעלי מניות בחברה קטנה — לאן נושבת הרוח",
+      "en": "Personal liability of shareholders in small companies — where courts are heading",
+      "ru": "Личная ответственность акционеров в малой компании — куда движется практика",
+      "fr": "Responsabilité personnelle des actionnaires d'une petite société — où va la jurisprudence"
+    }
+  },
+  {
+    "date": "05.08.2026",
+    "tag": {
+      "he": "הגנת הפרטיות",
+      "en": "Privacy",
+      "ru": "Защита данных",
+      "fr": "Vie privée"
+    },
+    "title": {
+      "he": "מחזיקים רשימת לקוחות? חובות חדשות שכל עסק חייב להכיר",
+      "en": "Holding a customer list? New obligations every business must know",
+      "ru": "Храните список клиентов? Новые обязанности, которые должен знать каждый бизнес",
+      "fr": "Vous détenez un fichier clients ? Les nouvelles obligations à connaître"
+    },
+    "body": {
+      "he": "מה נחשב \"מאגר מידע\", אילו חובות אבטחה חלות על עסק קטן, ומה גובה הקנסות — מדריך תמציתי ליישום מיידי בעסק.",
+      "en": "What counts as a \u201cdatabase\u201d, which security duties apply to a small business, and how high the fines go — a concise guide for immediate implementation.",
+      "ru": "Что считается «базой данных», какие требования безопасности действуют для малого бизнеса и каковы штрафы — краткое руководство к немедленному применению.",
+      "fr": "Ce qui constitue une « base de données », les obligations de sécurité applicables à une petite entreprise, et le montant des amendes — un guide concis à appliquer immédiatement."
+    },
+    "gzTag": {
+      "he": "תקנות",
+      "en": "Regulations",
+      "ru": "Постановления",
+      "fr": "Règlements"
+    },
+    "gzTitle": {
+      "he": "עדכון תקנות הגנת הפרטיות: מה נדרש מעסק שמחזיק מאגר לקוחות",
+      "en": "Privacy regulation update: what's required of a business holding customer data",
+      "ru": "Обновление правил защиты приватности: что требуется от бизнеса с базой клиентов",
+      "fr": "Protection de la vie privée : les obligations d'une entreprise détenant un fichier clients"
+    }
+  },
+  {
+    "date": "04.08.2026",
+    "tag": {
+      "he": "מקרקעין",
+      "en": "Real Estate",
+      "ru": "Недвижимость",
+      "fr": "Immobilier"
+    },
+    "title": {
+      "he": "שכירות מסחרית: 5 סעיפים בחוזה שיכולים לעלות לכם ביוקר",
+      "en": "Commercial leases: 5 clauses that can cost you dearly",
+      "ru": "Коммерческая аренда: 5 пунктов договора, которые могут дорого обойтись",
+      "fr": "Bail commercial : 5 clauses qui peuvent vous coûter cher"
+    },
+    "body": {
+      "he": "אופציות הארכה, דמי ניהול, ערבויות ופינוי — הסעיפים שבעלי עסקים חותמים עליהם בלי לקרוא, ואיך לנסח אותם נכון מראש.",
+      "en": "Extension options, management fees, guarantees and eviction — the clauses business owners sign without reading, and how to negotiate them properly upfront.",
+      "ru": "Опционы продления, плата за управление, гарантии и выселение — пункты, которые подписывают не читая, и как правильно сформулировать их заранее.",
+      "fr": "Options de renouvellement, charges de gestion, garanties et expulsion — les clauses signées sans être lues, et comment bien les négocier dès le départ."
+    },
+    "gzTag": {
+      "he": "חקיקה",
+      "en": "Legislation",
+      "ru": "Законодательство",
+      "fr": "Législation"
+    },
+    "gzTitle": {
+      "he": "שינויים במיסוי מקרקעין — משמעות למשקיעים ולרוכשי דירה ראשונה",
+      "en": "Real estate tax changes — what they mean for investors and first-time buyers",
+      "ru": "Изменения в налогообложении недвижимости — что это значит для инвесторов",
+      "fr": "Changements de fiscalité immobilière — conséquences pour les investisseurs"
+    }
+  }
+]

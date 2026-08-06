@@ -6,14 +6,14 @@
 |---|---|---|
 | אתר ייצור | berg-law.co.il | ממתין DNS |
 | URL זמני Netlify | https://berg-law.netlify.app | חי |
-| ריפו | github.com/michaelbarg/berg-law | פרטי |
+| ריפו | github.com/michaelbarg/berg-law | ציבורי |
 | דומיין | DomainTheNet, בתוקף עד 8/2027 | פעיל |
 
 ## 2. קבצי הפרויקט
 | קובץ | תפקיד |
 |---|---|
-| index.html | האתר כולו - 4 שפות, אשף נסחים, i18n |
-| content/articles.json | מאמרים יומיים (אחרי PROMPT 2) |
+| index.html | האתר כולו - 4 שפות, אשף נסחים, i18n, renderArticles() |
+| content/articles.json | מאמרים יומיים - נטען דינמית ע"י renderArticles() |
 | netlify.toml | תצורת פריסה + headers |
 | CLAUDE.md | פרוטוקול העבודה - נקרא אוטומטית |
 | docs/STATUS.md | מצב שוטף - גשר לארכיטקט |

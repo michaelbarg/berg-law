@@ -529,7 +529,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <a href="#contact" class="btn btn-outline" data-i18n="heroBtn2">שיחת ייעוץ ראשונה חינם</a>
         </div>
       </div>
-      <aside class="gazette" aria-label="Legal updates">
+      <aside id="gazetteAside" class="gazette" aria-label="Legal updates">
         <div class="gazette-head">
           <span class="title" data-i18n="gzTitle">לוח העדכונים המשפטי</span>
           <span class="live"><span class="live-dot"></span><span data-i18n="gzLive">מתעדכן יומית</span></span>
@@ -671,7 +671,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </div>
       <span class="daily-note"><span class="live-dot"></span><span data-i18n="arDaily">מתפרסם מדי יום בשעה 08:00</span></span>
     </div>
-    <div class="articles-grid reveal">
+    <div id="articlesGrid" class="articles-grid reveal">
       <article class="article">
         <div class="article-meta">
           <span class="tag" data-i18n="a1tag">דיני חברות</span>
@@ -1228,6 +1228,55 @@ function sendMail(ev){
   window.location.href = `mailto:michael@passparto.com?subject=${encodeURIComponent(t.mailSubject+" — "+tp)}&body=${body}`;
   return false;
 }
+
+/* Dynamic articles from content/articles.json */
+let _articles = null;
+function renderArticles(lang){
+  if(!_articles) return;
+  const t = I18N[lang];
+  const arrow = t._dir==="rtl" ? "\u2190" : "\u2192";
+  const readMore = {he:"לקריאת העדכון המלא", en:"Read the full brief", ru:"Читать полный обзор", fr:"Lire le brief complet"};
+  const sorted = _articles.slice().sort((a,b)=>{
+    const [da,ma,ya]=a.date.split("."); const [db,mb,yb]=b.date.split(".");
+    return new Date(yb,mb-1,db) - new Date(ya,ma-1,da);
+  });
+  const top3 = sorted.slice(0,3);
+  /* Article cards */
+  const grid = document.getElementById("articlesGrid");
+  if(grid){
+    grid.innerHTML = top3.map((a,i)=>
+      '<article class="article"><div class="article-meta">'+
+      '<span class="tag">'+(a.tag[lang]||a.tag.he)+'</span>'+
+      '<span class="stamp">'+a.date+'</span></div>'+
+      '<h3>'+(a.title[lang]||a.title.he)+'</h3>'+
+      '<p>'+(a.body[lang]||a.body.he)+'</p>'+
+      '<a class="read-more" href="#contact"><span>'+(readMore[lang]||readMore.he)+'</span> <span class="arr">'+arrow+'</span></a></article>'
+    ).join("");
+  }
+  /* Gazette sidebar */
+  const gz = document.getElementById("gazetteAside");
+  if(gz){
+    const head = gz.querySelector(".gazette-head");
+    const entries = top3.map(a=>
+      '<div class="gazette-entry"><span class="stamp">'+a.date+' \u00b7 <span>'+(a.gzTag[lang]||a.gzTag.he)+'</span></span>'+
+      '<h4>'+(a.gzTitle[lang]||a.gzTitle.he)+'</h4></div>'
+    ).join("");
+    gz.innerHTML = "";
+    if(head) gz.appendChild(head.cloneNode(true));
+    gz.insertAdjacentHTML("beforeend", entries);
+  }
+}
+fetch("content/articles.json").then(r=>r.json()).then(data=>{
+  _articles = data;
+  renderArticles(currentLang);
+}).catch(()=>{/* silent fallback — static HTML stays */});
+
+/* Hook into language switch */
+const _origApplyLang = applyLang;
+applyLang = function(lang){
+  _origApplyLang(lang);
+  setTimeout(()=>renderArticles(lang), 200);
+};
 </script>
 </body>
 </html>
