@@ -1,19 +1,19 @@
 # STATUS - עדכון אחרון: 2026-08-06
 
 ## מצב נוכחי
-v8 נפרס. האתר חי ב-https://berg-law.co.il (DNS תפס, NS של Netlify פעילים).
-SSL עדיין לא הונפק — צפוי להיות אוטומטי תוך דקות-שעה.
+v8 + מנגנון מאמרים + תמונת פרופיל + סטודיו פנימי. האתר חי ב-https://berg-law.co.il (SSL פעיל).
 
 ## בוצע בסשן האחרון
-- שדרוג ל-v8: 11 services + our story + press + experience
-- renderArticles() עובד תקין עם articles.json ב-4 שפות
-- DNS propagation הושלם: NS = dns1-4.p04.nsone.net, A records מצביעים על Netlify
+- תמונת פרופיל אמיתית הוחלפה (base64 מוטמע + גיבוי ב-assets/michael-berg.jpg)
+- studio/index.html — מחולל קרוסלות ממותג (כלי פנימי, berg-law.co.il/studio/)
+- robots.txt חוסם /studio/, noindex meta tag נוסף
+- DNS propagation הושלם, SSL פעיל
 
 ## בעיות פתוחות
-- SSL certificate — צפוי להיות אוטומטי עכשיו שה-DNS תפס
+- אין
 
 ## שאלות לארכיטקט
 - אין כרגע
 
 ## הוראות אחרונות מהארכיטקט
-- עדכון v8 (בוצע)
+- סטודיו פנימי (בוצע)
