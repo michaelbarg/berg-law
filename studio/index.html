@@ -5,20 +5,20 @@
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ברג ושות׳ — מחולל קרוסלות ממותג</title>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=David+Libre:wght@500;700&family=Heebo:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--dark:#0E141E;--gold:#C6A75E;--paper:#F7F6F2;--line:#E6E4DD;--gray:#646B76}
+:root{--dark:#0B0B0D;--charcoal:#1A1A1E;--gold:#C9A227;--gold-hi:#E8C766;--ivory:#F5EFE0;--paper:#F7F6F2;--line:#E6E4DD;--gray:#646B76}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Assistant',sans-serif;background:var(--paper);color:#171C24;padding:24px 16px;max-width:900px;margin:0 auto}
+body{font-family:'Heebo',sans-serif;background:var(--paper);color:#171C24;padding:24px 16px;max-width:900px;margin:0 auto}
 header{background:var(--dark);color:#fff;padding:22px 26px;margin-bottom:20px}
-header h1{font-family:'Frank Ruhl Libre',serif;font-size:20px}
+header h1{font-family:'Bellefair','David Libre',serif;font-size:20px}
 header p{color:#9AA1AC;font-size:13.5px;margin-top:4px}
 .panel{background:#fff;border:1px solid var(--line);padding:20px;margin-bottom:20px}
 label{font-size:13.5px;font-weight:700;display:block;margin-bottom:8px}
-textarea{width:100%;min-height:180px;padding:14px;border:1px solid var(--line);font-family:'Assistant';font-size:15px;resize:vertical}
+textarea{width:100%;min-height:180px;padding:14px;border:1px solid var(--line);font-family:'Heebo';font-size:15px;resize:vertical}
 textarea:focus{outline:none;border-color:var(--gold)}
 .hint{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6}
-.btn{background:var(--dark);color:var(--gold);border:none;padding:13px 26px;font-family:'Assistant';font-weight:700;font-size:15px;cursor:pointer;margin-top:14px}
+.btn{background:var(--dark);color:var(--gold);border:1px solid var(--gold);padding:13px 26px;font-family:'Heebo';font-weight:700;font-size:15px;cursor:pointer;margin-top:14px}
 .btn:hover{background:#1B2534}
 .btn-gold{background:var(--gold);color:var(--dark)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:8px}
@@ -70,7 +70,7 @@ textarea:focus{outline:none;border-color:var(--gold)}
 
 <script>
 const S = 1080, M = 90; // canvas size, margin
-const COL = { bg:'#0E141E', gold:'#C6A75E', white:'#FFFFFF', gray:'#9AA1AC', frame:'rgba(198,167,94,.5)' };
+const COL = { bg:'#0B0B0D', charcoal:'#1A1A1E', gold:'#C9A227', goldHi:'#E8C766', ivory:'#F5EFE0', gray:'#9AA1AC', frame:'rgba(201,162,39,.35)' };
 let canvases = [];
 
 function wrap(ctx, text, maxW){
@@ -93,55 +93,57 @@ function drawSlide(text, idx, total){
   const c = document.createElement('canvas');
   c.width = S; c.height = S;
   const x = c.getContext('2d');
-  // bg + subtle columns
+  // bg + charcoal subtle panel
   x.fillStyle = COL.bg; x.fillRect(0,0,S,S);
-  x.strokeStyle = 'rgba(255,255,255,.03)';
+  x.fillStyle = COL.charcoal; x.fillRect(50,50,S-100,S-100);
+  // subtle vertical lines
+  x.strokeStyle = 'rgba(255,255,255,.025)';
   for(let gx=0; gx<S; gx+=108){ x.beginPath(); x.moveTo(gx,0); x.lineTo(gx,S); x.stroke(); }
-  // glow
+  // glow — restrained
   const g = x.createRadialGradient(S*0.8,S*0.15,50,S*0.8,S*0.15,700);
-  g.addColorStop(0,'rgba(198,167,94,.10)'); g.addColorStop(1,'rgba(198,167,94,0)');
+  g.addColorStop(0,'rgba(201,162,39,.07)'); g.addColorStop(1,'rgba(201,162,39,0)');
   x.fillStyle = g; x.fillRect(0,0,S,S);
   // § watermark on cover & last
   if (idx===0 || idx===total-1){
-    x.fillStyle = 'rgba(255,255,255,.04)';
-    x.font = '900 640px "Frank Ruhl Libre", serif';
+    x.fillStyle = 'rgba(245,239,224,.03)';
+    x.font = '400 640px Bellefair, "David Libre", serif';
     x.textAlign = 'left'; x.textBaseline = 'alphabetic';
-    x.fillText('§', -60, S-40);
+    x.fillText('\u00A7', -60, S-40);
   }
-  // gold frame
-  x.strokeStyle = COL.frame; x.lineWidth = 2;
+  // thin gold frame line
+  x.strokeStyle = COL.frame; x.lineWidth = 1;
   x.strokeRect(34,34,S-68,S-68);
   // top rule + slide counter
-  x.fillStyle = COL.gold; x.fillRect(S-M-120, M+6, 120, 4);
-  x.font = '700 30px Assistant'; x.textAlign='left'; x.fillStyle = COL.gray;
+  x.fillStyle = COL.gold; x.fillRect(S-M-120, M+6, 100, 2);
+  x.font = '400 28px Heebo'; x.textAlign='left'; x.fillStyle = COL.gray;
   x.fillText(`${idx+1} / ${total}`, M, M+18);
 
   // main text
   x.direction = 'rtl'; x.textAlign = 'right'; x.textBaseline = 'top';
   const isCover = idx===0;
-  let size = isCover ? 92 : 72;
+  let size = isCover ? 88 : 68;
   const maxW = S - M*2, maxH = S - 420;
   let lines;
   while (size > 40){
-    x.font = `${isCover?900:700} ${size}px "Frank Ruhl Libre", serif`;
+    x.font = `${isCover?700:500} ${size}px "David Libre", Bellefair, serif`;
     lines = wrap(x, text, maxW);
     if (lines.length * size * 1.35 <= maxH) break;
     size -= 4;
   }
   const lh = size * 1.35;
   let y = (S - lines.length*lh)/2 - 30;
-  x.fillStyle = COL.white;
+  x.fillStyle = COL.ivory;
   for (const ln of lines){
-    // gold-highlight lines starting with ✓ or number+':'
-    x.fillStyle = /^(✓|בדיקה|שלב|\d+[.:])/u.test(ln.trim()) ? COL.gold : COL.white;
+    // gold-highlight lines starting with ✓ or number+':' — use restrained gold
+    x.fillStyle = /^(✓|בדיקה|שלב|\d+[.:])/u.test(ln.trim()) ? COL.goldHi : COL.ivory;
     x.fillText(ln, S-M, y);
     y += lh;
   }
   // footer brand
   x.textAlign = 'right';
-  x.font = '700 34px "Frank Ruhl Libre", serif'; x.fillStyle = COL.white;
-  x.fillText('ברג ושות׳ · משרד עורכי דין', S-M, S-M-58);
-  x.font = '700 28px Assistant'; x.fillStyle = COL.gold;
+  x.font = '400 34px Bellefair, "David Libre", serif'; x.fillStyle = COL.ivory;
+  x.fillText('\u05D1\u05E8\u05D2 \u05D5\u05E9\u05D5\u05EA\u05F3 \u00B7 \u05DE\u05E9\u05E8\u05D3 \u05E2\u05D5\u05E8\u05DB\u05D9 \u05D3\u05D9\u05DF', S-M, S-M-58);
+  x.font = '400 26px Heebo'; x.fillStyle = COL.gold;
   x.direction = 'ltr'; x.textAlign = 'left';
   x.fillText('berg-law.co.il', M, S-M-50);
   x.direction = 'rtl';
@@ -149,8 +151,9 @@ function drawSlide(text, idx, total){
 }
 
 async function build(){
-  await document.fonts.load('900 92px "Frank Ruhl Libre"');
-  await document.fonts.load('700 34px Assistant');
+  await document.fonts.load('700 88px "David Libre"');
+  await document.fonts.load('400 34px Bellefair');
+  await document.fonts.load('400 26px Heebo');
   const blocks = document.getElementById('src').value.split(/\n\s*\n/).map(b=>b.trim()).filter(Boolean);
   if(!blocks.length) return;
   const out = document.getElementById('out');
