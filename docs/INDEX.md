@@ -1,10 +1,10 @@
 # ברג ושות׳ - אינדקס פרויקט ראשי
-עדכון אחרון: 2026-08-06 | עודכן ע"י: Claude Code
+עדכון אחרון: 2026-08-07 | עודכן ע"י: Claude (ארכיטקט, Cowork + Desktop Commander)
 
 ## 1. נכסים חיים
 | נכס | מיקום/כתובת | סטטוס |
 |---|---|---|
-| אתר ייצור | berg-law.co.il | ממתין DNS |
+| אתר ייצור | https://berg-law.co.il | חי — SSL פעיל, DNS של Netlify (אומת 7.8) |
 | URL זמני Netlify | https://berg-law.netlify.app | חי |
 | ריפו | github.com/michaelbarg/berg-law | ציבורי |
 | דומיין | DomainTheNet, בתוקף עד 8/2027 | פעיל |
@@ -13,6 +13,9 @@
 | קובץ | תפקיד |
 |---|---|
 | index.html | האתר כולו - 4 שפות, אשף נסחים, i18n, renderArticles() |
+| legal.html | תנאי שימוש + מדיניות פרטיות (4 קישורים מהפוטר) |
+| studio/index.html | סטודיו ניהול — חסום לאינדוקס |
+| robots.txt | חוסם /studio/ |
 | content/articles.json | מאמרים יומיים - נטען דינמית ע"י renderArticles() |
 | netlify.toml | תצורת פריסה + headers |
 | CLAUDE.md | פרוטוקול העבודה - נקרא אוטומטית |
@@ -29,10 +32,13 @@
 | מייל | טפסים ופוטר | michael@passparto.com |
 
 ## 4. מסמכים אצל מייקל (מהשיחה עם הארכיטקט)
-- berg-co-social-strategy.md - אסטרטגיה שנתית + PROMPT שבועי
-- berg-co-week1-content.md - תוכן שבוע 1 ל-Buffer
-- berg-law-claude-code-handoff.md - חבילת ההעברה המקורית
-- berg-launch-board.html - לוח משימות חי
+נבדק בדיסק וב-Drive ב-7.8 — ארבעת הראשונים לא נמצאו (כנראה קיימים רק בשיחת קלוד):
+- berg-co-social-strategy.md - אסטרטגיה שנתית + PROMPT שבועי — ❌ לא בדיסק
+- berg-co-week1-content.md - תוכן שבוע 1 ל-Buffer — ❌ לא בדיסק
+- berg-law-claude-code-handoff.md - חבילת ההעברה המקורית — ❌ לא בדיסק
+- berg-launch-board.html - לוח משימות חי — ❌ לא בדיסק
+- berg-co-brand-guide.md - מדריך השפה המיתוגית — ✅ ~/Downloads/berg-co-brand-guide.md
+- berg-carousel-maker.html - כלי יצירת קרוסלות — ✅ ~/Downloads/berg-carousel-maker.html
 
 ## 5. חשבונות ושירותים
 | שירות | תפקיד | סטטוס |
@@ -42,3 +48,10 @@
 | GitHub | קוד | פעיל (michaelbarg/berg-law) |
 | Buffer | תזמון רשתות | ממתין הקמה |
 | Grow | סליקה | ממתין הקמה |
+
+## 6. משימות פתוחות (נכון ל-7.8)
+1. מאמר יומי 07.08 — articles.json מעודכן עד 06.08 בלבד
+2. הקמת Grow (סליקה) → הדבקת הקישור ב-PAY_LINKS.docs (כרגע הזמנות נסחים נופלות לוואטסאפ)
+3. הקמת Buffer + טעינת תוכן שבוע 1 — חסום עד שחזור berg-co-week1-content.md
+4. שחזור 4 מסמכי הארכיטקט משיחת קלוד ושמירתם בדיסק/ריפו
+5. רשות: העברת berg-co-brand-guide.md ו-berg-carousel-maker.html מה-Downloads לריפו
