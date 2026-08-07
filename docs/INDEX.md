@@ -39,6 +39,7 @@
 - berg-launch-board.html - לוח משימות חי — ❌ לא בדיסק
 - berg-co-brand-guide.md - מדריך השפה המיתוגית — ✅ ~/Downloads/berg-co-brand-guide.md
 - berg-carousel-maker.html - כלי יצירת קרוסלות — ✅ ~/Downloads/berg-carousel-maker.html
+- תיקיית קמפיין: ~/berg-campaign/ — הוקמה 7.8: brand-directive-v2.md (שחור-זהב, סאנס-סריף), mood-images-shortlist.md, michael-berg-portrait-2026.png (הפורטרט הרשמי)
 
 ## 5. חשבונות ושירותים
 | שירות | תפקיד | סטטוס |
