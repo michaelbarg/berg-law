@@ -1,5 +1,38 @@
 [
   {
+    "date": "07.08.2026",
+    "tag": {
+      "he": "מקרקעין",
+      "en": "Real Estate",
+      "ru": "Недвижимость",
+      "fr": "Immobilier"
+    },
+    "title": {
+      "he": "הערת אזהרה, שעבוד ועיקול: מה נסח הטאבו מגלה רגע לפני שחותמים",
+      "en": "Caution notes, liens and attachments: what the land registry extract reveals before you sign",
+      "ru": "Предупредительная запись, залог и арест: что выписка из Табу покажет до подписания",
+      "fr": "Mention d'avertissement, hypothèque et saisie : ce que l'extrait du registre foncier révèle avant de signer"
+    },
+    "body": {
+      "he": "רגע לפני חתימה או העברת מקדמה, נסח עדכני חושף את מה שהמוכר לא תמיד מספר: הערות אזהרה לטובת צד שלישי, משכנתאות, עיקולים וצווים. מדריך קצר לקריאת הנסח — ומתי חובה להזמין נסח טרי.",
+      "en": "Right before signing or paying a deposit, an up-to-date extract reveals what the seller may not mention: caution notes in favor of third parties, mortgages, attachments and court orders. A short guide to reading the extract — and when you must order a fresh one.",
+      "ru": "Перед подписанием договора или внесением аванса свежая выписка показывает то, о чём продавец может умолчать: записи в пользу третьих лиц, ипотеки, аресты и судебные постановления. Краткий гид по чтению выписки — и когда обязательно заказывать новую.",
+      "fr": "Juste avant de signer ou de verser un acompte, un extrait à jour révèle ce que le vendeur ne dit pas toujours : mentions au profit de tiers, hypothèques, saisies et ordonnances. Un guide rapide pour lire l'extrait — et quand en commander un nouveau."
+    },
+    "gzTag": {
+      "he": "רגולציה",
+      "en": "Regulation",
+      "ru": "Регулирование",
+      "fr": "Réglementation"
+    },
+    "gzTitle": {
+      "he": "המרשם המקוון מתרחב: אילו מסמכי מקרקעין אפשר להפיק היום אונליין",
+      "en": "Online land registry services expand: which property documents you can now obtain online",
+      "ru": "Онлайн-сервисы земельного реестра расширяются: какие документы доступны онлайн",
+      "fr": "Les services en ligne du registre foncier s'étendent : quels documents obtenir en ligne"
+    }
+  },
+  {
     "date": "06.08.2026",
     "tag": {
       "he": "דיני חברות",

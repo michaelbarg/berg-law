@@ -2,14 +2,13 @@
 
 ## מצב נוכחי
 v8.1 נפרס. האתר חי ב-https://berg-law.co.il (SSL פעיל, DNS של Netlify).
+articles.json מכיל 4 מאמרים (04–07.08.2026).
 
 ## בוצע בסשן האחרון
-- שדרוג ל-v8.1: full content + legal pages + studio
-- legal.html — עמוד תנאי שימוש ומדיניות פרטיות, מקושר מהפוטר (4 קישורים)
-- robots.txt עודכן מה-ZIP (חוסם /studio/)
-- studio/index.html עודכן מה-ZIP
-- renderArticles עובד תקין — 3 מאמרים, 4 שפות
-- DNS: NS = dns1-4.p04.nsone.net (Netlify), HTTPS 200 OK
+- מאמר יומי 07.08 (הערת אזהרה / נסח טאבו) — נוסף כאיבר ראשון ב-content/articles.json
+- ולדציית JSON עברה (4 איברים)
+- פריסה ל-Netlify production — deploy live
+- אימות CDN: curl מחזיר "07.08.2026" ב-articles.json
 
 ## בעיות פתוחות
 - אין
@@ -19,3 +18,4 @@ v8.1 נפרס. האתר חי ב-https://berg-law.co.il (SSL פעיל, DNS של N
 
 ## הוראות אחרונות מהארכיטקט
 - פריסת v8.1 (בוצע)
+- מאמר יומי 07.08 (בוצע)
