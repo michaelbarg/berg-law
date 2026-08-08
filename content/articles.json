@@ -1,5 +1,38 @@
 [
   {
+    "date": "08.08.2026",
+    "tag": {
+      "he": "עולים ותושבי חוץ",
+      "en": "Olim & Foreign Residents",
+      "ru": "Репатрианты и нерезиденты",
+      "fr": "Olim et résidents étrangers"
+    },
+    "title": {
+      "he": "קונים נכס בישראל מחו\"ל? כך סוגרים עסקה בלי לטוס",
+      "en": "Buying property in Israel from abroad? How to close without flying in",
+      "ru": "Покупаете недвижимость в Израиле из-за границы? Как закрыть сделку без перелёта",
+      "fr": "Acheter un bien en Israël depuis l'étranger ? Conclure sans prendre l'avion"
+    },
+    "body": {
+      "he": "ייפוי כוח נוטריוני מאומת בקונסוליה או באפוסטיל, נסח טאבו עדכני שמופק מרחוק, וחשבון נאמנות לתשלומים — שלושת הכלים שמאפשרים לתושבי חוץ ועולים לסגור עסקת מקרקעין מבלי להגיע לארץ, ומה חשוב לבדוק בכל שלב.",
+      "en": "A notarized power of attorney (consulate or apostille), an up-to-date land registry extract obtained remotely, and an escrow account — the three tools that let foreign residents and olim close an Israeli real-estate deal from abroad, and what to verify at each step.",
+      "ru": "Нотариальная доверенность (консульство или апостиль), свежая выписка из Табу, полученная удалённо, и счёт эскроу — три инструмента, позволяющие иностранным резидентам и репатриантам закрыть сделку с недвижимостью в Израиле из-за рубежа, и что проверять на каждом этапе.",
+      "fr": "Une procuration notariée (consulat ou apostille), un extrait du registre foncier obtenu à distance et un compte séquestre — les trois outils qui permettent aux résidents étrangers et aux olim de conclure une transaction immobilière en Israël depuis l'étranger, et les points à vérifier à chaque étape."
+    },
+    "gzTag": {
+      "he": "רגולציה",
+      "en": "Regulation",
+      "ru": "Регулирование",
+      "fr": "Réglementation"
+    },
+    "gzTitle": {
+      "he": "שירותים קונסולריים ואפוסטיל דיגיטלי — הליכי חתימה מרחוק מתרחבים",
+      "en": "Consular services and digital apostille — remote signing procedures expand",
+      "ru": "Консульские услуги и цифровой апостиль — удалённое подписание расширяется",
+      "fr": "Services consulaires et apostille numérique — les procédures de signature à distance s'étendent"
+    }
+  },
+  {
     "date": "07.08.2026",
     "tag": {
       "he": "מקרקעין",
