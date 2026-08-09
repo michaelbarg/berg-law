@@ -1,5 +1,38 @@
 [
   {
+    "date": "09.08.2026",
+    "tag": {
+      "he": "חוזים",
+      "en": "Contracts",
+      "ru": "Договоры",
+      "fr": "Contrats"
+    },
+    "title": {
+      "he": "\"סיכמנו בוואטסאפ\" — מתי התכתבות הופכת לחוזה מחייב",
+      "en": "\"We agreed on WhatsApp\" — when a chat becomes a binding contract",
+      "ru": "«Договорились в WhatsApp» — когда переписка становится обязывающим договором",
+      "fr": "« On s'est mis d'accord sur WhatsApp » — quand une conversation devient un contrat"
+    },
+    "body": {
+      "he": "הודעות שמגדירות מה, כמה ומתי — עשויות להיחשב הסכם מחייב גם בלי מסמך חתום. מה הופך התכתבות לחוזה, איך לנסח הודעה שמשאירה מקום למשא ומתן, ולמה כדאי לשמור את השרשור המלא ולא רק צילומי מסך.",
+      "en": "Messages that define what, how much and when may amount to a binding agreement even without a signed document. What turns a chat into a contract, how to phrase a message that keeps negotiation open, and why to preserve the full thread rather than screenshots alone.",
+      "ru": "Сообщения, определяющие что, сколько и когда, могут быть признаны обязывающим соглашением даже без подписанного документа. Что превращает переписку в договор, как сформулировать сообщение, оставляющее место для переговоров, и почему стоит хранить всю ветку, а не только скриншоты.",
+      "fr": "Des messages qui précisent quoi, combien et quand peuvent constituer un accord contraignant même sans document signé. Ce qui transforme une conversation en contrat, comment formuler un message qui préserve la négociation, et pourquoi conserver le fil complet plutôt que de simples captures d'écran."
+    },
+    "gzTag": {
+      "he": "פסיקה",
+      "en": "Case law",
+      "ru": "Судебная практика",
+      "fr": "Jurisprudence"
+    },
+    "gzTitle": {
+      "he": "התכתבות דיגיטלית כראיה בהליך אזרחי — מגמות בבתי המשפט",
+      "en": "Digital messages as evidence in civil proceedings — court trends",
+      "ru": "Цифровая переписка как доказательство в гражданском процессе — тенденции",
+      "fr": "Les échanges numériques comme preuve en procédure civile — tendances"
+    }
+  },
+  {
     "date": "08.08.2026",
     "tag": {
       "he": "עולים ותושבי חוץ",
