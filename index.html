@@ -1369,7 +1369,10 @@ function renderArticles(lang){
   const t = I18N[lang];
   const arrow = t._dir==="rtl" ? "\u2190" : "\u2192";
   const readMore = {he:"לקריאת העדכון המלא", en:"Read the full brief", ru:"Читать полный обзор", fr:"Lire le brief complet"};
-  const sorted = _articles.slice().sort((a,b)=>{
+  /* מציג רק מאמרים שתאריכם הגיע — מאפשר תור מאמרים עתידיים בקובץ */
+  const _todayEnd = new Date(); _todayEnd.setHours(23,59,59,999);
+  const _due = _articles.filter(a=>{ const p=a.date.split("."); return new Date(p[2],p[1]-1,p[0]) <= _todayEnd; });
+  const sorted = (_due.length?_due:_articles).slice().sort((a,b)=>{
     const [da,ma,ya]=a.date.split("."); const [db,mb,yb]=b.date.split(".");
     return new Date(yb,mb-1,db) - new Date(ya,ma-1,da);
   });

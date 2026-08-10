@@ -1,5 +1,236 @@
 [
   {
+    "date": "16.08.2026",
+    "tag": {
+      "he": "עסקים קטנים",
+      "en": "Small Business",
+      "ru": "Малый бизнес",
+      "fr": "Petites entreprises"
+    },
+    "title": {
+      "he": "מפטרים עובד? השימוע הוא לא פורמליות",
+      "en": "Letting an employee go? The hearing is not a formality",
+      "ru": "Увольняете сотрудника? Слушание — не формальность",
+      "fr": "Licencier un salarié ? L'audition n'est pas une formalité"
+    },
+    "body": {
+      "he": "זימון בכתב זמן סביר מראש, פירוט הטענות, הזדמנות אמיתית להשמיע תגובה, ופרוטוקול. הליך שנעשה כלאחר יד הוא הסיבה השכיחה לפיצוי בבית הדין — גם כשההחלטה לפטר עצמה הייתה מוצדקת.",
+      "en": "Written notice a reasonable time in advance, the specific grounds, a genuine opportunity to respond, and minutes of the meeting. A hearing done as an afterthought is the most common reason for compensation in labour court — even when the dismissal itself was justified.",
+      "ru": "Письменное приглашение заранее, изложение претензий, реальная возможность ответить и протокол. Формально проведённое слушание — частая причина компенсации в суде по труду, даже при обоснованном увольнении.",
+      "fr": "Une convocation écrite à l'avance, les griefs détaillés, une véritable possibilité de répondre et un procès-verbal. Une audition bâclée est la cause la plus fréquente d'indemnisation, même lorsque le licenciement était justifié."
+    },
+    "gzTag": {
+      "he": "חקיקה",
+      "en": "Legislation",
+      "ru": "Законодательство",
+      "fr": "Législation"
+    },
+    "gzTitle": {
+      "he": "דיני עבודה בעסקים קטנים — חובות מעסיק מתעדכנות",
+      "en": "Employment law for small businesses — evolving employer duties",
+      "ru": "Трудовое право в малом бизнесе — обязанности работодателя",
+      "fr": "Droit du travail en petite entreprise — obligations de l'employeur"
+    }
+  },
+  {
+    "date": "15.08.2026",
+    "tag": {
+      "he": "עולים ותושבי חוץ",
+      "en": "Olim & Foreign Residents",
+      "ru": "Репатрианты и нерезиденты",
+      "fr": "Olim et résidents étrangers"
+    },
+    "title": {
+      "he": "ירושה בין מדינות: כשלנפטר יש נכסים גם בחו\"ל",
+      "en": "Cross-border inheritance: when the estate spans more than one country",
+      "ru": "Наследство между странами: когда активы есть и за рубежом",
+      "fr": "Succession transfrontalière : quand le patrimoine dépasse les frontières"
+    },
+    "body": {
+      "he": "צוואה שנחתמה בחו\"ל, נכסים בשתי מדינות ויורשים שאינם תושבי ישראל — שילוב שמחייב תשומת לב לסמכות השיפוט, לאימות המסמכים ולסדר הפעולות. מה כדאי להסדיר מראש כדי לחסוך שנים של הליכים.",
+      "en": "A will signed abroad, assets in two countries and heirs who are not Israeli residents — a combination that demands attention to jurisdiction, document authentication and sequencing. What to arrange in advance to save years of proceedings.",
+      "ru": "Завещание, подписанное за границей, активы в двух странах и наследники-нерезиденты — сочетание, требующее внимания к юрисдикции, легализации документов и порядку действий. Что урегулировать заранее.",
+      "fr": "Un testament signé à l'étranger, des biens dans deux pays et des héritiers non-résidents — une combinaison qui exige d'examiner la compétence, l'authentification des actes et l'ordre des démarches. Ce qu'il faut anticiper."
+    },
+    "gzTag": {
+      "he": "רגולציה",
+      "en": "Regulation",
+      "ru": "Регулирование",
+      "fr": "Réglementation"
+    },
+    "gzTitle": {
+      "he": "אימות מסמכים זרים ואפוסטיל — נהלים מתעדכנים",
+      "en": "Foreign document authentication and apostille — updated procedures",
+      "ru": "Легализация иностранных документов и апостиль — обновления",
+      "fr": "Authentification de documents étrangers et apostille — procédures actualisées"
+    }
+  },
+  {
+    "date": "14.08.2026",
+    "tag": {
+      "he": "חוזים",
+      "en": "Contracts",
+      "ru": "Договоры",
+      "fr": "Contrats"
+    },
+    "title": {
+      "he": "פיצוי מוסכם: למה סכום מנופח דווקא מחליש אתכם",
+      "en": "Liquidated damages: why an inflated figure actually weakens you",
+      "ru": "Договорная неустойка: почему завышенная сумма ослабляет вас",
+      "fr": "Clause pénale : pourquoi un montant excessif vous affaiblit"
+    },
+    "body": {
+      "he": "סעיף פיצוי מוסכם נועד לחסוך את הצורך להוכיח נזק — אבל בית המשפט מוסמך להפחית פיצוי שנקבע ללא יחס סביר לנזק הצפוי. איך לקבוע סכום שיחזיק מעמד, ולמה כדאי לדרג אותו לפי סוג ההפרה.",
+      "en": "A liquidated-damages clause spares you from proving loss — but a court may reduce a sum set with no reasonable relation to the anticipated damage. How to set a figure that holds up, and why it should be tiered by type of breach.",
+      "ru": "Условие о неустойке избавляет от доказывания ущерба, но суд вправе снизить сумму, несоразмерную предполагаемому вреду. Как определить устойчивый размер и почему стоит градуировать его по видам нарушения.",
+      "fr": "La clause pénale évite d'avoir à prouver le préjudice, mais le tribunal peut réduire un montant sans rapport raisonnable avec le dommage prévisible. Comment fixer un montant solide et pourquoi le moduler selon le type de manquement."
+    },
+    "gzTag": {
+      "he": "פסיקה",
+      "en": "Case law",
+      "ru": "Судебная практика",
+      "fr": "Jurisprudence"
+    },
+    "gzTitle": {
+      "he": "הפחתת פיצוי מוסכם — אמות המידה בפסיקה",
+      "en": "Reducing liquidated damages — the criteria in case law",
+      "ru": "Снижение неустойки — критерии судебной практики",
+      "fr": "Réduction de la clause pénale — les critères jurisprudentiels"
+    }
+  },
+  {
+    "date": "13.08.2026",
+    "tag": {
+      "he": "הגנת הפרטיות",
+      "en": "Privacy",
+      "ru": "Защита данных",
+      "fr": "Vie privée"
+    },
+    "title": {
+      "he": "מצלמות אבטחה בעסק: מה מותר לצלם, ואיפה חייבים שילוט",
+      "en": "Security cameras at your business: what you may film, and where signage is required",
+      "ru": "Камеры в бизнесе: что можно снимать и где обязательна табличка",
+      "fr": "Caméras de surveillance : ce que vous pouvez filmer et où l'affichage est obligatoire"
+    },
+    "body": {
+      "he": "צילום לקוחות ועובדים כפוף לחובות פרטיות: שילוט גלוי, מטרה מוגדרת, הגבלת גישה להקלטות ומחיקה בתוך זמן סביר. איפה אסור להציב מצלמה גם בעסק פרטי, ומה חושף אתכם לתביעה.",
+      "en": "Filming customers and employees is subject to privacy duties: visible signage, a defined purpose, restricted access to footage and deletion within a reasonable period. Where a camera may not be placed even in a private business, and what exposes you to a claim.",
+      "ru": "Съёмка клиентов и сотрудников подчинена требованиям приватности: заметная табличка, определённая цель, ограниченный доступ к записям и удаление в разумный срок. Где камеру ставить нельзя даже в частном бизнесе.",
+      "fr": "Filmer clients et salariés est soumis à des obligations : affichage visible, finalité définie, accès restreint aux enregistrements et effacement dans un délai raisonnable. Où une caméra reste interdite, même dans une entreprise privée."
+    },
+    "gzTag": {
+      "he": "תקנות",
+      "en": "Regulations",
+      "ru": "Постановления",
+      "fr": "Règlements"
+    },
+    "gzTitle": {
+      "he": "מצלמות במרחב הציבורי והעסקי — הנחיות מתעדכנות",
+      "en": "Cameras in public and business spaces — updated guidance",
+      "ru": "Камеры в общественных и деловых пространствах — новые указания",
+      "fr": "Caméras dans les espaces publics et professionnels — directives actualisées"
+    }
+  },
+  {
+    "date": "12.08.2026",
+    "tag": {
+      "he": "דיני חברות",
+      "en": "Corporate Law",
+      "ru": "Корпоративное право",
+      "fr": "Droit des sociétés"
+    },
+    "title": {
+      "he": "הסכם מייסדים: ארבעה סעיפים שמונעים פירוק שותפות",
+      "en": "Founders' agreement: four clauses that prevent a partnership breakup",
+      "ru": "Соглашение основателей: четыре пункта, спасающие партнёрство",
+      "fr": "Pacte de fondateurs : quatre clauses qui évitent la rupture"
+    },
+    "body": {
+      "he": "הבשלת מניות לאורך זמן, מנגנון יציאה מוסכם, העברת קניין רוחני לחברה, ודרך הכרעה במצב תיקו. ארבעת הסעיפים שנראים מיותרים ביום הראשון — ומצילים את החברה ביום שהשותפים לא מסכימים.",
+      "en": "Vesting over time, an agreed exit mechanism, assignment of intellectual property to the company, and a deadlock-breaking procedure. The four clauses that feel unnecessary on day one and save the company the day the founders disagree.",
+      "ru": "Постепенное закрепление долей, согласованный механизм выхода, передача интеллектуальной собственности компании и порядок разрешения тупика. Четыре пункта, кажущиеся лишними в первый день.",
+      "fr": "Acquisition progressive des parts, mécanisme de sortie convenu, cession de la propriété intellectuelle à la société et procédure de déblocage. Quatre clauses inutiles au premier jour, salvatrices au jour du désaccord."
+    },
+    "gzTag": {
+      "he": "פסיקה",
+      "en": "Case law",
+      "ru": "Судебная практика",
+      "fr": "Jurisprudence"
+    },
+    "gzTitle": {
+      "he": "סכסוכי מייסדים בחברות פרטיות — לאן פונים בתי המשפט",
+      "en": "Founder disputes in private companies — where courts are heading",
+      "ru": "Споры основателей в частных компаниях — позиция судов",
+      "fr": "Litiges entre fondateurs — l'orientation des tribunaux"
+    }
+  },
+  {
+    "date": "11.08.2026",
+    "tag": {
+      "he": "מקרקעין",
+      "en": "Real Estate",
+      "ru": "Недвижимость",
+      "fr": "Immobilier"
+    },
+    "title": {
+      "he": "קונים דירה בבית משותף? תקנון, הצמדות ורכוש משותף",
+      "en": "Buying in a condominium? Bylaws, attachments and common property",
+      "ru": "Покупаете квартиру в многоквартирном доме? Устав, приписки и общее имущество",
+      "fr": "Achat en copropriété ? Règlement, annexes et parties communes"
+    },
+    "body": {
+      "he": "חניה, מחסן וגג שנראים שלכם לא תמיד רשומים כך. מה ההבדל בין תקנון מצוי לתקנון מוסכם, איך בודקים הצמדות בנסח, ומה לבדוק בהחלטות נציגות הבית לפני חתימה.",
+      "en": "The parking spot, storage room and roof that look yours are not always registered that way. The difference between the default and an agreed condominium bylaw, how to verify attachments in the registry extract, and which house-committee decisions to review before signing.",
+      "ru": "Парковка, кладовая и крыша, которые кажутся вашими, не всегда так зарегистрированы. Разница между типовым и согласованным уставом, как проверить приписки в выписке и какие решения домкома изучить до подписания.",
+      "fr": "Le parking, le débarras et le toit qui semblent vôtres ne sont pas toujours enregistrés ainsi. La différence entre règlement type et règlement convenu, comment vérifier les annexes et quelles décisions du syndic examiner avant de signer."
+    },
+    "gzTag": {
+      "he": "רגולציה",
+      "en": "Regulation",
+      "ru": "Регулирование",
+      "fr": "Réglementation"
+    },
+    "gzTitle": {
+      "he": "רישום בתים משותפים — עדכוני נהלים",
+      "en": "Condominium registration — procedural updates",
+      "ru": "Регистрация многоквартирных домов — обновления",
+      "fr": "Enregistrement des copropriétés — mises à jour"
+    }
+  },
+  {
+    "date": "10.08.2026",
+    "tag": {
+      "he": "עסקים קטנים",
+      "en": "Small Business",
+      "ru": "Малый бизнес",
+      "fr": "Petites entreprises"
+    },
+    "title": {
+      "he": "שוטף+90 והלקוח עוד לא שילם: מה החוק אומר על מועדי תשלום",
+      "en": "Net+90 and still unpaid: what the law says about payment terms",
+      "ru": "Оплата через 90 дней, а денег нет: что закон говорит о сроках расчёта",
+      "fr": "Paiement à 90 jours toujours impayé : ce que dit la loi sur les délais"
+    },
+    "body": {
+      "he": "חוק מוסר תשלומים מגביל את מועדי התשלום לספקים ומחיל ריבית פיגורים על איחור. מה נחשב מועד קביעת החיוב, מתי מותר להתנות תנאים ארוכים יותר, ואיך לנסח את סעיף התשלום בהזמנת העבודה כך שיעמוד לצידכם.",
+      "en": "Israel's payment-terms law caps how long business customers may delay supplier payments and attaches statutory interest to late payment. What counts as the invoice date, when longer terms are permitted, and how to draft the payment clause in your work order so it works for you.",
+      "ru": "Закон о платёжной дисциплине ограничивает сроки оплаты поставщикам и начисляет проценты за просрочку. Что считается датой выставления счёта, когда допустимы более длительные сроки и как сформулировать пункт об оплате в заказе.",
+      "fr": "La loi sur les délais de paiement encadre les retards envers les fournisseurs et prévoit des intérêts de retard. Ce qui constitue la date de facturation, quand des délais plus longs sont admis, et comment rédiger la clause de paiement du bon de commande."
+    },
+    "gzTag": {
+      "he": "חקיקה",
+      "en": "Legislation",
+      "ru": "Законодательство",
+      "fr": "Législation"
+    },
+    "gzTitle": {
+      "he": "מוסר תשלומים במגזר העסקי — אכיפה ומגמות",
+      "en": "Payment discipline in the business sector — enforcement and trends",
+      "ru": "Платёжная дисциплина в бизнесе — правоприменение и тенденции",
+      "fr": "Discipline de paiement dans le secteur privé — application et tendances"
+    }
+  },
+  {
     "date": "09.08.2026",
     "tag": {
       "he": "חוזים",
@@ -108,7 +339,7 @@
     },
     "title": {
       "he": "ערבות אישית של בעל מניות: מתי בית המשפט \"מרים את המסך\"",
-      "en": "Personal guarantees by shareholders: when courts \u201cpierce the corporate veil\u201d",
+      "en": "Personal guarantees by shareholders: when courts “pierce the corporate veil”",
       "ru": "Личное поручительство акционера: когда суд «поднимает корпоративную завесу»",
       "fr": "Caution personnelle d'un actionnaire : quand le tribunal « lève le voile social »"
     },
@@ -147,7 +378,7 @@
     },
     "body": {
       "he": "מה נחשב \"מאגר מידע\", אילו חובות אבטחה חלות על עסק קטן, ומה גובה הקנסות — מדריך תמציתי ליישום מיידי בעסק.",
-      "en": "What counts as a \u201cdatabase\u201d, which security duties apply to a small business, and how high the fines go — a concise guide for immediate implementation.",
+      "en": "What counts as a “database”, which security duties apply to a small business, and how high the fines go — a concise guide for immediate implementation.",
       "ru": "Что считается «базой данных», какие требования безопасности действуют для малого бизнеса и каковы штрафы — краткое руководство к немедленному применению.",
       "fr": "Ce qui constitue une « base de données », les obligations de sécurité applicables à une petite entreprise, et le montant des amendes — un guide concis à appliquer immédiatement."
     },
