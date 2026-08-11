@@ -6,6 +6,7 @@
 <title>ברג ושות׳ — משרד עורכי דין | עו"ד מייקל ברג</title>
 <meta name="description" content="משרד ברג ושות׳ — ליווי משפטי שוטף לעסקים, אימות חתימה ואישור מסמכים, חוזים ומקרקעין. עדכון משפטי יומי.">
 <meta name="theme-color" content="#0E141E">
+<link rel="canonical" href="https://berg-law.co.il/">
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAABuklEQVR4nGPkE5FjGMqAaaAdQClggVA7JjsMqDPIAR65BxiGQQwMeQ+woPEh8TKYAVpqH/IxMOqBgQajHhhoMOqBgQajHhhoMOqBgQajHhhoMOqBgQbo/QFSgYmWUEumHqb4n7//f/z8+/nb78cvv915/OXoxdd3n3yh0C6sgFIP4DSXmZGHi4WHi0VShNNMWzjKQ/7Gg0/TVt++9egzdS2iXxLSUODrLTS00BWhrrF0zQOsLEzl8ZpighxUNJPSJHTm2jus3WhWFiZpMU4vaylfW2lGRoQ4JztzrLdC75IbFNoLB7SKgd9//j149nXa6tsrdz9Ek7I3EuPioFreo3kS2nzoGZoIGyuTtjI/tcynuQfefvz57tMvNEE1OV5qmU+PTPz8zXc0ETFBdmoZTg8P/Pr9D02En4eVWobTwwP//v1HE2FlpZq9A9MWYmUe4h5ArhkoBEO+NTrqgYEGox4YaECrHhl+oKsiAJloOXLhdcvcq5Q4YMjHwKgHBhrQqkdGNzDkY2DUAwMNRj0w0GDUAwMNRj0w0GDUAwMNRj0w0GDUAwMN0PsDQ24F7JCPgSHvAcbR1esDDABzEVrldIc86QAAAABJRU5ErkJggg==">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ברג ושות׳ — משרד עורכי דין">
@@ -1386,7 +1387,7 @@ function renderArticles(lang){
       '<span class="stamp">'+a.date+'</span></div>'+
       '<h3>'+(a.title[lang]||a.title.he)+'</h3>'+
       '<p>'+(a.body[lang]||a.body.he)+'</p>'+
-      '<a class="read-more" href="#contact"><span>'+(readMore[lang]||readMore.he)+'</span> <span class="arr">'+arrow+'</span></a></article>'
+      '<a class="read-more" href="'+(a.slug?("/articles/"+a.slug+".html"):"#contact")+'"><span>'+(readMore[lang]||readMore.he)+'</span> <span class="arr">'+arrow+'</span></a></article>'
     ).join("");
   }
   /* Gazette sidebar */
