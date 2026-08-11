@@ -41,6 +41,17 @@
 - berg-carousel-maker.html - כלי יצירת קרוסלות — ✅ ~/Downloads/berg-carousel-maker.html
 - תיקיית קמפיין: ~/berg-campaign/ — הוקמה 7.8: brand-directive-v2.md (שחור-זהב, סאנס-סריף), mood-images-shortlist.md, michael-berg-portrait-2026.png (הפורטרט הרשמי), berg-carousel-maker.html v2 (שחור-זהב, Heebo+IBM Plex, 1080×1350; v1 נשמר ב-Downloads)
 
+## 4ב. תשתית SEO (נבנתה 11.8)
+| רכיב | מיקום | מצב |
+|---|---|---|
+| מחולל עמודי מאמר + sitemap | scripts/build-articles.js | פעיל — `node scripts/build-articles.js` |
+| טקסטים מלאים | content/full/<slug>.html | 3 מאמרים |
+| עמודים אינדקסביליים | articles/<slug>.html | 3 חיים (200 OK) |
+| sitemap.xml | שורש | 5 כתובות, מוצהר ב-robots.txt |
+| canonical + Article/BreadcrumbList schema | index.html + עמודי מאמר | פעיל |
+| Google Search Console | — | ❌ ממתין למייקל |
+| Google Business Profile | — | ❌ ממתין למייקל (הכי משפיע) |
+
 ## 5. חשבונות ושירותים
 | שירות | תפקיד | סטטוס |
 |---|---|---|
