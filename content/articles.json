@@ -195,7 +195,8 @@
       "en": "Condominium registration — procedural updates",
       "ru": "Регистрация многоквартирных домов — обновления",
       "fr": "Enregistrement des copropriétés — mises à jour"
-    }
+    },
+    "slug": "condominium-bylaws-attachments"
   },
   {
     "date": "10.08.2026",
@@ -228,7 +229,8 @@
       "en": "Payment discipline in the business sector — enforcement and trends",
       "ru": "Платёжная дисциплина в бизнесе — правоприменение и тенденции",
       "fr": "Discipline de paiement dans le secteur privé — application et tendances"
-    }
+    },
+    "slug": "payment-terms-law-net90"
   },
   {
     "date": "09.08.2026",
@@ -295,7 +297,8 @@
       "en": "Consular services and digital apostille — remote signing procedures expand",
       "ru": "Консульские услуги и цифровой апостиль — удалённое подписание расширяется",
       "fr": "Services consulaires et apostille numérique — les procédures de signature à distance s'étendent"
-    }
+    },
+    "slug": "buying-property-israel-from-abroad"
   },
   {
     "date": "07.08.2026",
@@ -396,7 +399,8 @@
       "en": "Privacy regulation update: what's required of a business holding customer data",
       "ru": "Обновление правил защиты приватности: что требуется от бизнеса с базой клиентов",
       "fr": "Protection de la vie privée : les obligations d'une entreprise détenant un fichier clients"
-    }
+    },
+    "slug": "customer-database-privacy-obligations"
   },
   {
     "date": "04.08.2026",
@@ -429,6 +433,7 @@
       "en": "Real estate tax changes — what they mean for investors and first-time buyers",
       "ru": "Изменения в налогообложении недвижимости — что это значит для инвесторов",
       "fr": "Changements de fiscalité immobilière — conséquences pour les investisseurs"
-    }
+    },
+    "slug": "commercial-lease-costly-clauses"
   }
 ]
