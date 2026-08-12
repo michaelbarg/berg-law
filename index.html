@@ -7,7 +7,7 @@
 <meta name="description" content="משרד ברג ושות׳ — ליווי משפטי שוטף לעסקים, אימות חתימה ואישור מסמכים, חוזים ומקרקעין. עדכון משפטי יומי.">
 <meta name="theme-color" content="#0E141E">
 <link rel="canonical" href="https://berg-law.co.il/">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAABuklEQVR4nGPkE5FjGMqAaaAdQClggVA7JjsMqDPIAR65BxiGQQwMeQ+woPEh8TKYAVpqH/IxMOqBgQajHhhoMOqBgQajHhhoMOqBgQajHhhoMOqBgQbo/QFSgYmWUEumHqb4n7//f/z8+/nb78cvv915/OXoxdd3n3yh0C6sgFIP4DSXmZGHi4WHi0VShNNMWzjKQ/7Gg0/TVt++9egzdS2iXxLSUODrLTS00BWhrrF0zQOsLEzl8ZpighxUNJPSJHTm2jus3WhWFiZpMU4vaylfW2lGRoQ4JztzrLdC75IbFNoLB7SKgd9//j149nXa6tsrdz9Ek7I3EuPioFreo3kS2nzoGZoIGyuTtjI/tcynuQfefvz57tMvNEE1OV5qmU+PTPz8zXc0ETFBdmoZTg8P/Pr9D02En4eVWobTwwP//v1HE2FlpZq9A9MWYmUe4h5ArhkoBEO+NTrqgYEGox4YaECrHhl+oKsiAJloOXLhdcvcq5Q4YMjHwKgHBhrQqkdGNzDkY2DUAwMNRj0w0GDUAwMNRj0w0GDUAwMNRj0w0GDUAwMN0PsDQ24F7JCPgSHvAcbR1esDDABzEVrldIc86QAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiMwRTE0MUUiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQzZBNzVFIiBzdHJva2Utd2lkdGg9IjEuNiIvPjxnIGZpbGw9IiNDNkE3NUUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zaXplPSIyNyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PHRleHQgeD0iMjEiIHk9IjQxIj5NPC90ZXh0Pjx0ZXh0IHg9IjQ0IiB5PSI0MSI+QjwvdGV4dD48L2c+PHJlY3QgeD0iMzEuNiIgeT0iMjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjE2IiBmaWxsPSIjQzZBNzVFIiBvcGFjaXR5PSIwLjgiLz48L3N2Zz4=">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ברג ושות׳ — משרד עורכי דין">
 <meta property="og:title" content="ברג ושות׳ — משרד עורכי דין | Berg &amp; Co Law Firm">
@@ -75,12 +75,14 @@ nav{
 nav.solid{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:0 4px 24px rgba(14,20,30,.06)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:84px;gap:18px}
 .logo{display:flex;align-items:center;gap:13px;flex-shrink:0}
+/* מונוגרמת MB — סימן המשרד. זהה לזה שבפרופיל גוגל וברשתות */
 .logo-mark{
-  width:44px;height:44px;display:grid;place-items:center;
-  border:1.5px solid var(--gold);color:var(--gold);
-  font-family:var(--serif);font-weight:700;font-size:19px;
-  transition:all .3s;
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--gold);border-radius:50%;color:var(--gold);
+  font-family:'Playfair Display',serif;font-weight:400;font-size:17px;line-height:1;
+  direction:ltr;transition:all .3s;
 }
+.logo-mark i{display:block;width:1px;height:11px;background:var(--gold);opacity:.75;margin:0 3.5px}
 .logo-text{line-height:1.2;font-family:var(--serif)}
 .logo-text b{display:block;font-size:17.5px;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .3s}
 .logo-text span{display:block;font-size:11px;color:var(--gray-l);font-family:var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
@@ -497,7 +499,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <nav id="mainNav" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#top" class="logo">
-      <span class="logo-mark" id="logoMark">ב</span>
+      <span class="logo-mark" id="logoMark">M<i></i>B</span>
       <span class="logo-text"><b data-i18n="logoName">ברג ושות׳</b><span data-i18n="logoSub">משרד עורכי דין</span></span>
     </a>
     <div class="nav-links">
@@ -908,7 +910,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="logo-mark" id="logoMarkFooter">ב</span>
+        <span class="logo-mark" id="logoMarkFooter">M<i></i>B</span>
         <p data-i18n="ftBrand">משרד עורכי דין המתמחה בליווי משפטי שוטף לעסקים, אימות חתימה, חוזים ומקרקעין — בארבע שפות, באזור המרכז.</p>
       </div>
       <div class="footer-col">
@@ -1311,8 +1313,7 @@ function applyLang(lang){
     const t = I18N[lang];
     document.documentElement.lang = lang;
     document.documentElement.dir = t._dir;
-    document.getElementById("logoMark").textContent = t._mark;
-    document.getElementById("logoMarkFooter").textContent = t._mark;
+    /* מונוגרמת MB קבועה בכל השפות — לא מוחלפת לפי שפה (t._mark נשמר במילונים ואינו בשימוש) */
     document.querySelectorAll("[data-i18n]").forEach(el=>{
       const k = el.getAttribute("data-i18n");
       if(t[k] !== undefined) el.innerHTML = t[k];
