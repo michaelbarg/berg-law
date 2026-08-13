@@ -32,10 +32,17 @@ src = sys.argv[1] if len(sys.argv) > 1 else "/tmp/berg-posts-queue.json"
 default_channel = sys.argv[2] if len(sys.argv) > 2 else LINKEDIN
 posts = json.load(open(src))
 print("posts to schedule:", len(posts), "| default channel:", default_channel)
+GBP = "6a7dc920b2d9d577436d768d"  # ערוץ גוגל ביזנס — ברג ושות׳
 for p in posts:
     ch = p.get("channelId", default_channel)
-    d = gql(Q, {"input": {"text": p["text"], "channelId": ch,
-                "schedulingType": "automatic", "mode": "customScheduled", "dueAt": p["dueAt"]}})
+    inp = {"text": p["text"], "channelId": ch,
+           "schedulingType": "automatic", "mode": "customScheduled", "dueAt": p["dueAt"]}
+    if ch == GBP:
+        # פוסט גוגל חייב type; whats_new + כפתור Learn more לאתר
+        inp["metadata"] = {"google": {"type": "whats_new",
+            "detailsWhatsNew": {"button": p.get("button", "learn_more"),
+                                "link": p.get("link", "https://berg-law.co.il")}}}
+    d = gql(Q, {"input": inp})
     cp = d.get("data", {}).get("createPost", {})
     print(p["dueAt"], ch[-6:], "->", cp.get("__typename"), cp.get("post", {}).get("id", ""), cp.get("message", ""))
 print("DONE")
