@@ -17,6 +17,7 @@ const today = new Date(); today.setHours(23, 59, 59, 999);
 const parse = d => { const p = d.split("."); return new Date(p[2], p[1] - 1, p[0]); };
 const iso = d => { const p = d.split("."); return p[2] + "-" + p[1] + "-" + p[0]; };
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const desc = s => { s = String(s); if (s.length <= 155) return s; const cut = s.lastIndexOf(" ", 152); return s.slice(0, cut > 80 ? cut : 152).replace(/[,:;·—-]$/, "") + "…"; };
 
 const tpl = (a, slug, bodyHtml) => `<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -24,11 +25,11 @@ const tpl = (a, slug, bodyHtml) => `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(a.title.he)} | ברג ושות׳ — משרד עורכי דין</title>
-<meta name="description" content="${esc(a.body.he.slice(0, 155))}">
+<meta name="description" content="${esc(desc(a.body.he))}">
 <link rel="canonical" href="${SITE}/articles/${slug}.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(a.title.he)}">
-<meta property="og:description" content="${esc(a.body.he.slice(0, 155))}">
+<meta property="og:description" content="${esc(desc(a.body.he))}">
 <meta property="og:url" content="${SITE}/articles/${slug}.html">
 <meta property="og:image" content="${SITE}/og.jpg">
 <meta property="og:locale" content="he_IL">
@@ -49,7 +50,7 @@ const tpl = (a, slug, bodyHtml) => `<!DOCTYPE html>
 {"@type":"ListItem","position":3,"name":${JSON.stringify(a.title.he)}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@300;400;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter+Tight:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{--dark:#0E141E;--gold:#DAAD57;--paper:#F7F6F2;--ink:#171C24;--gray:#646B76;--line:#E6E4DD}
 *{margin:0;padding:0;box-sizing:border-box}
