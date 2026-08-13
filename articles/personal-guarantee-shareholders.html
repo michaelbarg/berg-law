@@ -31,43 +31,57 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter+Tight:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@400;600&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
 <style>
-:root{--dark:#0E141E;--gold:#DAAD57;--paper:#F7F6F2;--ink:#171C24;--gray:#646B76;--line:#E6E4DD}
+:root{--night:#0F1E2E;--night-950:#0A1520;--brass:#C8A45C;--brass-bright:#E3C88F;--brass-deep:#8A6420;
+  --oxblood:#59202A;--ivory:#F2EDDF;--ivory-2:#FAF7EC;--ink:#25231C;--sepia:#57503F;
+  --parch:#D8CDB2;--mute-d:#A89E88;--line:rgba(37,35,28,.16);--line-strong:rgba(37,35,28,.4);
+  --dark:var(--night);--gold:var(--brass);--paper:var(--ivory);--gray:var(--sepia)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter Tight','Heebo','Assistant',sans-serif;background:var(--paper);color:var(--ink);line-height:1.85}
-header{background:var(--dark);padding:18px 24px}
-header a{color:#fff;text-decoration:none;font-family:'Lora','Frank Ruhl Libre',serif;font-size:19px;
-  display:inline-flex;align-items:center;gap:12px}
-header a span{color:var(--gold)}
+body{font-family:'Inter Tight','Heebo','Assistant',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.9;position:relative}
+body::before{content:"";position:fixed;top:0;right:0;left:0;height:5px;z-index:10;pointer-events:none;
+  background:linear-gradient(to bottom,var(--brass) 0 1px,transparent 1px 4px,var(--brass-deep) 4px 5px)}
+header{background:var(--night);padding:20px 24px;border-bottom:1px solid rgba(200,164,92,.25)}
+header a{color:var(--ivory);text-decoration:none;font-family:'Lora','Frank Ruhl Libre',serif;font-size:19px;
+  display:inline-flex;align-items:center;gap:13px}
+header a span{color:var(--brass)}
 /* מונוגרמת MB — זהה לדף הבית ולפרופיל גוגל */
-.mb{width:38px;height:38px;flex:0 0 38px;display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--gold);border-radius:50%;color:var(--gold);direction:ltr;
+.mb{width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--brass);border-radius:50%;color:var(--brass);direction:ltr;position:relative;
   font-family:'Playfair Display',serif;font-weight:400;font-size:15px;line-height:1}
-.mb i{display:block;width:1px;height:10px;background:var(--gold);opacity:.75;margin:0 3px}
-main{max-width:760px;margin:0 auto;padding:44px 22px 70px}
-.crumb{font-size:13.5px;color:var(--gray);margin-bottom:18px}
-.crumb a{color:var(--gray)}
-.meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--gray);margin-bottom:14px}
-.tag{background:var(--dark);color:var(--gold);padding:4px 12px;font-size:12.5px;font-weight:700}
-h1{font-family:'Lora','Frank Ruhl Libre',serif;font-size:34px;line-height:1.3;margin-bottom:18px}
-.lead{font-size:18.5px;color:#333;border-inline-start:3px solid var(--gold);padding-inline-start:16px;margin-bottom:30px}
-article h2{font-family:'Lora','Frank Ruhl Libre',serif;font-size:23px;margin:32px 0 12px}
-article p{margin-bottom:16px}
-article ul{margin:0 0 18px 0;padding-inline-start:22px}
-article li{margin-bottom:9px}
-.cta{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:22px;margin-top:38px}
-.cta a{color:var(--dark);font-weight:700}
-.disc{font-size:13px;color:var(--gray);margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
-footer{background:var(--dark);color:#9AA1AC;padding:26px 24px;font-size:13.5px;text-align:center}
-footer a{color:var(--gold)}
+.mb::after{content:"";position:absolute;inset:2px;border-radius:50%;border:1px solid rgba(200,164,92,.35)}
+.mb i{display:block;width:1px;height:10px;background:var(--brass);opacity:.75;margin:0 3px}
+main{max-width:740px;margin:0 auto;padding:56px 22px 80px}
+.crumb{font-size:13px;color:var(--sepia);margin-bottom:26px;letter-spacing:.02em}
+.crumb a{color:var(--sepia);text-decoration:none}
+.crumb a:hover{color:var(--brass-deep)}
+.meta{display:flex;gap:14px;align-items:baseline;font-size:12.5px;color:var(--sepia);margin-bottom:18px;flex-wrap:wrap;letter-spacing:.06em}
+.tag{border:1px solid var(--brass-deep);color:var(--brass-deep);padding:5px 14px;font-size:12px;font-weight:600;letter-spacing:.08em}
+h1{font-family:'Lora','Frank Ruhl Libre',serif;font-size:36px;font-weight:500;line-height:1.35;margin-bottom:22px}
+.lead{font-family:'Lora','Frank Ruhl Libre',serif;font-size:19px;color:var(--sepia);line-height:1.85;
+  border-inline-start:2px solid var(--brass);padding-inline-start:18px;margin-bottom:14px}
+.lead-rule{border:none;width:72px;border-top:1px solid var(--brass-deep);position:relative;margin:30px 0 34px}
+.lead-rule::after{content:"";position:absolute;top:3px;inset-inline-start:0;width:100%;border-top:1px solid rgba(138,100,32,.45)}
+article h2{font-family:'Lora','Frank Ruhl Libre',serif;font-size:23px;font-weight:600;margin:36px 0 14px}
+article p{margin-bottom:17px}
+article ul{margin:0 0 20px 0;padding-inline-start:24px}
+article li{margin-bottom:10px}
+article a{color:var(--brass-deep)}
+.cta{background:var(--ivory-2);border:1px solid var(--line-strong);padding:26px 28px;margin-top:44px;position:relative}
+.cta::before{content:"";position:absolute;inset:5px;border:1px solid var(--line);pointer-events:none}
+.cta a{color:var(--oxblood);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brass);position:relative}
+.disc{font-size:12.5px;color:var(--sepia);margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
+footer{background:var(--night-950);color:var(--mute-d);padding:30px 24px;font-size:13px;text-align:center;border-top:1px solid rgba(200,164,92,.3)}
+footer a{color:var(--brass);text-decoration:none}
+footer a:hover{color:var(--brass-bright)}
 </style>
 </head>
 <body>
-<header><a href="/"><span class="mb">M<i></i>B</span><span style="color:#fff">ברג ושות׳ <span>· משרד עורכי דין</span></span></a></header>
+<header><a href="/"><span class="mb">M<i></i>B</span><span style="color:#F2EDDF">ברג ושות׳ <span>· משרד עורכי דין</span></span></a></header>
 <main>
 <div class="crumb"><a href="/">דף הבית</a> › <a href="/#articles">עדכונים משפטיים</a> › דיני חברות</div>
 <div class="meta"><span class="tag">דיני חברות</span><span>06.08.2026</span><span>עו״ד מייקל ברג</span></div>
 <h1>ערבות אישית של בעל מניות: מתי בית המשפט &quot;מרים את המסך&quot;</h1>
 <p class="lead">סקירת מגמות עדכניות בפסיקה בנוגע לאחריות אישית של בעלי שליטה בחברות קטנות, ומה מומלץ לעשות לפני חתימה על ערבות אישית מול ספק או בנק.</p>
+<hr class="lead-rule">
 <article>
 <p>הרעיון המרכזי בחברה בע״מ הוא הפרדה: החברה היא אישיות משפטית נפרדת, והחובות שלה אינם החובות של בעלי המניות. ערבות אישית היא הוויתור מרצון על ההפרדה הזאת. ברגע שחתמתם, הנושה כבר לא מוגבל לנכסי החברה — הוא יכול לפנות אליכם.</p>
 
