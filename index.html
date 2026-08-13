@@ -32,7 +32,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Playfair+Display:wght@400;500;700;900&family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --dark:#0E141E;
@@ -40,16 +40,16 @@
   --dark-3:#1B2534;
   --paper:#F7F6F2;
   --white:#FFFFFF;
-  --gold:#C6A75E;
-  --gold-dark:#A8894A;
-  --gold-soft:rgba(198,167,94,.14);
+  --gold:#DAAD57;
+  --gold-dark:#B98F3F;
+  --gold-soft:rgba(218,173,87,.14);
   --ink:#171C24;
   --gray:#646B76;
   --gray-l:#9AA1AC;
   --line:#E6E4DD;
   --line-dark:rgba(255,255,255,.1);
-  --serif:'Frank Ruhl Libre','Playfair Display',serif;
-  --sans:'Assistant','Rubik',sans-serif;
+  --serif:'Lora','Frank Ruhl Libre',Georgia,serif;
+  --sans:'Inter Tight','Heebo','Assistant',sans-serif;
   --shadow:0 16px 44px rgba(14,20,30,.1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -84,7 +84,7 @@ nav.solid{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-col
 }
 .logo-mark i{display:block;width:1px;height:11px;background:var(--gold);opacity:.75;margin:0 3.5px}
 .logo-text{line-height:1.2;font-family:var(--serif)}
-.logo-text b{display:block;font-size:17.5px;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .3s}
+.logo-text b{display:block;font-size:19px;font-weight:600;letter-spacing:-.005em;color:#fff;transition:color .3s}
 .logo-text span{display:block;font-size:11px;color:var(--gray-l);font-family:var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
 html[lang="he"] .logo-text span{letter-spacing:.06em;text-transform:none;font-size:12px}
 nav.solid .logo-text b{color:var(--ink)}
@@ -166,7 +166,8 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   padding:16px 34px;font-weight:600;font-size:15.5px;letter-spacing:.03em;
   transition:all .25s;cursor:pointer;border:1px solid transparent;font-family:var(--sans);
 }
-.btn-gold{background:var(--gold);color:var(--dark)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:#fff;text-transform:uppercase;letter-spacing:.07em;border-radius:4px;font-weight:600}
+.btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
 .btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px)}
 .btn-outline{border-color:rgba(255,255,255,.4);color:#fff}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.06)}

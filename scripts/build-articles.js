@@ -49,13 +49,13 @@ const tpl = (a, slug, bodyHtml) => `<!DOCTYPE html>
 {"@type":"ListItem","position":3,"name":${JSON.stringify(a.title.he)}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Assistant:wght@300;400;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@300;400;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--dark:#0E141E;--gold:#C6A75E;--paper:#F7F6F2;--ink:#171C24;--gray:#646B76;--line:#E6E4DD}
+:root{--dark:#0E141E;--gold:#DAAD57;--paper:#F7F6F2;--ink:#171C24;--gray:#646B76;--line:#E6E4DD}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Assistant',sans-serif;background:var(--paper);color:var(--ink);line-height:1.85}
+body{font-family:'Inter Tight','Heebo','Assistant',sans-serif;background:var(--paper);color:var(--ink);line-height:1.85}
 header{background:var(--dark);padding:18px 24px}
-header a{color:#fff;text-decoration:none;font-family:'Frank Ruhl Libre',serif;font-size:19px;
+header a{color:#fff;text-decoration:none;font-family:'Lora','Frank Ruhl Libre',serif;font-size:19px;
   display:inline-flex;align-items:center;gap:12px}
 header a span{color:var(--gold)}
 /* מונוגרמת MB — זהה לדף הבית ולפרופיל גוגל */
@@ -68,9 +68,9 @@ main{max-width:760px;margin:0 auto;padding:44px 22px 70px}
 .crumb a{color:var(--gray)}
 .meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--gray);margin-bottom:14px}
 .tag{background:var(--dark);color:var(--gold);padding:4px 12px;font-size:12.5px;font-weight:700}
-h1{font-family:'Frank Ruhl Libre',serif;font-size:34px;line-height:1.3;margin-bottom:18px}
+h1{font-family:'Lora','Frank Ruhl Libre',serif;font-size:34px;line-height:1.3;margin-bottom:18px}
 .lead{font-size:18.5px;color:#333;border-inline-start:3px solid var(--gold);padding-inline-start:16px;margin-bottom:30px}
-article h2{font-family:'Frank Ruhl Libre',serif;font-size:23px;margin:32px 0 12px}
+article h2{font-family:'Lora','Frank Ruhl Libre',serif;font-size:23px;margin:32px 0 12px}
 article p{margin-bottom:16px}
 article ul{margin:0 0 18px 0;padding-inline-start:22px}
 article li{margin-bottom:9px}
