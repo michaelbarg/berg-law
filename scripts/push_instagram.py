@@ -9,7 +9,7 @@
   python3 scripts/push_instagram.py --from 2026-08-17     # מתזמן מהתאריך הזה, יום אחרי יום
   python3 scripts/push_instagram.py --from 2026-08-17 --count 14
 """
-import os, json, sys, argparse, urllib.request, urllib.error
+import os, json, sys, time, argparse, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -27,10 +27,17 @@ def gql(query, variables=None):
     req = urllib.request.Request(
         "https://api.buffer.com/", data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json", "Authorization": "Bearer " + TOKEN})
-    try:
-        return json.loads(urllib.request.urlopen(req).read())
-    except urllib.error.HTTPError as e:
-        sys.exit("Buffer HTTP %s: %s" % (e.code, e.read().decode()[:400]))
+    for attempt in range(6):
+        try:
+            return json.loads(urllib.request.urlopen(req).read())
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()[:300]
+            if e.code == 429:                       # חלון קצב של 15 דקות בבאפר
+                wait = 70 * (attempt + 1)
+                print("   … מגבלת קצב, ממתין %ds" % wait, flush=True)
+                time.sleep(wait); continue
+            sys.exit("Buffer HTTP %s: %s" % (e.code, body))
+    sys.exit("Buffer: מגבלת קצב לא התפנתה אחרי 6 ניסיונות.")
 
 def instagram_channel():
     d = gql('{ channels(input:{organizationId:"%s"}) { id name service } }' % ORG)
@@ -46,23 +53,21 @@ def instagram_channel():
              "   3. להריץ שוב.")
 
 MUT = ("mutation($input: CreatePostInput!) { createPost(input: $input) { __typename "
-       "... on PostCreateSuccess { post { id dueAt status } } "
-       "... on CoreWebPostCreateError { message } "
-       "... on UnauthorizedError { message } } }")
+       "... on PostActionSuccess { post { id status dueAt } } "
+       "... on MutationError { message } } }")
 
 def schedule(post, channel_id, when, dry=False):
     imgs = post["_images"]
     inp = {
         "channelId": channel_id,
-        "text": post["fullCaption"],
+        "text": post["fullCaption"] + "\n\n" + post["firstComment"],
+        "schedulingType": "automatic",
         "mode": "customScheduled",
         "dueAt": when.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
         "assets": [{"image": {"url": u, "metadata": {"altText": post["title"]}}} for u in imgs],
-        "metadata": {"instagram": {
-            "type": "carousel" if len(imgs) > 1 else "post",
-            "firstComment": post["firstComment"],
-            "shouldShareToFeed": True,
-        }},
+        # type חייב להיות post/story/reel — קרוסלה נגזרת ממספר התמונות.
+        # firstComment דורש מנוי בתשלום בבאפר, לכן ההאשטאגים נכנסים לכיתוב עצמו.
+        "metadata": {"instagram": {"type": "post", "shouldShareToFeed": True}},
     }
     if dry:
         print("  [dry] %s  %s  %d תמונות  |  %s" %
@@ -70,10 +75,20 @@ def schedule(post, channel_id, when, dry=False):
         return True
     d = gql(MUT, {"input": inp})
     cp = (d.get("data") or {}).get("createPost") or {}
-    if cp.get("__typename") == "PostCreateSuccess":
+    msg = cp.get("message") or ""
+    # פרופיל אישי באינסטגרם לא מאפשר פרסום אוטומטי — נופלים לתזכורת כדי שהתור לא יאבד
+    if "notification scheduling" in msg:
+        inp["schedulingType"] = "notification"
+        d = gql(MUT, {"input": inp})
+        cp = (d.get("data") or {}).get("createPost") or {}
+        if cp.get("__typename") == "PostActionSuccess":
+            print("  ⏰ %s  %s   (תזכורת)" % (when.strftime("%d.%m %H:%MZ"), post["title"][:46]))
+            return True
+        msg = cp.get("message") or ""
+    if cp.get("__typename") == "PostActionSuccess":
         print("  ✓ %s  %s" % (when.strftime("%d.%m %H:%MZ"), post["title"][:52]))
         return True
-    print("  ✗ %s  %s" % (post["slug"], cp.get("message") or json.dumps(d)[:220]))
+    print("  ✗ %s  %s" % (post["slug"], msg or json.dumps(d)[:220]))
     return False
 
 def main():
@@ -110,7 +125,11 @@ def main():
     ch = instagram_channel() if not a.dry else {"id": "DRY", "name": "(dry run)"}
     print("ערוץ: %s  ·  %d פוסטים  ·  החל מ-%s  ·  %02d:00Z (19:00 שעון ישראל)\n"
           % (ch["name"], len(queue), start.strftime("%d.%m.%Y"), POST_HOUR_UTC))
-    ok = sum(schedule(p, ch["id"], w, a.dry) for p, w in queue)
+    ok = 0
+    for i, (p, w) in enumerate(queue):
+        ok += 1 if schedule(p, ch["id"], w, a.dry) else 0
+        if not a.dry and i < len(queue) - 1:
+            time.sleep(12)          # ריווח כדי לא להיתקל במגבלת הקצב
     print("\n%d/%d תוזמנו." % (ok, len(queue)))
     if a.dry: print("זו הרצה יבשה. להסיר --dry כדי לתזמן באמת.")
 
