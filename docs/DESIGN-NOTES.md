@@ -1,76 +1,107 @@
-# REDESIGN NOTES — "Train Bleu" (Orient Express) redesign
+# Verdigris & Silver — שפת העיצוב של berg-law.co.il
+עודכן: 14.08.2026 (סבב ב׳) · מחליף את "Train Bleu" (כחול־זהב)
 
-Art-direction pass over `index.html` + `scripts/build-articles.js`. Single-file architecture, i18n mechanism, IDs, and config constants untouched. This file is the running log for the principal.
+## 1. טיפוגרפיה — למה זה השתנה
 
-## 1. Palette — "Train Bleu"
+**מה היה:** ארבעה גופנים משתי משפחות שלא מכירות זו את זו —
+`Lora` (לטינית) + `Frank Ruhl Libre` (עברית) לכותרות, `Inter Tight` + `Heebo` לגוף.
+הדפדפן היה תופר ביניהם גליף־גליף לפי `unicode-range`. בשורה מעורבת — למשל
+״ריטיינר מ־890 ₪ לחודש · Berg & Co״ — נפגשו שני גופנים עם **גובה־x שונה,
+ניגודיות קו שונה ומשקל אופטי שונה**. העין קוראת את זה כשתי מודעות שהודבקו יחד,
+וזה בדיוק ה"טעם" של אתר שנבנה מהר.
 
-One committed scheme, 1920s grand-luxe rail (CIWL navy-and-brass livery, oxblood leather, ivory menu card):
+**מה יש עכשיו:** שתי משפחות בלבד, וכל אחת שורטטה לעברית וללטינית יחד.
 
-| Token | Hex | Role |
+| תפקיד | גופן | למה |
 |---|---|---|
-| `--night` | `#0F1E2E` | Prussian midnight — dark lacquer ground (hero, story, contact, featured tariff column) |
-| `--night-950` | `#0A1520` | deepest night — footer |
-| `--night-800` | `#16293C` | raised panel on night |
-| `--ivory` | `#F2EDDF` | paper ground |
-| `--ivory-2` | `#FAF7EC` | raised paper (ledger, wizard, tariff card) |
-| `--ink` | `#25231C` | walnut-black text on paper |
-| `--sepia` | `#57503F` | muted body on paper (6.8:1 on ivory) |
-| `--brass` | `#C8A45C` | brass on dark (refined from #DAAD57) |
-| `--brass-bright` | `#E3C88F` | champagne highlight |
-| `--brass-deep` | `#8A6420` | brass legible on paper (4.6:1 — AA small text) |
-| `--oxblood` | `#59202A` | burgundy lacquer (press card, verify band, hover accents) |
-| `--parch` | `#D8CDB2` | body text on night (10.7:1) |
-| `--mute-d` | `#A89E88` | secondary on night (6.4:1) |
+| כותרות | **Frank Ruhl Libre** 300–700 | סריף עברי אמיתי עם לטינית תואמת מאותו בית. ניגודיות גבוהה = יוקרה |
+| גוף ו-UI | **Assistant** 200–700 | הומניסטי, ניגודיות נמוכה, קריא ב־15–17px בשני הכתבים |
+| מונוגרמה בלבד | Cormorant Garamond 300 | לטינית בלבד (M\|B) — אין סיכון לאי־התאמה |
 
-All text pairs verified ≥4.5:1 (WCAG AA small text); most are 6:1+. Old variable names (`--dark`, `--gold`, `--paper`, `--gray`…) kept as aliases so nothing orphaned breaks.
+### כיול מטריקות (זה מה שגורם לזה להיראות מסודר)
+- לעברית אין אותיות עולות ויורדות → `line-height` גדול יותר (1.82 מול 1.72 בלטינית)
+- עברית לא סובלת ריווח־אותיות → `letter-spacing:0` על כל הכותרות ב-`html[lang="he"]`
+- גדלי כותרות נפרדים לעברית ולטינית — אותה נוכחות אופטית, לא אותו מספר פיקסלים
+- `lining-nums tabular-nums` על תאריכים, מחירים ומספרי סעיפים — בלי קפיצות
+- `text-wrap:balance` בכותרות, `pretty` בפסקאות — אין מילים יתומות
+- `font-synthesis:none` — בלי הטיה או הכהיה מזויפת
 
-`theme-color` meta updated `#0E141E → #0F1E2E` (not part of the protected SEO head; matches new night).
+## 2. פלטה
 
-## 2. Structural changes
+| טוקן | ערך | תפקיד |
+|---|---|---|
+| `--graphite` | `#171B1E` | קרקע כהה |
+| `--graphite-950` | `#0E1113` | פוטר |
+| `--graphite-800` | `#232A2E` | פאנל מורם |
+| `--pearl` / `--pearl-2` | `#F3F1ED` / `#FBFAF7` | נייר |
+| `--ink` / `--slate` | `#1C2023` / `#535B61` | טקסט על נייר |
+| `--silver` | `#BFC6CB` | המתכת — מחליף את הזהב |
+| `--silver-bright` / `--silver-deep` | `#E6EBEE` / `#5C666D` | הדגשה / כסף קריא על נייר |
+| `--verde` | `#1C4438` | לכה ירוקה — סקציית הסיפור, מיקוד, hover |
+| `--verde-bright` | `#7FAE97` | קו דק, טבעת מיקוד |
+| `--blush` / `--blush-deep` | `#D4A0A5` / `#8D4A54` | ורד עתיק — תנועה, hover, דלפק האקספרס |
+| `--mist` / `--mute-d` | `#CBD1D5` / `#949DA3` | טקסט על כהה |
 
-- **Section order** (nav + mobile menu reordered to match): hero → **01 about** (the principal, portrait presence) → **02 story** (heritage, night panel + oxblood press card) → **03 services** (numbered ledger) → **04 pricing** ("מסלולי ליווי" tariff) → **05 articles** (journal) → **06 pay** (bureau/order form) → **07 contact** → footer colophon. All sections present and reachable; all anchors unchanged.
-- **Numbered kickers**: each section head gets `<div class="kicker"><span class="sec-no">NN</span>…` — the numerals are language-neutral static siblings of the i18n eyebrow, so `applyLang` cannot disturb them.
-- **Hero**: full-height night carriage with double hairline frame + corner ticks (`.hero-frame`, top edge dropped below nav), fine brass pinstripes (coach lining), italic champagne em-line, gazette restyled as a departures board (2px brass rule + hairline, tabular date stamps). The giant ghost "§" removed. Radial gold "blob" gradients removed everywhere.
-- **Pricing → tariff**: one framed table on paper, hairline columns, prices set in serif oldstyle numerals between hairline rules, features as ruled ledger lines with em-dash markers, middle column as night lacquer panel with framed brass badge plate. No SaaS cards, no rounded corners, no glassmorphism.
-- **Articles → journal**: newspaper construction — heavy 2px rule + hairline under the masthead, three ruled columns, no card boxes, small-caps tags, hover = title turns oxblood + 2px brass rule draws across the top of the column. CSS-only restyle; `renderArticles` markup contract (classes `article/article-meta/tag/stamp/read-more/arr`) untouched.
-- **Wizard → bureau order form**: steps as roman-numeral plates (I · II · III — static text, JS `data-step` logic untouched), doc options as menu-card rows with dotted leaders (name … price), underlined ledger inputs, summary table with night total row.
-- **Contact → correspondence**: underline fields on night, brass-framed hairline icon squares.
-- **Footer → colophon**: centered monogram (`logoMarkFooter` preserved) over a diamond-and-rule ornament, then the four columns, livery double-line along the top edge.
-- **Livery line**: fixed 1px brass + 1px deep-brass double line across the very top of the viewport (`.livery`), echoed on footer top edge.
-- **Emoji removed from all UI chrome** (📞💬✉️📍🕗🔒 in contact lines, mobile bar, WA float, pay-secure) → inline hairline SVG icons, brass `currentColor`, placed *outside* `data-i18n` elements so language switching can't destroy them. Articles/posts content data untouched.
-- **WhatsApp float**: night disc, brass double ring, brass WA glyph (recognizable silhouette, no #25D366 green). Moved to `inset-inline-end` so it no longer covers the hero stats in RTL. Mobile bar keeps a deep muted green `#0E4A38` for the WhatsApp cell (recognition + AA contrast with cream text).
+**כל צירוף טקסט/רקע נבדק ועובר AA.** הנמוך ביותר: ורד על ירוק — 4.85:1.
 
-## 3. i18n dictionary value edits (keys/structure untouched)
+### חלוקת התפקידים בין הצבעים
+- **כסף** = המותג. לוגו, מסגרות, כותרות על כהה.
+- **אפור גרפיט** = הקרקע. חלף הכחול הפרוסי.
+- **ירוק** = סמכות. סקציית `#story`, טבעות מיקוד, כותרות `h2` בעמודי כתבות, chip פעיל בארכיון.
+- **ורוד** = תנועה. כל דבר שמגיב למגע: hover על כרטיס כתבה, מספר סעיף, הדגשת חיפוש, `verify-band`.
 
-Only these values changed, in all four dictionaries + matching static HTML defaults:
+פס הביטנה בראש כל עמוד: כסף → ורדיגריס → ורד, שלושה קווים של 1px.
 
-- `navPricing`: he "מסלולי ליווי" · en "Retainers" · ru "Сопровождение" · fr "Formules"
-- `prTitle`: he "מסלולי ליווי משפטי לעסקים" · en "Retainer Programmes for Businesses" · ru "Программы юридического сопровождения бизнеса" · fr "Formules d'accompagnement juridique des entreprises"
-- Nav-length fixes (labels only, so nav fits 1280px in all 4 languages): `navPay` en "Tabu Extracts"; `navArticles` en "Daily Brief"; `navCta` fr "Rendez-vous"
-- Burger breakpoint raised 1100 → 1240px (long RU/FR navs).
+## 3. מה נבנה בסבב הזה
+- `/articles/` — ארכיון מלא עם חיפוש חי וסינון לפי תחום (`Blog` + `BreadcrumbList` JSON-LD)
+- חיפוש באתר (אייקון בניווט או ⌘K) שמכסה **כתבות + תחומי עיסוק + עמודים**, ב-4 שפות
+- גיזום עברי קל בשני מנועי החיפוש: ״חוזה״ מוצא גם ״חוזים״
+- 5 כתבות חדשות בטקסט מלא — הבאג שבו ״לקריאת העדכון המלא״ קפץ לפוטר נסגר
+- כל מאמר מקבל עמוד גם אם תאריכו עתידי, עם `noindex` ומחוץ לסייטמאפ — כדי
+  שביום שהכרטיס מופיע בדף הבית הקישור לא יוביל ל-404
 
-No other dictionary values touched. No keys added/renamed/removed.
+## 4. פתוח
+- אימות Search Console (פעולה של מייקל)
+- קישור סליקה של Grow → `PAY_LINKS.docs`
+- ביקורות גוגל
 
-## 4. Typography
+## 5. סבב ב׳ — למה הכניסה לא עבדה, ומה תוקן
 
-Same five font families (Google Fonts link untouched except nothing — weights kept). Lora/Frank Ruhl for display at weight 500, italic champagne for Latin `em`; Inter Tight/Heebo for UI. Latin small-caps eyebrows at .3em tracking; Hebrew keeps normal case/.14em per existing `html[lang="he"]` override pattern (extended to every new small-caps element). Oldstyle/tabular numerals via `font-variant-numeric` for prices, stamps, phone.
+**האבחנה:** גרפיט ניטרלי `#171B1E` על מסך מלא הוא ריבוע צבע, לא חומר. כסף על אפור־כחלחל
+מאבד את זהותו וקורא כאפור. ולא הייתה שום נקודת מנוחה לעין — לא אופק, לא מוקד, לא אור.
 
-## 5. scripts/build-articles.js
+**שלושה תיקונים:**
 
-Template CSS/markup restyled to the same system: livery line, night header with ringed monogram, serif lead with brass side-rule + double-rule divider (`.lead-rule` added), framed CTA card on paper, night-950 footer. Build logic, SLUGS, sitemap generation untouched.
+1. **הקרקע הכהה עברה לדיו ורדיגריס.** `#12201B` במקום `#171B1E`. ברגע שיש גוון ברקע,
+   הכסף חוזר להיות כסף. הנייר התחמם גם הוא (`#F5F2EA`).
+2. **חומר במקום מילוי.** על כל משטח כהה שלוש שכבות: אור מכוון (radial מלמעלה־מהצד),
+   גרעין `feTurbulence` ב-5.5% עם `mix-blend-mode:overlay`, וויניה. זה כל ההבדל בין
+   "דארק מוד" לבין לכה.
+3. **אופק.** קו הרקיע הבאוהאוסי בתחתית ה-hero נותן לעין לאן לנחות.
 
-## 6. Things the principal should know
+## 6. לוחות האווירה — `assets/plate-*.svg`
 
-- The two protected legacy colors that remain: WhatsApp deep green `#0E4A38` only in the mobile bar cell; everything else is on-palette.
-- The favicon still carries the old `#0E141E/#C6A75E` — visually compatible with the new scheme; left untouched per constraint 5.
-- Hero/story/contact pinstripes are 3–4% alpha brass; if they moiré on some screens, delete the `repeating-linear-gradient` lines in `.hero::before`, `#story::before`, `#contact::before`.
-- `legal.html` was out of scope and still carries the old look.
-- Screenshots (desktop 1280×900 / mobile 390×844 × he/en + article page) in `/home/claude/berg-shots/`.
+נוצרים מתמטית ב-`scripts/make-plates.py`, לא נלקחים מבנק תמונות. מקוריים, קלים, וקנה־מידה חופשי.
 
-## 7. Verification (final run — see report)
+| לוח | מה זה | איפה |
+|---|---|---|
+| `plate-guilloche.svg` | רוזטת גיליוש — שפת התחריט של שטרות ותעודות מניה | `#contact`, 9% |
+| `plate-facade.svg` | חזית העיר הלבנה — קו הבניין הבאוהאוסי של תל אביב | תחתית ה-hero, 21% |
+| `plate-arcade.svg` | קצב קשתות — מסדרון בלי פטיש ובלי מאזניים | תחתית `#story`, 17% |
 
-- Language switch he→en→ru→fr→he: no console errors, dir flips correctly.
-- `renderArticles`: 3 cards render from `content/articles.json` with `_todayEnd` date gating.
-- Wizard: doc select → fields → step II summary advances; roman plates update.
-- Contact form fields + placeholders render in all languages.
-- `node scripts/build-articles.js` builds 8 pages + sitemap without error.
+כלל: **קישוט אחד לכל סקציה.** בסבב הראשון היו רוזטה וגם קו רקיע ב-hero — הרוזטה נחסמה
+מאחורי לוח העדכונים וקראה ככתם. הוסרה.
+
+מה שנשאר מחוץ לתחום בכוונה: פטיש שופטים, מאזניים, ספרי חוק, עטים נובעים על שולחן מהגוני.
+זה הוויזואל שכל אתר עורכי דין שני משתמש בו, ולכן הוא לא מאותת יוקרה אלא תבנית.
+
+## 7. הפורטרט
+`assets/michael-berg-2026.jpg` — הגרסה המשופצת מ-7.8, חתוכה 4:5, 900px, רוויה 0.88 וניגודיות 1.04
+כדי שתשב בפלטה בלי להיראות מפולטרת. הוצאה מ-base64 בתוך ה-HTML לקובץ נפרד: `index.html`
+ירד מ-348KB ל-150KB, והתמונה נכנסת לקאש.
+
+## 8. תמונות אמיתיות — מה חסר
+`mood-images-shortlist.md` ב-berg-campaign הוא רשימת קישורים לאנספלאש/פקסלס שמעולם לא הורדו.
+כשיהיו קבצים בפועל (`assets/mood/*.jpg`), הם נכנסים ב-hero ובכותרות הסקציות במקום הלוחות —
+המבנה כבר בנוי לזה: `.hero-skyline` ו-`.story-plate` הן שכבות `background-image` עם מסכה,
+ומספיק להחליף את ה-url ולהוריד את ה-opacity־mask.
