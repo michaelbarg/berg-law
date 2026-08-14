@@ -89,6 +89,9 @@ def schedule(post, channel_id, when, dry=False):
     if cp.get("__typename") == "PostActionSuccess":
         print("  ✓ %s  %s" % (when.strftime("%d.%m %H:%MZ"), post["title"][:52]))
         return True
+    if "Scheduled posts limit reached" in msg:
+        print("  ⛔ התור מלא (מכסת באפר). מה שנשאר ייכנס בהשלמה הבאה.")
+        raise SystemExit(0)
     print("  ✗ %s  %s" % (post["slug"], msg or json.dumps(d)[:220]))
     return False
 
@@ -97,6 +100,9 @@ def main():
     ap.add_argument("--from", dest="start", help="YYYY-MM-DD — היום הראשון לפרסום")
     ap.add_argument("--count", type=int, default=0, help="כמה פוסטים לתזמן (0 = הכול)")
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--topup", action="store_true",
+                    help="ממלא את התור עד המכסה של באפר במקום לתזמן הכול")
+    ap.add_argument("--limit", type=int, default=10, help="מכסת פוסטים בתור (חינמי=10)")
     a = ap.parse_args()
 
     posts = json.load(open(os.path.join(ROOT, "content/instagram-posts.json"), encoding="utf8"))
@@ -124,6 +130,34 @@ def main():
         cursor += timedelta(days=1)
 
     ch = instagram_channel() if not a.dry else {"id": "DRY", "name": "(dry run)"}
+
+    if a.topup and not a.dry:
+        d = gql('{posts(input:{organizationId:"%s",filter:{channelIds:["%s"]}}){edges{node{id status dueAt}}}}'
+                % (ORG, ch["id"]))
+        edges = (((d.get("data") or {}).get("posts") or {}).get("edges")) or []
+        live = [e["node"] for e in edges if e["node"]["status"] in ("scheduled", "draft", "pending")]
+        free = max(0, a.limit - len(live))
+        print("בתור כרגע: %d · מכסה: %d · מקום פנוי: %d" % (len(live), a.limit, free))
+        if not free:
+            print("התור מלא. אין מה להוסיף.")
+            return
+        # ממשיכים מהיום שאחרי הפוסט המתוזמן האחרון
+        if live:
+            last = max(n["dueAt"] for n in live)[:10]
+            cur = datetime.strptime(last, "%Y-%m-%d").replace(tzinfo=timezone.utc) + timedelta(days=1)
+            queue2, guard = [], 0
+            while len(queue2) < free and guard < 400:
+                guard += 1
+                nm = DAYS[(cur.weekday() + 1) % 7]
+                pool = [p for p in posts if p["day"] == nm and p["slug"] not in
+                        (json.load(open(STATE)) if os.path.exists(STATE) else [])
+                        and p["slug"] not in [q[0]["slug"] for q in queue2]]
+                if pool:
+                    queue2.append((pool[0], cur.replace(hour=POST_HOUR_UTC, minute=0, second=0, microsecond=0)))
+                cur += timedelta(days=1)
+            queue = queue2
+        else:
+            queue = queue[:free]
     print("ערוץ: %s  ·  %d פוסטים  ·  החל מ-%s  ·  %02d:00Z (19:00 שעון ישראל)\n"
           % (ch["name"], len(queue), start.strftime("%d.%m.%Y"), POST_HOUR_UTC))
     done = json.load(open(STATE)) if os.path.exists(STATE) else []

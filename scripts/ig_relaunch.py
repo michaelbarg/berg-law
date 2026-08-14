@@ -43,7 +43,7 @@ if ch["type"] != "business" and not a.force:
              "   אחר כך להריץ שוב את הפקודה הזו.")
 
 # 1. מוחקים כל פוסט אינסטגרם קיים (הם תוזמנו במצב תזכורת)
-d = gql('{posts(input:{organizationId:"%s",filter:{channelIds:["%s"]},limit:100}){edges{node{id status}}}}'
+d = gql('{posts(input:{organizationId:"%s",filter:{channelIds:["%s"]}}){edges{node{id status}}}}'
         % (ORG, ch["id"]))
 edges = (((d.get("data") or {}).get("posts") or {}).get("edges")) or []
 old = [e["node"]["id"] for e in edges]
