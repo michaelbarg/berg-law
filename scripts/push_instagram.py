@@ -13,6 +13,7 @@ import os, json, sys, time, argparse, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+STATE = os.path.join(ROOT, ".ig-scheduled.json")
 SITE = "https://berg-law.co.il"
 ORG  = "6a75d6fe86d18905e5fbe108"
 TOKEN = os.environ.get("BUFFER_ACCESS_TOKEN")
@@ -125,11 +126,21 @@ def main():
     ch = instagram_channel() if not a.dry else {"id": "DRY", "name": "(dry run)"}
     print("ערוץ: %s  ·  %d פוסטים  ·  החל מ-%s  ·  %02d:00Z (19:00 שעון ישראל)\n"
           % (ch["name"], len(queue), start.strftime("%d.%m.%Y"), POST_HOUR_UTC))
+    done = json.load(open(STATE)) if os.path.exists(STATE) else []
+    queue = [(p, w) for p, w in queue if p["slug"] not in done]
+    if not queue:
+        print("הכול כבר מתוזמן. למחוק את .ig-scheduled.json כדי להתחיל מחדש.")
+        return
+    print("(%d כבר מתוזמנים, מדלג עליהם)\n" % len(done) if done else "")
     ok = 0
     for i, (p, w) in enumerate(queue):
-        ok += 1 if schedule(p, ch["id"], w, a.dry) else 0
+        if schedule(p, ch["id"], w, a.dry):
+            ok += 1
+            if not a.dry:
+                done.append(p["slug"])
+                json.dump(done, open(STATE, "w"), ensure_ascii=False)
         if not a.dry and i < len(queue) - 1:
-            time.sleep(12)          # ריווח כדי לא להיתקל במגבלת הקצב
+            time.sleep(20)          # ריווח כדי לא להיתקל במגבלת הקצב
     print("\n%d/%d תוזמנו." % (ok, len(queue)))
     if a.dry: print("זו הרצה יבשה. להסיר --dry כדי לתזמן באמת.")
 
