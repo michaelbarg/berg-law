@@ -826,6 +826,58 @@ html[lang="he"] .photo-plate span{letter-spacing:.07em;text-transform:none;font-
 .practice-more .arr{color:var(--blush-deep);font-size:17px;flex-shrink:0;transition:transform .3s}
 html[dir="rtl"] .practice-more:hover .arr{transform:translateX(-5px)}
 html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
+
+/* ============ SOCIAL — אותה שפה של מונוגרמת ה-M|B ============ */
+.social{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.social a{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;position:relative;
+  border:1px solid rgba(205,212,206,.4);border-radius:50%;color:var(--silver);
+  transition:color .3s,border-color .3s,background .3s}
+.social a::after{content:"";position:absolute;inset:3px;border-radius:50%;
+  border:1px solid rgba(205,212,206,.2);transition:border-color .3s}
+.social a:hover{color:var(--graphite);background:var(--silver);border-color:var(--silver)}
+.social a:hover::after{border-color:rgba(15,42,33,.3)}
+.social a svg{width:19px;height:19px}
+.social .lbl{font-size:13.5px;color:var(--mute-d);margin-inline-start:6px;font-weight:300}
+.on-paper .social a{border-color:var(--line-strong);color:var(--silver-deep)}
+.on-paper .social a::after{border-color:var(--line)}
+.on-paper .social a:hover{background:var(--verde);border-color:var(--verde);color:var(--pearl-2)}
+.footer-social{margin-top:20px}
+
+/* ============ REVIEWS ============ */
+#reviews{background:var(--pearl-2)}
+.rev-grid[hidden]{display:none}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;
+  border-top:2px solid var(--ink);position:relative;margin-top:34px}
+.rev-grid::before{content:"";position:absolute;top:3px;right:0;left:0;border-top:1px solid var(--line-strong)}
+.rev{padding:36px 34px 30px;border-inline-start:1px solid var(--line);display:flex;flex-direction:column}
+.rev:first-child{border-inline-start:none;padding-inline-start:6px}
+.rev q{quotes:none;font-family:var(--display);font-size:19px;line-height:1.72;color:var(--ink);flex:1;
+  border-inline-start:2px solid var(--blush-deep);padding-inline-start:18px;display:block}
+.rev .who{margin-top:22px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rev .who b{font-size:15px;font-weight:600;color:var(--ink)}
+.rev .who span{font-size:13.5px;color:var(--slate);font-weight:300}
+.rev .src{font-size:11.5px;letter-spacing:.04em;color:var(--silver-deep);border:1px solid var(--line-strong);
+  padding:3px 9px;margin-inline-start:auto;white-space:nowrap}
+.rev-cta{margin-top:44px;border:1px solid var(--line-strong);background:var(--pearl);
+  padding:34px 34px 30px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative}
+.rev-cta::before{content:"";position:absolute;top:0;inset-inline:0;height:2px;
+  background:linear-gradient(90deg,var(--silver-deep),var(--verde),var(--blush-deep))}
+.rev-cta h3{font-size:22px;font-weight:600;margin-bottom:8px}
+.rev-cta p{font-size:15.5px;color:var(--slate);font-weight:300;max-width:44em}
+@media(max-width:760px){.rev-cta{grid-template-columns:1fr}
+  .rev{border-inline-start:none;border-top:1px solid var(--line)}.rev:first-child{border-top:none}}
+
+/* ============ המסלול — עובדות מתוארכות, בלי תארים ============ */
+.track{margin-top:44px;border-top:1px solid var(--line-strong);position:relative;padding-top:2px}
+.track::before{content:"";position:absolute;top:3px;right:0;left:0;border-top:1px solid var(--line)}
+.track-row{display:grid;grid-template-columns:104px 1fr;gap:24px;padding:19px 0;
+  border-bottom:1px solid var(--line);align-items:baseline}
+.track-row:last-child{border-bottom:none}
+.track-row .yr{font-family:var(--display);font-style:italic;font-size:16px;color:var(--blush-deep);
+  font-variant-numeric:lining-nums tabular-nums;letter-spacing:.04em}
+.track-row .txt{font-size:15.5px;color:var(--slate);font-weight:300;line-height:1.8}
+.track-row .txt b{color:var(--ink);font-weight:600}
+@media(max-width:620px){.track-row{grid-template-columns:1fr;gap:5px}}
 /* ============ RESPONSIVE ============ */
 @media (max-width:1240px){
   .nav-links,.nav-cta{display:none}
@@ -983,6 +1035,12 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
         <div class="cred"><b data-i18n="cr4b">מילואימניק פעיל</b><span data-i18n="cr4t">מאות ימי שירות — עמידה בלחץ וסדרי עדיפויות</span></div>
         <div class="cred"><b data-i18n="cr5b">אזור שירות</b><span data-i18n="cr5t">תל אביב והמרכז</span></div>
         <div class="cred"><b data-i18n="cr6b">4 שפות</b><span data-i18n="cr6t">עברית · אנגלית · רוסית · צרפתית</span></div>
+      </div>
+      <div class="track reveal">
+        <div class="track-row"><span class="yr">2010–2014</span><span class="txt">תואר ב<b>משפטים</b> ותואר ב<b>מנהל עסקים בהתמחות חשבונאות</b>, אוניברסיטת רייכמן.</span></div>
+        <div class="track-row"><span class="yr">מ־2009</span><span class="txt">סמנכ״ל ב<b>חברת טקסטיל משפחתית</b> — ניהול מול ספקים, לקוחות ובנקים.</span></div>
+        <div class="track-row"><span class="yr">2020</span><span class="txt">הקים את <b>פספרטו</b>, מיזם בינה מלאכותית שפיתח כלי תוכן לבעלי מקצוע עצמאיים. באותה שנה קיבל <b>מענק מרשות החדשנות</b> לפיתוח מוצר ראשון. הפעילות הזו לא המשיכה.</span></div>
+        <div class="track-row"><span class="yr">היום</span><span class="txt"><b>פספרטו</b> הוא מותג מסחר אלקטרוני בתחום השינה, ו<b>דונקי</b> — משחק קלפים שיצר בתקופת מילואים — בקדם־מכירה לגרסה השנייה.</span></div>
       </div>
     </div>
   </div>
@@ -1149,10 +1207,29 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
 
 
 
+
+<section id="reviews" class="on-paper">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker"><span class="sec-no">06</span><span class="eyebrow" data-i18n="rvEyebrow">מה אומרים</span></div>
+      <h2 data-i18n="rvTitle">ביקורות וסיפורים אישיים</h2>
+      <p data-i18n="rvSub">מה שלקוחות כתבו בעצמם. מתפרסם רק בהסכמתם, ובלי לחשוף פרטי תיק.</p>
+    </div>
+    <div id="revGrid" class="rev-grid reveal" hidden></div>
+    <div class="rev-cta reveal">
+      <div>
+        <h3 data-i18n="rvCtaTitle">עבדנו יחד?</h3>
+        <p data-i18n="rvCtaSub">ביקורת קצרה בגוגל עוזרת לעסקים אחרים למצוא את המשרד. שתי דקות, ואפשר גם בלי שם מלא.</p>
+      </div>
+      <a class="btn btn-outline-dark" href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%A8%D7%92%20%D7%95%D7%A9%D7%95%D7%AA%20%D7%9E%D7%A9%D7%A8%D7%93%20%D7%A2%D7%95%D7%A8%D7%9B%D7%99%20%D7%93%D7%99%D7%9F%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noopener" data-i18n="rvCtaBtn">להשארת ביקורת בגוגל</a>
+    </div>
+  </div>
+</section>
+
 <section id="pay">
   <div class="container">
     <div class="section-head reveal">
-      <div class="kicker"><span class="sec-no">06</span><span class="eyebrow" data-i18n="payEyebrow">שירות אונליין · רשם המקרקעין</span></div>
+      <div class="kicker"><span class="sec-no">07</span><span class="eyebrow" data-i18n="payEyebrow">שירות אונליין · רשם המקרקעין</span></div>
       <h2 data-i18n="payTitle">הזמנת נסח טאבו ומסמכים רשמיים</h2>
       <p data-i18n="paySub">מזמינים אונליין, משלמים אגרה מאובטחת — ומקבלים למייל נסח רישום מקורי וחתום דיגיטלית, בליווי משרד עורכי דין.</p>
     </div>
@@ -1208,7 +1285,7 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
   <div class="arcade-plate" aria-hidden="true"></div>
   <div class="container">
     <div class="section-head reveal">
-      <div class="kicker"><span class="sec-no">07</span><span class="eyebrow" data-i18n="ctEyebrow">הצעד הראשון</span></div>
+      <div class="kicker"><span class="sec-no">08</span><span class="eyebrow" data-i18n="ctEyebrow">הצעד הראשון</span></div>
       <h2 data-i18n="ctTitle">נדבר?</h2>
       <p data-i18n="ctSub">שיחת ייעוץ ראשונה — ללא עלות וללא התחייבות. השאירו פרטים או כתבו ישירות בוואטסאפ.</p>
     </div>
@@ -1220,6 +1297,7 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
         <div class="contact-line"><span class="ci"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="M3.5 6.5 12 12.5l8.5-6"/></svg></span><a href="mailto:michael@passparto.com">michael@passparto.com</a></div>
         <div class="contact-line"><span class="ci"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s-7-5.7-7-11.2A7 7 0 0 1 19 9.8C19 15.3 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span><span data-i18n="ctLoc">תל אביב · פגישות בתיאום מראש</span></div>
         <div class="contact-line"><span class="ci"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.8V12l3.4 2.6"/></svg></span><span data-i18n="ctHours">א'–ה' 09:00–19:00 · אימות חתימה בתיאום אקספרס</span></div>
+        <div class="social" style="margin-top:26px"><a href="https://www.instagram.com/berg_law.co.il/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.linkedin.com/in/michael-barg-passparto/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.5c0-1.31-.02-3-1.9-3-1.9 0-2.2 1.43-2.2 2.9V21H9z"/></svg></a><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%A8%D7%92%20%D7%95%D7%A9%D7%95%D7%AA%20%D7%9E%D7%A9%D7%A8%D7%93%20%D7%A2%D7%95%D7%A8%D7%9B%D7%99%20%D7%93%D7%99%D7%9F%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noopener" aria-label="Google" title="Google Business Profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-10.1A6.5 6.5 0 0 1 12 4.4a6.5 6.5 0 0 1 6.5 6.5C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.7" r="2.4"/></svg></a><span class="lbl" data-i18n="socLbl">העדכון היומי מתפרסם גם ברשתות</span></div>
       </div>
       <form class="reveal" onsubmit="return sendMail(event)" novalidate>
         <div class="field">
@@ -1283,6 +1361,7 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
         <h4 data-i18n="ftColContact">יצירת קשר</h4>
         <a href="tel:+972546665615"><span class="phone-num">054-666-5615</span></a>
         <a href="mailto:michael@passparto.com">michael@passparto.com</a>
+        <div class="social footer-social"><a href="https://www.instagram.com/berg_law.co.il/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.linkedin.com/in/michael-barg-passparto/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.5c0-1.31-.02-3-1.9-3-1.9 0-2.2 1.43-2.2 2.9V21H9z"/></svg></a><a href="https://www.google.com/maps/search/?api=1&amp;query=%D7%91%D7%A8%D7%92%20%D7%95%D7%A9%D7%95%D7%AA%20%D7%9E%D7%A9%D7%A8%D7%93%20%D7%A2%D7%95%D7%A8%D7%9B%D7%99%20%D7%93%D7%99%D7%9F%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noopener" aria-label="Google" title="Google Business Profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-10.1A6.5 6.5 0 0 1 12 4.4a6.5 6.5 0 0 1 6.5 6.5C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.7" r="2.4"/></svg></a></div>
         <span data-i18n="ctLoc">תל אביב · פגישות בתיאום מראש</span>
       </div>
     </div>
@@ -1324,6 +1403,7 @@ html[dir="ltr"] .practice-more:hover .arr{transform:translateX(5px)}
 /* ================= i18n ================= */
 const I18N = {
 he:{ _dir:"rtl", _mark:"ב",
+rvEyebrow:"מה אומרים",rvTitle:"ביקורות וסיפורים אישיים",rvSub:"מה שלקוחות כתבו בעצמם. מתפרסם רק בהסכמתם, ובלי לחשוף פרטי תיק.",rvCtaTitle:"עבדנו יחד?",rvCtaSub:"ביקורת קצרה בגוגל עוזרת לעסקים אחרים למצוא את המשרד. שתי דקות, ואפשר גם בלי שם מלא.",rvCtaBtn:"להשארת ביקורת בגוגל",socLbl:"העדכון היומי מתפרסם גם ברשתות",
 svcMore:"עוד 8 תחומי עיסוק — קניין רוחני וסימני מסחר, דיני עבודה, פרטיות ומאגרי מידע, עמותות, תביעות קטנות, אימות חתימה, עסקאות בין־מדינתיות ונסחי טאבו",
 prEyebrow:"ליווי שוטף",prTitle:"המחלקה המשפטית של העסק שלך",prSub:"בתשלום חודשי קבוע, מותאם לצורך וללא הפתעות.",rs1h:"שיחת היכרות ומיפוי צרכים",rs1p:"ללא עלות וללא התחייבות. עוברים על מה שהעסק חותם עליו בפועל ועל מה שחוזר כל חודש.",rs2h:"מסגרת שנבנית לפי הצורך",rs2p:"אין מסלולים מוכנים מראש. המסגרת נקבעת לפי היקף הפעילות ולפי התחומים שבאמת רלוונטיים לעסק.",rs3h:"מחיר חודשי קבוע",rs3p:"נקבע מראש בכתב ונשאר קבוע. ליווי משפטי שוטף בהתאם למסגרת שסוכמה, בלי שעון עצר ובלי הפתעות בחשבונית.",rpTitle:"מה חשוב לעסק שלך?",rpSub:"סמנו את התחומים הרלוונטיים — הם ייכנסו לשיחה, והמסגרת תיבנה סביבם.",rpCta:"לשיחת היכרות ומיפוי צרכים",rpNone:"אפשר גם בלי לסמן — נמפה יחד בשיחה.",rpSome:"תחומים שסומנו",prNote:"המחיר החודשי נקבע רק אחרי שמבינים את היקף הפעילות של העסק. ייצוג בהליכים משפטיים מתומחר בנפרד. ניתן לסיים בהודעה של 30 יום.",
 pr1h:"אימות חתימה ואישור מסמכים",pr1p:"אימות חתימה על ייפוי כוח, תצהירים, מסמכי בנק ומסמכים רשמיים — בתיאום מהיר, כולל קבלה במשרד באותו יום.",pr1n:"שירות אקספרס · מענה באותו יום",pr2h:"ליווי משפטי שוטף לעסקים",pr2p:"ריטיינר חודשי הכולל ייעוץ זמין, בדיקת חוזים, מכתבי התראה וליווי מול ספקים, לקוחות ועובדים.",pr2n:"3 מסלולים · ליווי רציף",pr3h:"חוזים ודיני מסחר",pr3p:"ניסוח ובדיקת הסכמי התקשרות, הסכמי שותפות, תנאי שימוש, הסכמי סודיות והסכמי עבודה.",pr3n:"הצעת מחיר תוך יום עסקים",pr4h:"בדיקת חוזים לפני חתימה",pr4p:"עוברים שורה־שורה, מסמנים סעיפים מסוכנים ומחזירים דוח ברור: מה בסדר, מה לשנות, ועל מה אסור לחתום.",pr4n:"דוח ברור תוך יום עסקים",pr5h:"מקרקעין ונדל״ן",pr5p:"ליווי עסקאות מכר ורכישה, הסכמי שכירות מסחריים, בדיקות נאותות ורישום זכויות.",pr5n:"ליווי מלא מהמו״מ ועד הטאבו",pr6h:"קניין רוחני וסימני מסחר",pr6p:"סימני מסחר, זכויות יוצרים, סודות מסחריים והעברת זכויות לחברה — הנכס שבודקים ראשון בכל בדיקת נאותות.",pr6n:"השם, הלוגו והקוד — על שמכם",pr7h:"רישום חברות והסכמי מייסדים",pr7p:"הקמת חברה בע״מ מקצה לקצה: מבנה התאגדות, תקנון מותאם, רישום ברשם החברות והסכם מייסדים.",pr7n:"כולל הסכם מייסדים",pr8h:"דיני עבודה למעסיקים",pr8p:"הסכמי העסקה, הבחנה בין עובד לקבלן, שינוי תנאים, הליך שימוע וסיום העסקה — לפי הסדר הנכון.",pr8n:"הליך מסודר, לא אחריו",pr9h:"מכתבי התראה וגבייה",pr9p:"מכתב התראה על נייר של משרד עורכי דין סוגר חלק ניכר מהחובות בלי בית משפט. ניסוח ממוקד, מעקב וליווי.",pr9n:"החוב לא מחכה — גם אתם לא",pr10h:"הגנת הפרטיות ומאגרי מידע",pr10p:"מיפוי מידע, נוהל אבטחה, מצלמות בעסק ובקשות עיון — אחרי תיקון 13 זה כבר לא עניין של חברות גדולות.",pr10n:"נוהל בן עמוד במקום חשיפה",pr11h:"סיוע בהכנת תביעה קטנה",pr11p:"ניתוח סיכויים, ניסוח כתב תביעה או הגנה, ארגון ראיות והכנה אישית לדיון — כי הייצוג בדיון אישי על פי חוק.",pr11n:"ליווי עד ליום הדיון",pr12h:"רישום עמותות וניהול תקין",pr12p:"ניסוח תקנון ומטרות, רישום ברשם העמותות וליווי לאישור ניהול תקין — המפתח לתמיכות ולתרומות.",pr12n:"ליווי הוועד והאסיפה",pr13h:"עולים, תושבי חוץ ועסקאות בין־מדינתיות",pr13p:"רכישת נכס מחו״ל, ירושה חוצת גבולות, ייפוי כוח ואפוסטיל — בעברית, אנגלית, רוסית וצרפתית.",pr13n:"ארבע שפות · בלי לטוס",pr14h:"נסח טאבו ומסמכים רשמיים",pr14p:"נסח רגיל, היסטורי, מרוכז או נסח חברה — מזמינים באתר, משלמים אגרה מאובטחת ומקבלים למייל.",pr14n:"הזמנה אונליין למטה ›",
@@ -1399,6 +1479,7 @@ ftRights:'© 2026 ברג ושות׳ — משרד עורכי דין · כל הז�
 ftDisc:"התכנים באתר, לרבות העדכונים המשפטיים היומיים, הינם מידע כללי בלבד ואינם מהווים ייעוץ משפטי או תחליף לו. אין להסתמך על האמור ללא קבלת ייעוץ פרטני המותאם לנסיבות המקרה."
 },
 en:{ _dir:"ltr", _mark:"B",
+rvEyebrow:"In their words",rvTitle:"Reviews and personal accounts",rvSub:"What clients wrote themselves. Published only with their consent, and without case details.",rvCtaTitle:"Worked with us?",rvCtaSub:"A short Google review helps other businesses find the firm. Two minutes, and a full name is optional.",rvCtaBtn:"Leave a Google review",socLbl:"The daily brief also goes out on social",
 svcMore:"Eight more practice areas — IP and trademarks, employment, privacy and data, nonprofits, small claims, signature verification, cross-border transactions and title extracts",
 prEyebrow:"Ongoing Counsel",prTitle:"Your business's legal department",prSub:"A fixed monthly fee, built around what your business actually needs, with no surprises.",rs1h:"Introductory call and needs mapping",rs1p:"No cost, no commitment. We go through what the business actually signs and what recurs every month.",rs2h:"A framework built around the need",rs2p:"There are no off-the-shelf tiers. The framework is set by the scale of activity and by the areas that genuinely matter to the business.",rs3h:"A fixed monthly fee",rs3p:"Agreed in writing in advance and it stays fixed. Ongoing legal support within the agreed framework — no stopwatch, no surprises on the invoice.",rpTitle:"What matters to your business?",rpSub:"Mark the relevant areas — they go into the call, and the framework is built around them.",rpCta:"Book an introductory call",rpNone:"You can also leave it blank — we will map it together.",rpSome:"areas selected",prNote:"The monthly fee is set only after the scale of the business's activity is understood. Litigation is priced separately. Either side may end the arrangement on 30 days' notice.",
 pfName:"Michael Berg, Adv.",pfRole:"Founding Partner",
@@ -1473,6 +1554,7 @@ ftRights:"© 2026 Berg & Co Law Firm · All rights reserved",
 ftDisc:"The content on this website, including the daily legal briefs, is general information only and does not constitute legal advice or a substitute for it. Do not rely on it without obtaining individual advice tailored to your circumstances."
 },
 ru:{ _dir:"ltr", _mark:"Б",
+rvEyebrow:"Их словами",rvTitle:"Отзывы и личные истории",rvSub:"То, что клиенты написали сами. Публикуется только с их согласия и без деталей дела.",rvCtaTitle:"Работали вместе?",rvCtaSub:"Короткий отзыв в Google помогает другим найти фирму. Две минуты, имя указывать не обязательно.",rvCtaBtn:"Оставить отзыв в Google",socLbl:"Ежедневный обзор выходит и в соцсетях",
 svcMore:"Ещё 8 областей — ИС и товарные знаки, трудовое право, приватность и данные, НКО, малые иски, заверение подписи, трансграничные сделки и выписки Табу",
 prEyebrow:"Постоянное сопровождение",prTitle:"Юридический отдел вашего бизнеса",prSub:"Фиксированная ежемесячная плата, выстроенная под реальные нужды бизнеса, без сюрпризов.",rs1h:"Знакомство и разбор потребностей",rs1p:"Бесплатно и без обязательств. Разбираем, что бизнес реально подписывает и что повторяется каждый месяц.",rs2h:"Рамки под конкретную задачу",rs2p:"Готовых тарифов нет. Рамки определяются масштабом деятельности и теми областями, которые действительно важны.",rs3h:"Фиксированная ежемесячная плата",rs3p:"Согласована письменно заранее и остаётся неизменной. Текущее юридическое сопровождение в согласованных рамках — без секундомера и без сюрпризов в счёте.",rpTitle:"Что важно вашему бизнесу?",rpSub:"Отметьте нужные области — они войдут в разговор, и рамки выстроятся вокруг них.",rpCta:"Записаться на знакомство",rpNone:"Можно и не отмечать — разберём вместе.",rpSome:"выбрано областей",prNote:"Ежемесячная плата определяется только после того, как понятен масштаб деятельности. Судебное представительство оплачивается отдельно. Прекращение — с уведомлением за 30 дней.",
 pfName:"Адв. Михаэль Берг",pfRole:"Основатель фирмы",
@@ -1547,6 +1629,7 @@ ftRights:"© 2026 Адвокатская контора «Берг и Ко» · 
 ftDisc:"Материалы сайта, включая ежедневные юридические обзоры, являются общей информацией и не являются юридической консультацией или её заменой. Не полагайтесь на них без получения индивидуальной консультации с учётом ваших обстоятельств."
 },
 fr:{ _dir:"ltr", _mark:"B",
+rvEyebrow:"Leurs mots",rvTitle:"Avis et récits personnels",rvSub:"Ce que les clients ont écrit eux-mêmes. Publié uniquement avec leur accord, sans détail de dossier.",rvCtaTitle:"Nous avons travaillé ensemble ?",rvCtaSub:"Un court avis Google aide les entreprises à trouver le cabinet. Deux minutes, le nom complet est facultatif.",rvCtaBtn:"Laisser un avis Google",socLbl:"Le brief quotidien paraît aussi sur les réseaux",
 svcMore:"Huit autres domaines — PI et marques, droit du travail, vie privée et données, associations, petits litiges, légalisation de signature, opérations transfrontalières et extraits fonciers",
 prEyebrow:"Accompagnement continu",prTitle:"Le service juridique de votre entreprise",prSub:"Un forfait mensuel fixe, construit autour des besoins réels de l'entreprise, sans surprise.",rs1h:"Entretien de découverte et cartographie des besoins",rs1p:"Sans frais ni engagement. Nous passons en revue ce que l'entreprise signe réellement et ce qui revient chaque mois.",rs2h:"Un cadre construit sur mesure",rs2p:"Pas de formules toutes faites. Le cadre est défini par le volume d'activité et par les domaines réellement pertinents.",rs3h:"Un forfait mensuel fixe",rs3p:"Convenu par écrit à l'avance et il reste fixe. Accompagnement juridique courant dans le cadre convenu — sans chronomètre et sans surprise sur la facture.",rpTitle:"Qu'est-ce qui compte pour votre entreprise ?",rpSub:"Cochez les domaines pertinents — ils entrent dans l'entretien, et le cadre se construit autour.",rpCta:"Prendre un entretien de découverte",rpNone:"Vous pouvez aussi ne rien cocher — nous verrons ensemble.",rpSome:"domaines sélectionnés",prNote:"Le forfait mensuel n'est fixé qu'une fois le volume d'activité compris. La représentation en justice est facturée séparément. Résiliation avec un préavis de 30 jours.",
 pfName:"Me Michael Berg",pfRole:"Associé fondateur",
@@ -2021,6 +2104,31 @@ applyLang = function(lang){
   render();
   var _prev=applyLang;
   applyLang=function(l){ _prev(l); setTimeout(render,240); };
+})();
+
+/* ================= ביקורות — רק מה שקיים באמת ב-content/reviews.json ================= */
+(function(){
+  var grid=$id("revGrid");
+  if(!grid) return;
+  var DATA=null;
+  var SRC={google:"Google",linkedin:"LinkedIn",direct:{he:"פנייה ישירה",en:"Direct",ru:"Напрямую",fr:"Direct"}};
+  function render(){
+    if(!DATA||!DATA.length){ grid.hidden=true; grid.innerHTML=""; return; }
+    grid.hidden=false;
+    grid.innerHTML=DATA.map(function(r){
+      var src=SRC[r.source]; if(src&&typeof src==="object") src=src[currentLang]||src.he;
+      return '<figure class="rev"><q>'+esc(r.quote)+'</q><figcaption class="who">'+
+        (r.name?'<b>'+esc(r.name)+'</b>':'')+
+        (r.role?'<span>'+esc(r.role)+'</span>':'')+
+        (src?'<span class="src">'+esc(src)+(r.date?' · '+esc(r.date):'')+'</span>':'')+
+        '</figcaption></figure>';
+    }).join("");
+  }
+  fetch("content/reviews.json").then(function(r){return r.json();}).then(function(d){
+    DATA=(d&&d.reviews)||[]; render();
+  }).catch(function(){ grid.hidden=true; });
+  var _p=applyLang;
+  applyLang=function(l){ _p(l); setTimeout(render,240); };
 })();
 </script>
 </body>
