@@ -1,4 +1,5 @@
 [build]
+  command = "node scripts/build-articles.js && node scripts/build-practice.js"
   publish = "."
 
 [[headers]]
