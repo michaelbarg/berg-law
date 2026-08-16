@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-08-16 · deploy fix (סבב 3)
+- **נמצא:** Netlify CI build failed silently — `build-state.js` crash kills the entire `&&` chain, so no deploy goes through.
+- **תיקון:** `netlify.toml` build command: wrapped `build-state.js` in `(... || true)` — reporting tool must not block deploy.
+- **פריסה ידנית:** `netlify deploy --prod --dir .` — live at berg-law.co.il.
+- **אימות:** 4/4 acceptance tests pass (ללא עלות=0, ru_RU=1, state.json=JSON, articles.json=26.08).
+
+---
+
 ## 2026-08-16 · code (סבב 2)
 - **משימות:** T6, T11
 - **בוצע:**

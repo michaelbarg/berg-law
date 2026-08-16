@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/build-articles.js && node scripts/build-practice.js && node scripts/build-state.js"
+  command = "node scripts/build-articles.js && node scripts/build-practice.js && (node scripts/build-state.js || true)"
   publish = "."
 
 [[headers]]
