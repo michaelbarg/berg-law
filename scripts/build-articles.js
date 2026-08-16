@@ -353,6 +353,24 @@ renderable.forEach(a => {
 });
 fs.writeFileSync(path.join(ROOT, "articles", "index.html"), indexTpl(published));
 
+/* ---------- inject top-3 cards into index.html ---------- */
+const INDEX_HTML = path.join(ROOT, "index.html");
+try {
+  const top3 = published.slice(0, 3);
+  const cards = top3.map(a =>
+    '      <article class="article"><div class="article-meta">' +
+    '<span class="tag">' + esc(a.tag.he) + '</span>' +
+    '<span class="stamp">' + a.date + '</span></div>' +
+    '<h3>' + esc(a.title.he) + '</h3>' +
+    '<p>' + esc(a.body.he) + '</p>' +
+    '<a class="read-more" href="/articles/' + a.slug + '.html"><span>לקריאת העדכון המלא</span> <span class="arr">←</span></a></article>'
+  ).join("\n");
+  let idx = fs.readFileSync(INDEX_HTML, "utf8");
+  idx = idx.replace(/<!-- BUILD:ARTICLES_GRID -->[\s\S]*?(?=<\/div>\s*<div class="articles-foot)/, cards + "\n");
+  fs.writeFileSync(INDEX_HTML, idx);
+  console.log("INJECTED top-3 article cards into index.html");
+} catch (e) { console.log("  ! index.html card injection skipped:", e.message); }
+
 /* ---------- sitemap ---------- */
 const newest = published.length ? iso(published[0].date) : null;
 const urls = [

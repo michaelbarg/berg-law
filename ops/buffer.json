@@ -1,0 +1,20 @@
+{
+  "linkedin": {
+    "channelId": "6a75d7bf99afb443491bfe1d",
+    "queued": 3,
+    "lastSentAt": null,
+    "lastCheckedAt": "2026-08-16T10:50:00Z"
+  },
+  "gbp": {
+    "channelId": "6a7dc920b2d9d577436d768d",
+    "queued": 6,
+    "lastSentAt": null,
+    "lastCheckedAt": "2026-08-16T10:50:00Z"
+  },
+  "instagram": {
+    "channelId": null,
+    "queued": 0,
+    "lastSentAt": null,
+    "lastCheckedAt": null
+  }
+}

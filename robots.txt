@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /studio/
 Disallow: /ig/
+Disallow: /ops/
 
 Sitemap: https://berg-law.co.il/sitemap.xml

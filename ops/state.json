@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-08-16T15:31:52.711Z",
+  "git": {
+    "sha": "7f62df52b7c3637b1d991226f2c9d73840773a99",
+    "committedAt": "2026-08-16T13:54:10+03:00",
+    "branch": "main"
+  },
+  "articles": {
+    "total": 23,
+    "newest": "26.08.2026",
+    "lastScheduled": "26.08.2026",
+    "runwayDays": 10,
+    "missingSlug": [],
+    "missingFullPage": [],
+    "incompleteTranslations": []
+  },
+  "pages": {
+    "fullBodies": 23,
+    "practice": 14,
+    "articles": 23
+  },
+  "buffer": {
+    "linkedin": {
+      "channelId": "6a75d7bf99afb443491bfe1d",
+      "queued": 3,
+      "lastSentAt": null,
+      "lastCheckedAt": "2026-08-16T10:50:00Z"
+    },
+    "gbp": {
+      "channelId": "6a7dc920b2d9d577436d768d",
+      "queued": 6,
+      "lastSentAt": null,
+      "lastCheckedAt": "2026-08-16T10:50:00Z"
+    },
+    "instagram": {
+      "channelId": null,
+      "queued": 0,
+      "lastSentAt": null,
+      "lastCheckedAt": null
+    }
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "חידוש טוקן Netlify — \"cluade\" פג 21.08",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "User settings → Applications → Personal access tokens. ליצור חדש ולעדכן."
+    },
+    {
+      "id": "T4",
+      "title": "פסקת רומנטקס — החלטה פומבית",
+      "status": "done",
+      "owner": "michael",
+      "note": "מייקל אישר 16.08: להשאיר כמות שהיא. הסיפור צריך להישמע."
+    },
+    {
+      "id": "T5",
+      "title": "זמני תגובה פומביים — 24 שעות / 8 שעות עבודה",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "התחייבות פומבית. ממתין לתשובת מייקל אם לשנות."
+    },
+    {
+      "id": "T6",
+      "title": "מטא — og:description, theme-color, og:locale",
+      "status": "done",
+      "owner": "code",
+      "note": "בוצע 16.08: og:description עודכן, locale כבר תקין."
+    },
+    {
+      "id": "T7",
+      "title": "Buffer — לינקדאין 10.09 + GBP 27.08 שנתקעו במגבלת 10",
+      "status": "todo",
+      "owner": "code",
+      "note": "לדחוף כשמתפנה מקום. מגבלת free-tier: 10 מתוזמנים."
+    },
+    {
+      "id": "T8",
+      "title": "ניקיון claude/pending-queue.md — רשומות 09.08 ו-10.08 לסמן בוטלה",
+      "status": "cancelled",
+      "owner": "code",
+      "note": "תיקייה claude/ לא קיימת בריפו. pending-queue.md לא נמצא."
+    },
+    {
+      "id": "T10",
+      "title": "תיקיית claude/ חשופה בריפו ציבורי",
+      "status": "cancelled",
+      "owner": "michael",
+      "note": "תיקייה לא קיימת — אין חשיפה."
+    },
+    {
+      "id": "T11",
+      "title": "Disallow /ops/ ב-robots.txt ומחוץ לסייטמאפ",
+      "status": "done",
+      "owner": "code",
+      "note": "robots.txt עודכן 16.08. ops/ לא בסייטמאפ."
+    }
+  ]
+}
