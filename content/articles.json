@@ -1,5 +1,345 @@
 [
  {
+  "date": "26.08.2026",
+  "slug": "nda-what-it-protects",
+  "tag": {
+   "he": "חוזים",
+   "en": "Contracts",
+   "ru": "Договоры",
+   "fr": "Contrats"
+  },
+  "title": {
+   "he": "הסכם סודיות: מה הוא באמת מגן עליו — ומה לא",
+   "en": "An NDA: what it actually protects — and what it does not",
+   "ru": "Соглашение о неразглашении: что оно защищает на самом деле",
+   "fr": "Accord de confidentialité : ce qu'il protège vraiment — et ce qu'il ne protège pas"
+  },
+  "body": {
+   "he": "הסכם סודיות מגן על מידע שהוגדר, סומן ונמסר בתנאי סודיות. הוא כמעט לא מגן על רעיון כללי, על ידע שכבר פומבי, או על מה שנאמר בפגישה שהתקיימה לפני החתימה. שלושה תיקונים שהופכים אותו ממסמך טקסי לכלי שאפשר להישען עליו.",
+   "en": "A non-disclosure agreement protects information that was defined, marked and delivered in confidence. It offers little protection for a general idea, for knowledge already in the public domain, or for whatever was said in a meeting held before it was signed. Three amendments that turn it from a ceremonial document into a usable tool.",
+   "ru": "Соглашение о неразглашении защищает информацию, которая была определена, помечена и передана в режиме конфиденциальности. Оно почти не защищает общую идею, уже публичные сведения или то, что прозвучало на встрече до подписания. Три правки, превращающие его в реальный инструмент.",
+   "fr": "Un accord de confidentialité protège l'information définie, identifiée et transmise sous condition de confidentialité. Il ne protège guère une idée générale, un savoir déjà public, ou ce qui a été dit lors d'une réunion antérieure à sa signature. Trois correctifs qui en font un outil réel."
+  },
+  "gzTag": {
+   "he": "פסיקה",
+   "en": "Case law",
+   "ru": "Судебная практика",
+   "fr": "Jurisprudence"
+  },
+  "gzTitle": {
+   "he": "אכיפת הסכמי סודיות — מגמות בבתי המשפט",
+   "en": "Enforcing confidentiality agreements — court trends",
+   "ru": "Исполнение соглашений о неразглашении — тенденции судов",
+   "fr": "L'exécution des accords de confidentialité — tendances"
+  }
+ },
+ {
+  "date": "25.08.2026",
+  "slug": "foreign-resident-starting-business-israel",
+  "tag": {
+   "he": "עולים ותושבי חוץ",
+   "en": "Olim & Foreign Residents",
+   "ru": "Репатрианты и нерезиденты",
+   "fr": "Olim et résidents étrangers"
+  },
+  "title": {
+   "he": "תושב חוץ שפותח עסק בישראל: עוסק, חברה או חברה זרה",
+   "en": "A foreign resident opening a business in Israel: sole trader, company or foreign entity",
+   "ru": "Нерезидент открывает бизнес в Израиле: ИП, компания или иностранное лицо",
+   "fr": "Un non-résident ouvre une activité en Israël : entrepreneur, société ou entité étrangère"
+  },
+  "body": {
+   "he": "הבחירה בין עוסק, חברה ישראלית או רישום חברה זרה משפיעה על אחריות אישית, על היקף הדיווח ועל היכולת לפתוח חשבון בנק ולהתקשר עם ספקים. מה נדרש בדרך כלל כשבעל השליטה אינו תושב ישראל, ומה עדיף להסדיר לפני הרישום ולא אחריו.",
+   "en": "The choice between a sole trader registration, an Israeli company or registering a foreign entity affects personal liability, reporting scope and the practical ability to open a bank account and contract with suppliers. What is generally required when the controlling owner is not an Israeli resident, and what is better settled before registration rather than after.",
+   "ru": "Выбор между статусом ИП, израильской компанией или регистрацией иностранной компании влияет на личную ответственность, объём отчётности и возможность открыть счёт и работать с поставщиками. Что обычно требуется, когда контролирующий владелец не является резидентом Израиля.",
+   "fr": "Le choix entre le statut d'entrepreneur, une société israélienne ou l'enregistrement d'une entité étrangère influe sur la responsabilité personnelle, l'étendue des déclarations et la capacité à ouvrir un compte bancaire. Ce qui est généralement exigé lorsque le dirigeant n'est pas résident israélien."
+  },
+  "gzTag": {
+   "he": "רגולציה",
+   "en": "Regulation",
+   "ru": "Регулирование",
+   "fr": "Réglementation"
+  },
+  "gzTitle": {
+   "he": "רישום עסקים בבעלות זרה — דרישות מתעדכנות",
+   "en": "Registering foreign-owned businesses — evolving requirements",
+   "ru": "Регистрация бизнеса с иностранным участием — новые требования",
+   "fr": "Enregistrement d'entreprises à capitaux étrangers — exigences actualisées"
+  }
+ },
+ {
+  "date": "24.08.2026",
+  "slug": "director-duties-small-company",
+  "tag": {
+   "he": "דיני חברות",
+   "en": "Corporate Law",
+   "ru": "Корпоративное право",
+   "fr": "Droit des sociétés"
+  },
+  "title": {
+   "he": "דירקטור בחברה קטנה: מה בעצם מוטל עליך",
+   "en": "A director in a small company: what is actually expected of you",
+   "ru": "Директор малой компании: что на вас на самом деле возложено",
+   "fr": "Administrateur d'une petite société : ce qui pèse réellement sur vous"
+  },
+  "body": {
+   "he": "חובת הזהירות וחובת האמונים חלות גם כשהדירקטוריון הוא שני שותפים סביב שולחן במטבח. מה נדרש בפועל — עיון במידע לפני החלטה, גילוי עניין אישי, והימנעות מהצבעה במצב ניגוד — ולמה פרוטוקול קצר הוא ההגנה הזולה ביותר שקיימת.",
+   "en": "The duty of care and the duty of loyalty apply even when the board is two partners around a kitchen table. What is required in practice — reviewing the information before deciding, disclosing a personal interest, and abstaining where there is a conflict — and why a short set of minutes is the cheapest protection available.",
+   "ru": "Обязанность осмотрительности и обязанность лояльности действуют, даже когда совет директоров — это два партнёра за кухонным столом. Что требуется на практике: изучить информацию до решения, раскрыть личный интерес и воздержаться при конфликте.",
+   "fr": "Le devoir de prudence et le devoir de loyauté s'appliquent même lorsque le conseil se résume à deux associés autour d'une table. Ce qui est exigé en pratique : examiner l'information avant de décider, déclarer un intérêt personnel, s'abstenir en cas de conflit."
+  },
+  "gzTag": {
+   "he": "פסיקה",
+   "en": "Case law",
+   "ru": "Судебная практика",
+   "fr": "Jurisprudence"
+  },
+  "gzTitle": {
+   "he": "אחריות דירקטורים בחברות פרטיות — התפתחויות",
+   "en": "Director liability in private companies — developments",
+   "ru": "Ответственность директоров в частных компаниях — развитие",
+   "fr": "Responsabilité des administrateurs en société privée — évolutions"
+  }
+ },
+ {
+  "date": "23.08.2026",
+  "slug": "marketing-emails-consent",
+  "tag": {
+   "he": "הגנת הפרטיות",
+   "en": "Privacy",
+   "ru": "Защита данных",
+   "fr": "Vie privée"
+  },
+  "title": {
+   "he": "דיוור שיווקי ללקוחות: הסכמה, הסרה ותיעוד",
+   "en": "Marketing messages to customers: consent, opt-out and record-keeping",
+   "ru": "Маркетинговая рассылка клиентам: согласие, отписка и учёт",
+   "fr": "Prospection commerciale : consentement, désinscription et traçabilité"
+  },
+  "body": {
+   "he": "משלוח פרסומת בדוא\"ל, ב-SMS או בוואטסאפ מחייב הסכמה מראש ואפשרות הסרה פשוטה ומיידית — והנטל להראות שההסכמה אכן ניתנה מוטל על השולח. מה נחשב הסכמה תקפה, מה לא, ואיזה שדה כדאי שיהיה בכל רשומה במאגר הלקוחות.",
+   "en": "Sending promotional messages by email, SMS or WhatsApp requires prior consent and a simple, immediate opt-out — and the burden of showing consent was given rests on the sender. What counts as valid consent, what does not, and which field belongs in every record in your customer database.",
+   "ru": "Отправка рекламы по электронной почте, SMS или WhatsApp требует предварительного согласия и простой мгновенной отписки, а бремя доказывания согласия лежит на отправителе. Что считается действительным согласием и какое поле должно быть в каждой записи базы.",
+   "fr": "L'envoi de messages publicitaires par courriel, SMS ou WhatsApp suppose un consentement préalable et une désinscription simple et immédiate — la charge de la preuve incombant à l'expéditeur. Ce qui constitue un consentement valable, et le champ à prévoir dans chaque fiche client."
+  },
+  "gzTag": {
+   "he": "חקיקה",
+   "en": "Legislation",
+   "ru": "Законодательство",
+   "fr": "Législation"
+  },
+  "gzTitle": {
+   "he": "דיוור פרסומי ואכיפה — מגמות רגולטוריות",
+   "en": "Promotional messaging and enforcement — regulatory trends",
+   "ru": "Рекламные рассылки и правоприменение — тенденции",
+   "fr": "Messages promotionnels et sanctions — tendances réglementaires"
+  }
+ },
+ {
+  "date": "22.08.2026",
+  "slug": "small-claims-what-decides",
+  "tag": {
+   "he": "תביעות קטנות",
+   "en": "Small Claims",
+   "ru": "Малые иски",
+   "fr": "Petits litiges"
+  },
+  "title": {
+   "he": "תביעה קטנה: מה באמת מכריע בדיון",
+   "en": "Small claims: what actually decides the hearing",
+   "ru": "Малый иск: что действительно решает исход слушания",
+   "fr": "Petit litige : ce qui décide vraiment à l'audience"
+  },
+  "body": {
+   "he": "בתביעות קטנות בעל הדין מופיע בעצמו, וזה בדיוק מה שהופך את ההכנה לקריטית. מה שמכריע הוא כמעט אף פעם לא רהיטות אלא סדר: כרונולוגיה ברורה, מסמכים ממוספרים ומסומנים, וסכום שאפשר להסביר במשפט אחד.",
+   "en": "In small claims the party appears in person, which is exactly what makes preparation decisive. What wins is almost never eloquence but order: a clear chronology, numbered and labelled documents, and a sum you can explain in one sentence.",
+   "ru": "В производстве по малым искам сторона выступает лично — именно поэтому подготовка решает всё. Побеждает не красноречие, а порядок: понятная хронология, пронумерованные документы и сумма, объяснимая одной фразой.",
+   "fr": "Devant la juridiction des petits litiges, la partie comparaît en personne — c'est précisément ce qui rend la préparation décisive. Ce qui l'emporte n'est pas l'éloquence mais l'ordre : chronologie claire, pièces numérotées, montant explicable en une phrase."
+  },
+  "gzTag": {
+   "he": "רגולציה",
+   "en": "Regulation",
+   "ru": "Регулирование",
+   "fr": "Réglementation"
+  },
+  "gzTitle": {
+   "he": "בתי משפט לתביעות קטנות — נהלי דיון ועומסים",
+   "en": "Small claims courts — procedure and caseload",
+   "ru": "Суды по малым искам — процедура и нагрузка",
+   "fr": "Juridictions de petits litiges — procédure et charge"
+  }
+ },
+ {
+  "date": "21.08.2026",
+  "slug": "registering-a-nonprofit-israel",
+  "tag": {
+   "he": "עמותות ומלכ\"רים",
+   "en": "Nonprofits",
+   "ru": "НКО",
+   "fr": "Associations"
+  },
+  "title": {
+   "he": "רישום עמותה: מטרות, ועד וניגוד עניינים — מה נקבע כבר ביום הראשון",
+   "en": "Registering an Israeli nonprofit: purposes, board and conflicts — decided on day one",
+   "ru": "Регистрация НКО в Израиле: цели, правление и конфликт интересов",
+   "fr": "Créer une association en Israël : objets, conseil et conflits d'intérêts"
+  },
+  "body": {
+   "he": "ניסוח המטרות בתקנון קובע מה העמותה תוכל לעשות שנים קדימה, והרכב הוועד וועדת הביקורת קובע אם יתקבל אישור ניהול תקין. שלוש טעויות נפוצות בהקמה שמתגלות רק כשמבקשים תמיכה ציבורית או תרומה משמעותית.",
+   "en": "The way the purposes are drafted in the articles determines what the nonprofit may do for years to come, and the composition of the board and audit committee determines whether proper-management approval will be granted. Three common founding mistakes that surface only when applying for public funding or a significant donation.",
+   "ru": "Формулировка целей в уставе определяет, чем организация сможет заниматься годы спустя, а состав правления и ревизионной комиссии — получит ли она сертификат надлежащего управления. Три частые ошибки при создании.",
+   "fr": "La rédaction des objets statutaires détermine ce que l'association pourra faire des années durant, et la composition du conseil et du comité d'audit conditionne l'obtention du certificat de bonne gestion. Trois erreurs fréquentes à la création."
+  },
+  "gzTag": {
+   "he": "רגולציה",
+   "en": "Regulation",
+   "ru": "Регулирование",
+   "fr": "Réglementation"
+  },
+  "gzTitle": {
+   "he": "רשם העמותות — דרישות ניהול תקין מתעדכנות",
+   "en": "Registrar of Nonprofits — proper-management requirements updated",
+   "ru": "Реестр НКО — обновление требований к управлению",
+   "fr": "Registre des associations — exigences de gestion actualisées"
+  }
+ },
+ {
+  "date": "20.08.2026",
+  "slug": "preliminary-agreement-binding",
+  "tag": {
+   "he": "מקרקעין",
+   "en": "Real Estate",
+   "ru": "Недвижимость",
+   "fr": "Immobilier"
+  },
+  "title": {
+   "he": "זיכרון דברים: המסמך ה\"לא מחייב\" שכן מחייב",
+   "en": "The preliminary agreement: the “non-binding” document that binds",
+   "ru": "Предварительное соглашение: «необязывающий» документ, который обязывает",
+   "fr": "L'avant-contrat : le document « non contraignant » qui engage"
+  },
+  "body": {
+   "he": "זיכרון דברים שמפרט צדדים, נכס, מחיר ומועד עשוי להיחשב חוזה מחייב לכל דבר — גם אם נכתב בו שייחתם הסכם מפורט בהמשך. מה הופך אותו למחייב, אילו חובות דיווח עשויות להתחיל לרוץ ממועד החתימה, ולמה במקרים רבים עדיף פשוט לא לחתום עליו.",
+   "en": "A preliminary agreement that names the parties, the property, the price and the date may amount to a fully binding contract — even if it states that a detailed agreement will follow. What makes it binding, which reporting duties may start running from the signing date, and why in many cases it is better not to sign one at all.",
+   "ru": "Предварительное соглашение с указанием сторон, объекта, цены и срока может быть признано полноценным договором, даже если в нём сказано, что позже будет подписан подробный контракт. Что делает его обязывающим и какие обязанности по отчётности могут начаться с момента подписания.",
+   "fr": "Un avant-contrat mentionnant les parties, le bien, le prix et la date peut valoir contrat pleinement contraignant, même s'il annonce un accord détaillé à venir. Ce qui le rend contraignant, quelles obligations déclaratives peuvent courir dès la signature."
+  },
+  "gzTag": {
+   "he": "פסיקה",
+   "en": "Case law",
+   "ru": "Судебная практика",
+   "fr": "Jurisprudence"
+  },
+  "gzTitle": {
+   "he": "זיכרון דברים בעסקאות מקרקעין — הגישה בפסיקה",
+   "en": "Preliminary agreements in property deals — the judicial approach",
+   "ru": "Предварительные соглашения в сделках с недвижимостью — практика",
+   "fr": "Avant-contrats immobiliers — l'approche jurisprudentielle"
+  }
+ },
+ {
+  "date": "19.08.2026",
+  "slug": "employee-or-freelancer-tests",
+  "tag": {
+   "he": "דיני עבודה",
+   "en": "Employment Law",
+   "ru": "Трудовое право",
+   "fr": "Droit du travail"
+  },
+  "title": {
+   "he": "עובד או פרילנסר? הכותרת בחוזה לא מכריעה",
+   "en": "Employee or freelancer? The label on the contract does not decide",
+   "ru": "Работник или фрилансер? Название договора ничего не решает",
+   "fr": "Salarié ou indépendant ? L'intitulé du contrat ne décide de rien"
+  },
+  "body": {
+   "he": "בית הדין בוחן את מהות היחסים בפועל ולא את שם ההסכם: מידת ההשתלבות בעסק, התלות הכלכלית, מי קובע את סדר היום ומי נושא בסיכון. הכרה בדיעבד ביחסי עובד-מעסיק יוצרת חבות רטרואקטיבית — ואיך לבנות התקשרות שמשקפת באמת את מה שקורה בשטח.",
+   "en": "The labour court examines the substance of the relationship rather than the name of the agreement: how integrated the person is in the business, economic dependence, who sets the agenda and who carries the risk. A retroactive finding of employment creates retroactive liability — and how to structure an engagement that genuinely reflects reality.",
+   "ru": "Суд по труду смотрит на суть отношений, а не на название договора: степень интеграции в бизнес, экономическая зависимость, кто определяет распорядок и кто несёт риск. Признание трудовых отношений задним числом порождает ретроактивные обязательства.",
+   "fr": "Le tribunal du travail examine la substance de la relation, non l'intitulé du contrat : intégration dans l'entreprise, dépendance économique, qui fixe l'agenda et qui porte le risque. Une requalification rétroactive engendre une dette rétroactive."
+  },
+  "gzTag": {
+   "he": "פסיקה",
+   "en": "Case law",
+   "ru": "Судебная практика",
+   "fr": "Jurisprudence"
+  },
+  "gzTitle": {
+   "he": "סיווג יחסי עבודה מול פרילנסרים — מגמות בבתי הדין",
+   "en": "Classifying freelancers as employees — trends in the labour courts",
+   "ru": "Квалификация отношений с фрилансерами — тенденции судов",
+   "fr": "Requalification des indépendants — tendances des tribunaux"
+  }
+ },
+ {
+  "date": "18.08.2026",
+  "slug": "jurisdiction-and-governing-law-clause",
+  "tag": {
+   "he": "חוזים",
+   "en": "Contracts",
+   "ru": "Договоры",
+   "fr": "Contrats"
+  },
+  "title": {
+   "he": "סעיף שיפוט וברירת דין: שתי שורות שקובעות כמה יעלה לכם סכסוך",
+   "en": "Jurisdiction and governing law: two lines that decide what a dispute will cost you",
+   "ru": "Подсудность и применимое право: две строки, определяющие цену спора",
+   "fr": "Compétence et loi applicable : deux lignes qui fixent le coût d'un litige"
+  },
+  "body": {
+   "he": "היכן יידון סכסוך ולפי דין של איזו מדינה — שתי שורות שנקבעות בשקט בסוף החוזה ומשפיעות על עלות ההליך יותר מכמעט כל סעיף אחר. מה ההבדל בין סמכות ייחודית למקבילה, מתי בוררות עדיפה, ולמה כדאי להסתכל על הסעיף הזה לפני שמסתכלים על המחיר.",
+   "en": "Where a dispute will be heard and under which country's law — two lines quietly settled at the end of the contract that affect the cost of proceedings more than almost any other clause. The difference between exclusive and concurrent jurisdiction, when arbitration is preferable, and why this clause deserves attention before the price does.",
+   "ru": "Где будет рассматриваться спор и по праву какой страны — две строки в конце договора, влияющие на стоимость процесса сильнее почти любого другого пункта. Разница между исключительной и альтернативной подсудностью и когда предпочтителен арбитраж.",
+   "fr": "Où le litige sera jugé et selon quel droit — deux lignes discrètes en fin de contrat qui pèsent sur le coût de la procédure plus que presque toute autre clause. Compétence exclusive ou concurrente, et quand l'arbitrage est préférable."
+  },
+  "gzTag": {
+   "he": "פסיקה",
+   "en": "Case law",
+   "ru": "Судебная практика",
+   "fr": "Jurisprudence"
+  },
+  "gzTitle": {
+   "he": "תניות שיפוט בחוזים מסחריים — לאן נוטים בתי המשפט",
+   "en": "Jurisdiction clauses in commercial contracts — where courts lean",
+   "ru": "Оговорки о подсудности в коммерческих договорах — позиция судов",
+   "fr": "Clauses attributives de compétence — l'orientation des tribunaux"
+  }
+ },
+ {
+  "date": "17.08.2026",
+  "slug": "trademark-search-before-launch",
+  "tag": {
+   "he": "קניין רוחני",
+   "en": "Intellectual Property",
+   "ru": "Интеллектуальная собственность",
+   "fr": "Propriété intellectuelle"
+  },
+  "title": {
+   "he": "בדקתם שהשם פנוי? חיפוש בגוגל הוא לא בדיקת סימן מסחר",
+   "en": "Checked the name is free? A Google search is not a trademark search",
+   "ru": "Проверили, свободно ли имя? Поиск в Google — не проверка товарного знака",
+   "fr": "Le nom est libre ? Une recherche Google n'est pas une recherche de marque"
+  },
+  "body": {
+   "he": "דומיין פנוי ושם משתמש פנוי ברשתות אינם אומרים שהשם פנוי לרישום. בדיקה אמיתית נעשית במאגר רשם סימני המסחר, לפי סיווג הסחורות והשירותים, ובוחנת גם דמיון מטעה ולא רק זהות. מה כדאי לבדוק לפני שמזמינים שילוט, אריזות ואתר.",
+   "en": "A free domain and an available social handle do not mean the name is free to register. A real check is run against the trademark registry, by class of goods and services, and looks for confusing similarity rather than identity alone. What to verify before ordering signage, packaging and a website.",
+   "ru": "Свободный домен и незанятый ник в соцсетях не означают, что имя свободно для регистрации. Настоящая проверка ведётся по реестру товарных знаков, по классам товаров и услуг, и учитывает сходство до степени смешения.",
+   "fr": "Un domaine libre et un identifiant social disponible ne signifient pas que le nom est enregistrable. La vraie vérification se fait au registre des marques, par classe de produits et services, et recherche la similitude prêtant à confusion."
+  },
+  "gzTag": {
+   "he": "קניין רוחני",
+   "en": "Intellectual Property",
+   "ru": "Интеллектуальная собственность",
+   "fr": "Propriété intellectuelle"
+  },
+  "gzTitle": {
+   "he": "רישום סימני מסחר — הליכי בחינה ומועדי התנגדות",
+   "en": "Trademark registration — examination and opposition timelines",
+   "ru": "Регистрация товарных знаков — экспертиза и сроки возражений",
+   "fr": "Enregistrement des marques — examen et délais d'opposition"
+  }
+ },
+ {
   "date": "16.08.2026",
   "slug": "dismissal-hearing-done-right",
   "tag": {
