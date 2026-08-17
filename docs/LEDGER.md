@@ -2,6 +2,20 @@
 
 ---
 
+## 2026-08-17 · E-E-A-T: author + schema (סבב 4)
+- **בוצע:**
+  - ישות ארגון: `@type` → `Attorney`, `@id` → `#org`, `availableLanguage`, `areaServed` → `IL`
+  - ישות מחבר: `Person` `#michael-berg` with `knowsAbout`, `worksFor` → `#org`
+  - סכמת כתבה: `Article` → `BlogPosting` with `@id` refs (author/publisher), `isAccessibleForFree`
+  - חתימת מחבר: `<div class="byline">` עם קישור ל-`/about-michael-berg`, תאריך, tag — בכל 23 הכתבות
+  - עמוד מחבר: `/about-michael-berg` — תואר, רקע עסקי, תחומי עיסוק, 4 שפות (מתוכן קיים בלבד)
+  - סייטמאפ: 31 → 33 URLs (+about-michael-berg +1 new article)
+  - בילד: וולידציה אוטומטית — 23/23 עמודים (BlogPosting + author + JSON-LD parse + no duplicate @id)
+- **אימות חי:** 5/5 — michael-berg=2 · BlogPosting=1 · about-page=200 · #org=2 · byline=1
+- **לא נוסף:** שנת הסמכה, מספר רישיון, שנות ותק (לא מאומתים)
+
+---
+
 ## 2026-08-16 · deploy fix (סבב 3)
 - **נמצא:** Netlify CI build failed silently — `build-state.js` crash kills the entire `&&` chain, so no deploy goes through.
 - **תיקון:** `netlify.toml` build command: wrapped `build-state.js` in `(... || true)` — reporting tool must not block deploy.
