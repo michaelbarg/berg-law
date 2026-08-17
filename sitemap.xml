@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://berg-law.co.il/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://berg-law.co.il/articles/</loc><lastmod>2026-08-16</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://berg-law.co.il/articles/</loc><lastmod>2026-08-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://berg-law.co.il/practice/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://berg-law.co.il/about-michael-berg</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://berg-law.co.il/legal.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://berg-law.co.il/practice/signature-verification.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://berg-law.co.il/practice/business-retainer.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -18,6 +19,7 @@
   <url><loc>https://berg-law.co.il/practice/privacy-data.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://berg-law.co.il/practice/cross-border.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://berg-law.co.il/practice/tabu-documents.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://berg-law.co.il/articles/trademark-search-before-launch.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://berg-law.co.il/articles/dismissal-hearing-done-right.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://berg-law.co.il/articles/cross-border-inheritance.html</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://berg-law.co.il/articles/liquidated-damages-clause.html</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

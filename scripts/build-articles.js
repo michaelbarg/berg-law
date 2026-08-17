@@ -104,16 +104,17 @@ ${future ? '<meta name="robots" content="noindex,follow">\n' : ""}${FAVICON}
 <meta property="og:locale" content="he_IL">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article",
+{"@context":"https://schema.org","@type":"BlogPosting",
+"@id":"${SITE}/articles/${slug}#article",
+"mainEntityOfPage":"${SITE}/articles/${slug}.html",
 "headline":${JSON.stringify(a.title.he)},
 "description":${JSON.stringify(a.body.he)},
 "datePublished":"${iso(a.date)}","dateModified":"${iso(a.date)}",
 "inLanguage":"he-IL","articleSection":${JSON.stringify(a.tag.he)},
-"image":"${SITE}/og.jpg",
-"author":{"@type":"Person","name":"מייקל ברג","jobTitle":"עורך דין","url":"${SITE}/#about"},
-"publisher":{"@type":"LegalService","name":"ברג ושות׳ — משרד עורכי דין","url":"${SITE}"},
-"isPartOf":{"@type":"Blog","name":"עדכונים משפטיים","@id":"${SITE}/articles/"},
-"mainEntityOfPage":{"@type":"WebPage","@id":"${SITE}/articles/${slug}.html"}}
+"isAccessibleForFree":true,
+"author":{"@id":"https://berg-law.co.il/#michael-berg"},
+"publisher":{"@id":"https://berg-law.co.il/#org"},
+"isPartOf":{"@type":"Blog","name":"עדכונים משפטיים","@id":"${SITE}/articles/"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -124,8 +125,12 @@ ${future ? '<meta name="robots" content="noindex,follow">\n' : ""}${FAVICON}
 ${FONTS}
 <style>${BASE_CSS}
 main{max-width:730px;margin:0 auto;padding:54px 22px 24px}
-.meta{display:flex;gap:14px;align-items:baseline;font-size:13px;color:var(--slate);margin-bottom:18px;flex-wrap:wrap}
-h1{font-size:clamp(28px,4.2vw,39px);line-height:1.36;margin-bottom:22px}
+h1{font-size:clamp(28px,4.2vw,39px);line-height:1.36;margin-bottom:14px}
+.byline{display:flex;gap:8px;align-items:baseline;font-size:13.5px;color:var(--slate);margin-bottom:26px;flex-wrap:wrap}
+.byline a{color:var(--slate);text-decoration:none;border-bottom:1px solid var(--silver)}
+.byline a:hover{color:var(--blush-deep);border-color:var(--blush-deep)}
+.byline-sep{color:var(--silver)}
+.byline-tag{font-weight:600;color:var(--silver-deep)}
 .lead{font-family:var(--display);font-size:19.5px;color:var(--slate);line-height:1.8;
   border-inline-start:2px solid var(--blush-deep);padding-inline-start:19px;margin-bottom:8px}
 .lead-rule{border:none;width:74px;border-top:1px solid var(--silver-deep);position:relative;margin:30px 0 34px}
@@ -166,8 +171,14 @@ article b{font-weight:600;color:var(--ink)}
 ${HEADER}
 <main>
 <div class="crumb"><a href="/">דף הבית</a> › <a href="/articles/">עדכונים משפטיים</a> › ${esc(a.tag.he)}</div>
-<div class="meta"><span class="chip">${esc(a.tag.he)}</span><span>${esc(a.date)}</span><span>עו״ד מייקל ברג</span></div>
 <h1>${esc(a.title.he)}</h1>
+<div class="byline">
+  <span class="byline-author">מאת <a href="/about-michael-berg" rel="author">עו״ד מייקל ברג</a></span>
+  <span class="byline-sep">·</span>
+  <time datetime="${iso(a.date)}">${esc(a.date)}</time>
+  <span class="byline-sep">·</span>
+  <span class="byline-tag">${esc(a.tag.he)}</span>
+</div>
 <p class="lead">${esc(a.body.he)}</p>
 <hr class="lead-rule">
 <article>
@@ -212,8 +223,8 @@ ${FAVICON}
 {"@context":"https://schema.org","@type":"Blog","@id":"${SITE}/articles/",
 "name":"עדכונים משפטיים — ברג ושות׳","inLanguage":"he-IL","url":"${SITE}/articles/",
 "description":"פסיקה, חקיקה ותקנות בשפה פשוטה, עם השורה התחתונה לעסק.",
-"publisher":{"@type":"LegalService","name":"ברג ושות׳ — משרד עורכי דין","url":"${SITE}"},
-"blogPost":[${list.map(a => `{"@type":"BlogPosting","headline":${JSON.stringify(a.title.he)},"url":"${SITE}/articles/${a.slug}.html","datePublished":"${iso(a.date)}","articleSection":${JSON.stringify(a.tag.he)},"author":{"@type":"Person","name":"מייקל ברג"}}`).join(",")}]}
+"publisher":{"@id":"https://berg-law.co.il/#org"},
+"blogPost":[${list.map(a => `{"@type":"BlogPosting","headline":${JSON.stringify(a.title.he)},"url":"${SITE}/articles/${a.slug}.html","datePublished":"${iso(a.date)}","articleSection":${JSON.stringify(a.tag.he)},"author":{"@id":"https://berg-law.co.il/#michael-berg"}}`).join(",")}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -377,6 +388,7 @@ const urls = [
   { loc: SITE + "/", pri: "1.0", freq: "daily" },
   { loc: SITE + "/articles/", pri: "0.9", freq: "daily", mod: newest },
   { loc: SITE + "/practice/", pri: "0.9", freq: "monthly" },
+  { loc: SITE + "/about-michael-berg", pri: "0.7", freq: "monthly" },
   { loc: SITE + "/legal.html", pri: "0.3", freq: "yearly" }
 ];
 /* עמודי תחומי העיסוק — נבנים ב-build-practice.js, נכנסים לסייטמאפ כאן */
@@ -390,6 +402,125 @@ const body = urls.map(u =>
   "<changefreq>" + u.freq + "</changefreq><priority>" + u.pri + "</priority></url>").join("\n");
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "\n</urlset>\n");
+
+/* ---------- author page: /about-michael-berg ---------- */
+const authorPage = `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>עו״ד מייקל ברג — ברג ושות׳ משרד עורכי דין</title>
+<meta name="description" content="עורך דין, חבר לשכת עורכי הדין בישראל, העוסק בליווי משפטי שוטף לעסקים, בדיני חוזים ובמקרקעין. ארבע שפות: עברית, אנגלית, רוסית וצרפתית.">
+<meta name="theme-color" content="#0F2A21">
+<link rel="canonical" href="${SITE}/about-michael-berg">
+${FAVICON}
+<meta property="og:type" content="profile">
+<meta property="og:title" content="עו״ד מייקל ברג — ברג ושות׳ משרד עורכי דין">
+<meta property="og:url" content="${SITE}/about-michael-berg">
+<meta property="og:image" content="${SITE}/og.jpg">
+<meta property="og:locale" content="he_IL">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person",
+"@id":"https://berg-law.co.il/#michael-berg",
+"name":"מייקל ברג","jobTitle":"עורך דין",
+"url":"https://berg-law.co.il/about-michael-berg",
+"worksFor":{"@id":"https://berg-law.co.il/#org"},
+"knowsAbout":["דיני חוזים","דיני חברות","מקרקעין","דיני עבודה","קניין רוחני","הגנת הפרטיות"],
+"sameAs":["https://www.linkedin.com/in/michael-barg-passparto/"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ברג ושות׳","item":"${SITE}/"},
+{"@type":"ListItem","position":2,"name":"עו״ד מייקל ברג"}]}
+</script>
+${FONTS}
+<style>${BASE_CSS}
+main{max-width:730px;margin:0 auto;padding:54px 22px 24px}
+h1{font-size:clamp(28px,4.2vw,39px);line-height:1.36;margin-bottom:22px}
+.bio p{margin-bottom:17px;line-height:1.85}
+.creds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:32px 0}
+.cred-card{border:1px solid var(--line-strong);padding:20px 22px}
+.cred-card b{display:block;font-family:var(--display);font-size:17px;margin-bottom:6px}
+.cred-card span{font-size:14px;color:var(--slate)}
+.areas{margin:36px 0}
+.areas h2{font-size:21px;margin-bottom:14px;color:var(--verde)}
+.areas ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.areas li{border:1px solid var(--silver-deep);color:var(--silver-deep);padding:8px 18px;font-size:14px;font-weight:600}
+.articles-link{display:inline-block;margin-top:36px;border:1px solid var(--silver-deep);color:var(--silver-deep);
+  padding:13px 26px;text-decoration:none;font-weight:600;font-size:14px;transition:all .3s}
+.articles-link:hover{background:var(--graphite);border-color:var(--graphite);color:var(--silver-bright)}
+</style>
+</head>
+<body>
+${HEADER}
+<main>
+<div class="crumb"><a href="/">דף הבית</a> › עו״ד מייקל ברג</div>
+<h1>עו״ד מייקל ברג</h1>
+<div class="bio">
+<p>עורך דין, חבר לשכת עורכי הדין בישראל, העוסק בליווי משפטי שוטף לעסקים, בדיני חוזים ובמקרקעין. המשרד נבנה על עיקרון פשוט: לבעל עסק מגיע עורך דין שעונה מהר, מדבר ברור, ומתמחר מראש.</p>
+<p>לצד העבודה המשפטית, מייקל הוא יזם בעצמו — ומכיר מקרוב את האתגרים של ניהול עסק בישראל: תזרים, ספקים, עובדים ורגולציה. הניסיון הזה מתורגם לייעוץ פרקטי שמכוון לשורה התחתונה.</p>
+</div>
+<div class="creds-grid">
+<div class="cred-card"><b>חבר לשכת עוה"ד</b><span>רישיון עריכת דין בתוקף</span></div>
+<div class="cred-card"><b>תואר במשפטים ומנהל עסקים</b><span>אוניברסיטת רייכמן, התמחות חשבונאות</span></div>
+<div class="cred-card"><b>יזם פעיל</b><span>הקים מותג מסחר אלקטרוני עם אלפי מוצרים</span></div>
+<div class="cred-card"><b>4 שפות</b><span>עברית · אנגלית · רוסית · צרפתית</span></div>
+<div class="cred-card"><b>רקע עסקי</b><span>ניהול וסמנכ״לות בחברת טקסטיל — ספקים, תזרים, לקוחות</span></div>
+<div class="cred-card"><b>אזור שירות</b><span>תל אביב והמרכז</span></div>
+</div>
+<section class="areas">
+<h2>תחומי עיסוק</h2>
+<ul>
+<li>דיני חוזים</li>
+<li>דיני חברות</li>
+<li>מקרקעין</li>
+<li>דיני עבודה</li>
+<li>קניין רוחני</li>
+<li>הגנת הפרטיות</li>
+</ul>
+</section>
+<a class="articles-link" href="/articles/">ארכיון הכתבות המשפטיות ←</a>
+</main>
+${FOOTER}
+</body>
+</html>
+`;
+fs.writeFileSync(path.join(ROOT, "about-michael-berg"), authorPage);
+console.log("BUILT author page: about-michael-berg");
+
+/* ---------- validation ---------- */
+let validationErrors = 0;
+renderable.forEach(a => {
+  const html = fs.readFileSync(path.join(ROOT, "articles", a.slug + ".html"), "utf8");
+  // Check BlogPosting schema exists
+  if (!html.includes('"@type":"BlogPosting"')) {
+    console.error("VALIDATION FAIL: " + a.slug + " missing @type BlogPosting");
+    validationErrors++;
+  }
+  if (!html.includes('michael-berg')) {
+    console.error("VALIDATION FAIL: " + a.slug + " missing author reference");
+    validationErrors++;
+  }
+  // Validate JSON-LD blocks
+  const ldBlocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
+  ldBlocks.forEach((block, i) => {
+    const json = block.replace(/<\/?script[^>]*>/g, "");
+    try { JSON.parse(json); }
+    catch (e) {
+      console.error("VALIDATION FAIL: " + a.slug + " LD+JSON block " + i + " invalid: " + e.message);
+      validationErrors++;
+    }
+  });
+  // Check no duplicate @id
+  const ids = (html.match(/"@id":"[^"]+"/g) || []);
+  const seen = new Set();
+  ids.forEach(id => {
+    if (seen.has(id)) { console.error("VALIDATION FAIL: " + a.slug + " duplicate " + id); validationErrors++; }
+    seen.add(id);
+  });
+});
+if (validationErrors) { console.error("VALIDATION: " + validationErrors + " errors"); process.exit(1); }
+console.log("VALIDATION: all " + renderable.length + " pages OK (BlogPosting + author + JSON-LD)");
 
 console.log("BUILT article pages:", renderable.length, "(" + published.length + " live, " + queued.length + " queued/noindex)");
 console.log("BUILT blog index:   articles/index.html");
