@@ -22,6 +22,13 @@ node scripts/build-state.js
 ```
 build-state.js חייב לרוץ אחרון — הארכיטקט קורא ops/state.json.
 
+## כלל תיעוד (19.08.2026):
+כל commit שמשנה קוד חייב לעדכן באותו commit:
+- ops/tasks.json — סטטוס משימות שהושלמו/בוטלו/נוספו
+- docs/LEDGER.md — רשומה עם תאריך, מה בוצע, מה אומת
+- docs/INDEX.md — אם נוסף/הוסר/שונה קובץ
+אין commit ללא תיעוד. תיעוד בלי commit = בסדר (כמו הקובץ הזה).
+
 ## קבצי תפעול
 ראה docs/PROTOCOL.md לפורמט מלא.
 - ops/state.json — נבנה אוטומטית, לא לערוך ידנית

@@ -1,27 +1,34 @@
 # ברג ושות׳ - אינדקס פרויקט ראשי
-עדכון אחרון: 2026-08-07 | עודכן ע"י: Claude (ארכיטקט, Cowork + Desktop Commander)
+עדכון אחרון: 2026-08-19 | עודכן ע"י: Claude Code
 
 ## 1. נכסים חיים
 | נכס | מיקום/כתובת | סטטוס |
 |---|---|---|
-| אתר ייצור | https://berg-law.co.il | חי — SSL פעיל, DNS של Netlify (אומת 7.8) |
+| אתר ייצור | https://berg-law.co.il | חי — SSL, DNS Netlify, CI deploy on push |
 | URL זמני Netlify | https://berg-law.netlify.app | חי |
 | ריפו | github.com/michaelbarg/berg-law | ציבורי |
 | דומיין | DomainTheNet, בתוקף עד 8/2027 | פעיל |
+| CI: deploy | `.github/workflows/deploy.yml` | on push → build → Netlify hook |
+| CI: social | `.github/workflows/social.yml` | daily 06:00Z → topup IG+LI+GBP |
 
 ## 2. קבצי הפרויקט
 | קובץ | תפקיד |
 |---|---|
-| index.html | האתר כולו - 4 שפות, אשף נסחים, i18n, renderArticles() |
-| legal.html | תנאי שימוש + מדיניות פרטיות (4 קישורים מהפוטר) |
-| studio/index.html | סטודיו ניהול — חסום לאינדוקס |
-| robots.txt | חוסם /studio/ |
-| content/articles.json | מאמרים יומיים - נטען דינמית ע"י renderArticles() |
-| netlify.toml | תצורת פריסה + headers |
-| CLAUDE.md | פרוטוקול העבודה - נקרא אוטומטית |
-| docs/STATUS.md | מצב שוטף - גשר לארכיטקט |
+| index.html | האתר כולו — 4 שפות, i18n, top-3 article cards, org+person schema |
+| legal.html | תנאי שימוש + מדיניות פרטיות |
+| about-michael-berg | עמוד מחבר (E-E-A-T) — תואר, רקע, תחומים, 4 שפות |
+| robots.txt | חוסם /studio/, /ops/ |
+| content/articles.json | 29 כתבות — 6 עם format (qa/term/didyouknow/bureaucracy/fear/history) |
+| content/instagram-posts.json | 30 פוסטים לאינסטגרם (20 scheduled, 10 remaining) |
+| netlify.toml | build command + headers |
+| scripts/build-articles.js | בונה עמודי כתבות + ארכיון + sitemap + author page + validation |
+| scripts/build-practice.js | בונה עמודי תחומי עיסוק |
+| scripts/build-state.js | בונה ops/state.json (non-fatal) |
+| scripts/push_instagram.py | --topup לתור אינסטגרם (Buffer API) |
+| scripts/push_posts.py | --topup לתורי לינקדאין + GBP (Buffer API) |
+| CLAUDE.md | פרוטוקול העבודה — נקרא אוטומטית |
+| docs/LEDGER.md | יומן append-only |
 | docs/INDEX.md | הקובץ הזה |
-| README.md | תצורה + חוקים קדושים |
 
 ## 3. נקודות תצורה (בתוך index.html)
 | קבוע | שולט על | ערך נוכחי |

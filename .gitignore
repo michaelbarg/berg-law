@@ -2,3 +2,4 @@
 .netlify
 .env
 *.bak-*
+__pycache__/

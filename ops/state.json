@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-08-17T08:03:24.659Z",
+  "generatedAt": "2026-08-19T13:02:11.825Z",
   "git": {
-    "sha": "fd110bf9fdbb5b537635aea2d4b014e00b555aa3",
-    "committedAt": "2026-08-17T08:05:43+03:00",
+    "sha": "65cdbada32eb18b1ca5f8c22fc189915d41611e8",
+    "committedAt": "2026-08-19T15:23:28+03:00",
     "branch": "main"
   },
   "articles": {
-    "total": 23,
-    "newest": "26.08.2026",
-    "lastScheduled": "26.08.2026",
-    "runwayDays": 9,
+    "total": 29,
+    "newest": "01.09.2026",
+    "lastScheduled": "01.09.2026",
+    "runwayDays": 13,
     "missingSlug": [],
     "missingFullPage": [],
     "incompleteTranslations": []
   },
   "pages": {
-    "fullBodies": 23,
+    "fullBodies": 29,
     "practice": 14,
-    "articles": 23
+    "articles": 29
   },
   "buffer": {
     "linkedin": {

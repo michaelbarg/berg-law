@@ -2,6 +2,24 @@
 
 ---
 
+## 2026-08-19 · CI + פורמטים + תורים (סבב 5)
+- **CI:**
+  - `deploy.yml`: on push to main → build articles/practice/state → Netlify build hook. Asset verification pre-build.
+  - `social.yml`: daily 06:00Z → topup Instagram + LinkedIn + GBP. Secret verification, failure on 0 added, queue report.
+  - Secrets: `NETLIFY_BUILD_HOOK` + `BUFFER_ACCESS_TOKEN` מוגדרים ב-GitHub Actions.
+- **פורמט כתבות:**
+  - 6 כתבות חדשות (27.08–01.09) עם שדה `format` (qa/term/didyouknow/bureaucracy/fear/history).
+  - `build-articles.js`: FORMAT_MAP → chip ויזואלי (צבע מהפלטה, opacity נמוך) בכל עמוד כתבה + ארכיון.
+  - סינון פורמט בארכיון (שורת chips נפרדת, לצד סינון תחום). כתבות ללא format — ללא שינוי.
+  - 29/29 validation, sitemap 35 URLs.
+- **תורים חברתיים:**
+  - `push_posts.py` שוכתב: `--topup` ממלא LinkedIn + GBP מקבצי JSON. `--channels` לרשימת ערוצים.
+  - GBP תאריכים הוזזו 21-27→20-26.08. LinkedIn 1 חדש (3 כפילויות), GBP 3 חדשים (4 hit limit).
+  - מצב סופי: Instagram 10/10, LinkedIn 10/10, GBP 10/10.
+- **תיעוד:** tasks.json עודכן (T1 cancelled, T7 done, T12-T16 נוספו). .gitignore: __pycache__/.
+
+---
+
 ## 2026-08-17 · E-E-A-T: author + schema (סבב 4)
 - **בוצע:**
   - ישות ארגון: `@type` → `Attorney`, `@id` → `#org`, `availableLanguage`, `areaServed` → `IL`
