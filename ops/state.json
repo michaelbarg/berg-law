@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-16T16:55:21.062Z",
+  "generatedAt": "2026-08-17T08:03:24.659Z",
   "git": {
-    "sha": "25f7dfed22276d6ab07307c30ab067126873a0e4",
-    "committedAt": "2026-08-16T18:39:41+03:00",
+    "sha": "fd110bf9fdbb5b537635aea2d4b014e00b555aa3",
+    "committedAt": "2026-08-17T08:05:43+03:00",
     "branch": "main"
   },
   "articles": {
     "total": 23,
     "newest": "26.08.2026",
     "lastScheduled": "26.08.2026",
-    "runwayDays": 10,
+    "runwayDays": 9,
     "missingSlug": [],
     "missingFullPage": [],
     "incompleteTranslations": []

@@ -12,6 +12,22 @@ const iso = d => { const p = d.split("."); return p[2] + "-" + p[1] + "-" + p[0]
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const desc = s => { s = String(s); if (s.length <= 155) return s; const cut = s.lastIndexOf(" ", 152); return s.slice(0, cut > 80 ? cut : 152).replace(/[,:;·—-]$/, "") + "…"; };
 
+/* ---------- format chip system ---------- */
+const FORMAT_MAP = {
+  qa:           { label: "שאלות ששואלים", color: "var(--verde)",         bg: "rgba(32,96,74,.10)" },
+  term:         { label: "מושג במשפט",    color: "var(--silver-deep)",   bg: "rgba(91,104,99,.10)" },
+  didyouknow:   { label: "הידעת",         color: "var(--blush-deep)",    bg: "rgba(140,74,78,.10)" },
+  bureaucracy:  { label: "בירוקרטיה מפורקת", color: "var(--slate)",     bg: "rgba(82,90,86,.10)" },
+  fear:         { label: "ממה מפחדים",    color: "var(--graphite-800)",  bg: "rgba(28,71,55,.10)" },
+  history:      { label: "היסטוריה משפטית", color: "var(--verde-bright)", bg: "rgba(136,205,169,.12)" },
+};
+const fmtChip = (a) => {
+  const f = FORMAT_MAP[a.format];
+  if (!f) return "";
+  return `<span class="fmt-chip" style="color:${f.color};background:${f.bg}">${esc(f.label)}</span>`;
+};
+const fmtChipCSS = `.fmt-chip{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:3px;margin-inline-end:8px;letter-spacing:.02em}`;
+
 /* ---------- shared design tokens: Silver Salon ---------- */
 const TOKENS = `--graphite:#0F2A21;--graphite-950:#081512;--graphite-800:#1C4737;
   --pearl:#F5F2EA;--pearl-2:#FCFAF4;--ink:#1B211E;--slate:#525A56;
@@ -131,6 +147,7 @@ h1{font-size:clamp(28px,4.2vw,39px);line-height:1.36;margin-bottom:14px}
 .byline a:hover{color:var(--blush-deep);border-color:var(--blush-deep)}
 .byline-sep{color:var(--silver)}
 .byline-tag{font-weight:600;color:var(--silver-deep)}
+${fmtChipCSS}
 .lead{font-family:var(--display);font-size:19.5px;color:var(--slate);line-height:1.8;
   border-inline-start:2px solid var(--blush-deep);padding-inline-start:19px;margin-bottom:8px}
 .lead-rule{border:none;width:74px;border-top:1px solid var(--silver-deep);position:relative;margin:30px 0 34px}
@@ -173,7 +190,7 @@ ${HEADER}
 <div class="crumb"><a href="/">דף הבית</a> › <a href="/articles/">עדכונים משפטיים</a> › ${esc(a.tag.he)}</div>
 <h1>${esc(a.title.he)}</h1>
 <div class="byline">
-  <span class="byline-author">מאת <a href="/about-michael-berg" rel="author">עו״ד מייקל ברג</a></span>
+  ${fmtChip(a)}<span class="byline-author">מאת <a href="/about-michael-berg" rel="author">עו״ד מייקל ברג</a></span>
   <span class="byline-sep">·</span>
   <time datetime="${iso(a.date)}">${esc(a.date)}</time>
   <span class="byline-sep">·</span>
@@ -268,6 +285,8 @@ main{max-width:920px;margin:0 auto;padding:56px 22px 30px}
   padding:13px 26px;text-decoration:none;font-weight:600;font-size:14px;transition:all .3s}
 .backhome:hover{background:var(--graphite);border-color:var(--graphite);color:var(--silver-bright)}
 mark{background:rgba(237,191,184,.4);color:inherit;padding:0 2px}
+${fmtChipCSS}
+.fmt-chips{margin-top:8px}
 @media(max-width:660px){.list a{grid-template-columns:1fr;gap:9px}.list .side{display:flex;gap:12px}.list .side .t{margin:0}}
 </style>
 </head>
@@ -290,14 +309,26 @@ ${HEADER}
   <button class="on" data-tag="">הכול</button>
   ${tags.map(t => `<button data-tag="${esc(t)}">${esc(t)}</button>`).join("")}
 </div>
+${(() => {
+  const fmts = [...new Set(list.filter(a => a.format && FORMAT_MAP[a.format]).map(a => a.format))];
+  if (!fmts.length) return "";
+  return `<div class="chips fmt-chips" id="fmtchips">
+  <button class="on" data-fmt="">כל הפורמטים</button>
+  ${fmts.map(f => {const m=FORMAT_MAP[f]; return `<button data-fmt="${esc(f)}" style="border-color:${m.color};color:${m.color}">${esc(m.label)}</button>`;}).join("")}
+</div>`;
+})()}
 <p class="count" id="count">${list.length} כתבות</p>
 <ul class="list" id="list">
-${list.map(a => `  <li data-tag="${esc(a.tag.he)}" data-s="${esc((a.title.he + " " + a.body.he + " " + a.tag.he).toLowerCase())}">
+${list.map(a => {
+  const fmtData = a.format ? ` data-fmt="${esc(a.format)}"` : "";
+  const chip = a.format && FORMAT_MAP[a.format] ? fmtChip(a) : "";
+  return `  <li data-tag="${esc(a.tag.he)}"${fmtData} data-s="${esc((a.title.he + " " + a.body.he + " " + a.tag.he + " " + (FORMAT_MAP[a.format]||{}).label||"").toLowerCase())}">
     <a href="/articles/${a.slug}.html">
       <span class="side">${esc(a.date)}<span class="t">${esc(a.tag.he)}</span></span>
-      <span><h2>${esc(a.title.he)}</h2><p>${esc(a.body.he)}</p><span class="more">לקריאת הכתבה ←</span></span>
+      <span>${chip}<h2>${esc(a.title.he)}</h2><p>${esc(a.body.he)}</p><span class="more">לקריאת הכתבה ←</span></span>
     </a>
-  </li>`).join("\n")}
+  </li>`;
+}).join("\n")}
 </ul>
 <p class="empty" id="empty">לא נמצאה כתבה שמתאימה לחיפוש. אפשר לנסות מילה אחרת, או <a href="/#contact" style="color:var(--verde);font-weight:600">לשאול אותנו ישירות</a>.</p>
 <a class="backhome" href="/">חזרה לדף הבית</a>
@@ -305,28 +336,36 @@ ${list.map(a => `  <li data-tag="${esc(a.tag.he)}" data-s="${esc((a.title.he + "
 ${FOOTER}
 <script>
 (function(){
-  var q=document.getElementById("q"),list=document.getElementById("list"),
-      items=[].slice.call(list.children),count=document.getElementById("count"),
-      empty=document.getElementById("empty"),tag="";
-  function norm(s){return (s||"").toLowerCase().replace(/[\u0591-\u05C7]/g,"").replace(/["'׳״’“”]/g,"").replace(/\s+/g," ").trim();}
-  /* גיזום קל לעברית — "חוזה" מוצא גם "חוזים" */
+  var q=document.getElementById(“q”),list=document.getElementById(“list”),
+      items=[].slice.call(list.children),count=document.getElementById(“count”),
+      empty=document.getElementById(“empty”),tag=””,fmt=””;
+  function norm(s){return (s||””).toLowerCase().replace(/[\u0591-\u05C7]/g,””).replace(/[“’׳״’””]/g,””).replace(/\s+/g,” “).trim();}
+  /* גיזום קל לעברית — “חוזה” מוצא גם “חוזים” */
   function stems(w){var v=[w];if(w.length>=5)v.push(w.slice(0,-2));if(w.length>=4)v.push(w.slice(0,-1));return v;}
   function run(){
     var t=norm(q.value),n=0;
     items.forEach(function(li){
       var okTag=!tag||li.dataset.tag===tag;
+      var okFmt=!fmt||(li.dataset.fmt||””)==fmt;
       var hay=norm(li.dataset.s);
-      var okTxt=!t||t.split(" ").every(function(w){return stems(w).some(function(v){return hay.indexOf(v)>-1;});});
-      var show=okTag&&okTxt; li.style.display=show?"":"none"; if(show)n++;
+      var okTxt=!t||t.split(“ “).every(function(w){return stems(w).some(function(v){return hay.indexOf(v)>-1;});});
+      var show=okTag&&okFmt&&okTxt; li.style.display=show?””:”none”; if(show)n++;
     });
-    count.textContent=n+(n===1?" כתבה":" כתבות");
-    empty.style.display=n?"none":"block";
+    count.textContent=n+(n===1?” כתבה”:” כתבות”);
+    empty.style.display=n?”none”:”block”;
   }
-  q.addEventListener("input",run);
-  document.getElementById("chips").addEventListener("click",function(e){
-    var b=e.target.closest("button"); if(!b)return;
+  q.addEventListener(“input”,run);
+  document.getElementById(“chips”).addEventListener(“click”,function(e){
+    var b=e.target.closest(“button”); if(!b)return;
     tag=b.dataset.tag;
-    [].forEach.call(this.children,function(x){x.classList.toggle("on",x===b);});
+    [].forEach.call(this.children,function(x){x.classList.toggle(“on”,x===b);});
+    run();
+  });
+  var fc=document.getElementById(“fmtchips”);
+  if(fc) fc.addEventListener(“click”,function(e){
+    var b=e.target.closest(“button”); if(!b)return;
+    fmt=b.dataset.fmt;
+    [].forEach.call(this.children,function(x){x.classList.toggle(“on”,x===b);});
     run();
   });
   var pre=new URLSearchParams(location.search).get("q");
