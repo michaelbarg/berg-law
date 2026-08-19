@@ -17,8 +17,54 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Verify secret
+        run: |
+          if [ -z "${{ secrets.BUFFER_ACCESS_TOKEN }}" ]; then
+            echo "::error::BUFFER_ACCESS_TOKEN secret is not set"
+            exit 1
+          fi
+
       - name: Topup Instagram queue
-        run: python3 scripts/push_instagram.py --topup
+        run: |
+          python3 scripts/push_instagram.py --topup 2>&1 | tee /tmp/topup.log
+          # Fail if 0 posts were added (queue stale — needs attention)
+          if grep -q "התור מלא" /tmp/topup.log; then
+            echo "Queue full — nothing to add (OK)"
+          elif grep -q "הכול כבר מתוזמן" /tmp/topup.log; then
+            echo "::warning::All posts already scheduled — JSON may need refill"
+          elif grep -qE "^[0-9]+/[0-9]+ תוזמנו" /tmp/topup.log; then
+            ADDED=$(grep -oE "^[0-9]+" /tmp/topup.log | tail -1)
+            echo "Added $ADDED posts"
+            if [ "$ADDED" = "0" ]; then
+              echo "::error::0 posts added — check Buffer connection"
+              exit 1
+            fi
+          else
+            echo "::error::Unexpected output — check logs"
+            exit 1
+          fi
+
+      - name: Report queue state
+        if: always()
+        run: |
+          python3 -c "
+          import os, json, sys
+          sys.path.insert(0, 'scripts')
+          from push_instagram import gql, ORG, instagram_channel
+          ch = instagram_channel()
+          d = gql('{posts(input:{organizationId:\"%s\",filter:{channelIds:[\"%s\"]}}){edges{node{status dueAt}}}}' % (ORG, ch['id']))
+          edges = (d.get('data',{}).get('posts',{}).get('edges') or [])
+          pending = [e for e in edges if e['node'].get('status') != 'sent']
+          sent = [e for e in edges if e['node'].get('status') == 'sent']
+          last_due = max((e['node']['dueAt'] for e in pending), default='none')
+          print('::notice::Queue: %d pending, %d sent, last dueAt: %s' % (len(pending), len(sent), last_due[:16] if last_due != 'none' else 'none'))
+          remaining = json.load(open('content/instagram-posts.json'))
+          sched = json.load(open('.ig-scheduled.json')) if os.path.exists('.ig-scheduled.json') else []
+          unsched = len([p for p in remaining if p.get('slug') not in sched])
+          print('::notice::JSON: %d total, %d scheduled, %d remaining' % (len(remaining), len(sched), unsched))
+          if unsched == 0:
+            print('::warning::No unscheduled posts left in JSON — refill needed')
+          "
 
       # push_posts.py has no --topup flag; it reads from a temp file
       # and is designed for manual/one-shot use. Skipping in CI.
