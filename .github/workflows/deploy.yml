@@ -10,6 +10,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify article assets
+        run: |
+          node -e '
+          const fs=require("fs");
+          const a=JSON.parse(fs.readFileSync("content/articles.json","utf8"));
+          let bad=0;
+          for(const x of a){
+            if(!x.slug){console.log("NO SLUG:",x.date);bad++;continue}
+            const p="content/full/"+x.slug+".html";
+            if(!fs.existsSync(p)){console.log("MISSING:",p);bad++}
+          }
+          if(bad){console.log("failures:",bad);process.exit(1)}
+          console.log("all article assets OK");'
+
       - name: Build articles
         run: node scripts/build-articles.js
 
@@ -20,4 +34,9 @@ jobs:
         run: node scripts/build-state.js || true
 
       - name: Trigger Netlify deploy
-        run: curl -s -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"
+        run: |
+          if [ -z "${{ secrets.NETLIFY_BUILD_HOOK }}" ]; then
+            echo "::error::NETLIFY_BUILD_HOOK secret is not set"
+            exit 1
+          fi
+          curl -sS -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"
