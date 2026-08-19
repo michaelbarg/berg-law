@@ -1,0 +1,27 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build articles
+        run: node scripts/build-articles.js
+
+      - name: Build practice pages
+        run: node scripts/build-practice.js
+
+      - name: Build state (non-fatal)
+        run: node scripts/build-state.js || true
+
+      - name: Trigger Netlify deploy
+        run: curl -s -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"
