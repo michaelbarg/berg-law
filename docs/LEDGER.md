@@ -2,6 +2,22 @@
 
 ---
 
+## 2026-08-20 · תקלת אינסטגרם (סבב 6)
+- **ממצא:** תור אינסטגרם 10/10 scheduled אבל 0 פרסומים מ-17.08. שורש: פער 7 ימים (20-26.08) —
+  הקבוצה הקודמת (16-17.08) נשלחה, והקבוצה הבאה תוזמנה ל-27.08+. ללא שגיאות Buffer (0 errors).
+  לא תקלת חיבור — תקלת תזמון.
+- **תיקון:** מחקנו 3 פוסטים רחוקים (02-05.09) ← topup מילא אותם מחדש. פרסמנו פוסט-הוכחה
+  מיידי (`shareNow`) עם `metadata.instagram.type=post + shouldShareToFeed=True`.
+- **הוכחת חיים:**
+  - sentAt: `2026-08-20T09:26:24.248Z`
+  - externalLink: `https://www.instagram.com/p/DcQcAC3IDXS/`
+- **מניעה:** social.yml — צעד `Check publish freshness`: אם sentAt האחרון > 26 שעות → exit 1 (מייל התראה).
+- **sentAt אחרון לפני תיקון:** 2026-08-17T16:02:56Z (3 ימים)
+- **תמונות שבורות:** 0 (כולן 200)
+- **מצב סופי:** Instagram 10 scheduled (27.08–05.09) + 1 sent now
+
+---
+
 ## 2026-08-19 · CI + פורמטים + תורים (סבב 5)
 - **CI:**
   - `deploy.yml`: on push to main → build articles/practice/state → Netlify build hook. Asset verification pre-build.

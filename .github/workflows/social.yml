@@ -31,13 +31,33 @@ jobs:
             echo "Instagram queue full (OK)"
           elif grep -q "הכול כבר מתוזמן" /tmp/ig-topup.log; then
             echo "::warning::Instagram: all posts already scheduled — JSON may need refill"
-          elif grep -qE "^[0-9]+/[0-9]+ תוזמנו" /tmp/ig-topup.log; then
-            ADDED=$(grep -oE "^[0-9]+" /tmp/ig-topup.log | tail -1)
-            echo "Instagram: added $ADDED posts"
           fi
 
       - name: Topup LinkedIn + GBP queues
         run: python3 scripts/push_posts.py --topup
+
+      - name: Check publish freshness
+        run: |
+          python3 -c "
+          import sys, time; sys.path.insert(0, 'scripts')
+          from push_instagram import gql, ORG, instagram_channel
+          from datetime import datetime, timezone
+          ch = instagram_channel()
+          d = gql('{posts(input:{organizationId:\"%s\",filter:{channelIds:[\"%s\"]}}){edges{node{status sentAt}}}}' % (ORG, ch['id']))
+          edges = (d.get('data',{}).get('posts',{}).get('edges') or [])
+          sent = [e for e in edges if e['node'].get('sentAt')]
+          if not sent:
+            print('::error::No sent posts found — channel may be disconnected')
+            sys.exit(1)
+          last = max(e['node']['sentAt'] for e in sent)
+          last_dt = datetime.fromisoformat(last.replace('Z','+00:00'))
+          age_h = (datetime.now(timezone.utc) - last_dt).total_seconds() / 3600
+          print(f'Last sentAt: {last[:16]} ({age_h:.0f}h ago)')
+          if age_h > 26:
+            print(f'::error::Instagram publish stale — last sent {age_h:.0f}h ago (>26h)')
+            sys.exit(1)
+          print('Freshness OK')
+          "
 
       - name: Report all channels
         if: always()
