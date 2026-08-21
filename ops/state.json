@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-19T13:02:11.825Z",
+  "generatedAt": "2026-08-21T08:22:02.407Z",
   "git": {
-    "sha": "65cdbada32eb18b1ca5f8c22fc189915d41611e8",
-    "committedAt": "2026-08-19T15:23:28+03:00",
+    "sha": "53eac3af077110bdbe6948940c88d1cd8fd3f89d",
+    "committedAt": "2026-08-21T10:52:36+03:00",
     "branch": "main"
   },
   "articles": {
     "total": 29,
     "newest": "01.09.2026",
     "lastScheduled": "01.09.2026",
-    "runwayDays": 13,
+    "runwayDays": 11,
     "missingSlug": [],
     "missingFullPage": [],
     "incompleteTranslations": []
@@ -43,9 +43,9 @@
     {
       "id": "T1",
       "title": "חידוש טוקן Netlify — \"cluade\" פג 21.08",
-      "status": "blocked",
+      "status": "cancelled",
       "owner": "michael",
-      "note": "User settings → Applications → Personal access tokens. ליצור חדש ולעדכן."
+      "note": "CI עובר עם build hook (deploy.yml) — לא צריך CLI token בייצור. הטוקן המקומי עדיין בתוקף."
     },
     {
       "id": "T4",
@@ -70,10 +70,10 @@
     },
     {
       "id": "T7",
-      "title": "Buffer — לינקדאין 10.09 + GBP 27.08 שנתקעו במגבלת 10",
-      "status": "todo",
+      "title": "Buffer — מילוי תורים (אינסטגרם/לינקדאין/GBP)",
+      "status": "done",
       "owner": "code",
-      "note": "לדחוף כשמתפנה מקום. מגבלת free-tier: 10 מתוזמנים."
+      "note": "19.08: שלושת הערוצים 10/10. topup אוטומטי ב-social.yml (יומי 06:00Z). GBP תאריכים הוזזו 21-27→20-26.08."
     },
     {
       "id": "T8",
@@ -95,6 +95,48 @@
       "status": "done",
       "owner": "code",
       "note": "robots.txt עודכן 16.08. ops/ לא בסייטמאפ."
+    },
+    {
+      "id": "T12",
+      "title": "CI: deploy.yml — build + Netlify hook on push to main",
+      "status": "done",
+      "owner": "code",
+      "note": "19.08: deploy.yml חי — asset verification + build + curl hook. Secret NETLIFY_BUILD_HOOK מוגדר."
+    },
+    {
+      "id": "T13",
+      "title": "CI: social.yml — daily topup לשלושת הערוצים",
+      "status": "done",
+      "owner": "code",
+      "note": "19.08: social.yml — cron 06:00Z + workflow_dispatch. Instagram + LinkedIn + GBP. Secret BUFFER_ACCESS_TOKEN מוגדר."
+    },
+    {
+      "id": "T14",
+      "title": "E-E-A-T: חתימת מחבר + BlogPosting schema על כל הכתבות",
+      "status": "done",
+      "owner": "code",
+      "note": "17.08: Person #michael-berg, Attorney #org, BlogPosting ×29, byline, /about-michael-berg. 5/5 אימות חי."
+    },
+    {
+      "id": "T15",
+      "title": "פורמט כתבות — שבוע פיילוט (qa/term/didyouknow/bureaucracy/fear/history)",
+      "status": "done",
+      "owner": "code",
+      "note": "19.08: 6 כתבות עם format chip ויזואלי + סינון בארכיון. 29/29 validation. CI deployed."
+    },
+    {
+      "id": "T16",
+      "title": "push_posts.py --topup + חיווט לינקדאין/GBP ב-social.yml",
+      "status": "done",
+      "owner": "code",
+      "note": "19.08: push_posts.py שוכתב עם argparse + --topup. מחווט ב-CI. 10/10 בכל ערוץ."
+    },
+    {
+      "id": "T17",
+      "title": "פורטרט מחבר בעמוד about-michael-berg + Person schema image",
+      "status": "done",
+      "owner": "code",
+      "note": "21.08: michael-berg-2026.jpg (114KB) בעמוד + image בסכמת Person (index.html + about page)."
     }
   ]
 }

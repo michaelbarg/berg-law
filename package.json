@@ -1,0 +1,27 @@
+{
+  "name": "berg-law",
+  "version": "1.0.0",
+  "description": "| משתנה | תפקיד | |--------|--------| | `const DOCS` | מחירון נסחים (טאבו, חברה, מקרקעין וכו׳) | | `const PAY_LINKS` | קישורי סליקה לכל סוג נסח. ערך ריק = fallback לוואטסאפ | | `const PHONE` | מספר טלפון ראשי | | מייל | michael@passparto.com |",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelbarg/berg-law.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/michaelbarg/berg-law/issues"
+  },
+  "homepage": "https://github.com/michaelbarg/berg-law#readme",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}
