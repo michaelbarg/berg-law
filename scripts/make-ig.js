@@ -216,6 +216,24 @@ const COVER = {
      <h1 class="m" style="margin-bottom:22px">${nl(t.title)}</h1>
      <div style="width:64px;height:1px;background:${g.acc};margin-bottom:22px"></div>
      <div style="font-size:31px;line-height:1.55;color:${g.dim}">${nl(t.line)}</div></div>`,
+
+  /* PORTRAITFULL — שבת. הדיוקן הוא הקאדר עצמו, לא לוח בתוכו.
+     עובד רק מפני שרקע הסטודיו עבר דואוטון בדיוק ל---pearl: התמונה לא יושבת
+     על הקרקע, היא *היא* הקרקע. הטיפוגרפיה נוחתת על עמודת הנייר שנפתחה מימין.
+     העמודה נקייה רק בין y=150 ל-y=540 — מתחת לזה הכתף. לכן השער נושא
+     כותרת בלבד, וההסבר עובר לכיתוב. */
+  portraitfull: (t, g) => `
+   <div style="position:absolute;inset:0;z-index:1;
+     background:url('${dj("mb-portrait-full.jpg")}') center/cover no-repeat"></div>
+   <div style="position:absolute;inset:0;z-index:2;background:
+     linear-gradient(to top, ${g.bgFlat} 0%, ${g.bgFlat} 9%, rgba(245,242,234,0) 27%),
+     linear-gradient(to bottom, ${g.bgFlat} 0%, rgba(245,242,234,0) 11%)"></div>
+   <div style="position:absolute;right:96px;left:470px;top:196px;z-index:4">
+     <div class="kick" style="margin-bottom:22px">${esc(t.kick)}</div>
+     <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:68px;line-height:1.20;
+       color:${g.fg};text-wrap:balance">${nl(t.title)}</div>
+     <div style="width:58px;height:1px;background:${g.acc};margin-top:26px"></div>
+   </div>`,
   /* לסוף השבוע — עיטור מלא. הפורמט היחיד שבו התמונה גוברת על הטיפוגרפיה */
   plate: (t, g) => `
    <div style="position:absolute;inset:0;z-index:1;background:url('${du("plate-guilloche.svg")}') 30% 24%/175% no-repeat;
@@ -238,7 +256,7 @@ const body = (head, rest, g, fmt, seed, idx) => {
 
 /* כרטיס חתימה עם דיוקן — פעם בשבוע בלבד, בפוסט "שאלה מהשטח":
    הפורמט היחיד שכתוב בקולו של הקורא, ולכן החתימה של מי שעונה שייכת דווקא שם. */
-const PORTRAIT_DAY = "שישי";
+const PORTRAIT_DAY = null;   /* הדיוקן עבר לשער של שבת — פעם בשבוע, לא פעמיים */
 
 const closingPortrait = () => {
   const g = GROUNDS.paper;
@@ -267,7 +285,7 @@ const closingPlain = g => `
 const PILLAR_FMT = {
   "סעיף השבוע": "clause", "טעות שעולה כסף": "numeral", "עיקרון בשורה אחת": "maxim",
   "מה בודקים לפני ש…": "schema", "מילון": "lexicon", "שאלה מהשטח": "question",
-  "לסוף השבוע": "plate", "מן הפסיקה": "docket", "היכרות": "portrait",
+  "לסוף השבוע": "portraitfull", "מן הפסיקה": "docket", "היכרות": "portrait",
 };
 const firstLine = s => String(s || "").split("\n")[0].replace(/[:：]\s*$/, "").trim();
 const capLead = p => String(p.caption || "").split("\n").filter(Boolean)[0] || "";
@@ -308,7 +326,7 @@ function gate(p, fmt) {
     const seed = hash(post.slug);
     const { fmt, t } = coverData(post, post._seq);
     gate(post, fmt);
-    const gk = fmt === "portrait" ? "paper" : groundFor(n), gAlt = other(gk);
+    const gk = (fmt === "portrait" || fmt === "portraitfull") ? "paper" : groundFor(n), gAlt = other(gk);
     const withPortrait = post.day === PORTRAIT_DAY && fmt !== "portrait";   /* דיוקן פעם בשבוע, ולא פעמיים באותו פוסט */
     const dir = path.join(ROOT, "ig", post.slug);
     fs.mkdirSync(dir, { recursive: true });
