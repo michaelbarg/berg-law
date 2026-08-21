@@ -24,6 +24,9 @@ jobs:
             exit 1
           fi
 
+      - name: Fill gaps + sync state
+        run: python3 scripts/fillgap.py
+
       - name: Topup Instagram queue
         run: |
           python3 scripts/push_instagram.py --topup 2>&1 | tee /tmp/ig-topup.log
