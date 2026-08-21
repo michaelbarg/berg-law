@@ -104,6 +104,52 @@ for p in ig:
         if miss:
             problems.append("פסיקה '%s' חסר: %s" % (p["slug"], ", ".join(miss)))
 
+# ── כלל מייקל: הפנים שלו פעם בשבוע. לא פעמיים, ולא יומיים ברצף. ──
+# הכלל הזה נשבר פעם אחת בלי שאיש שם לב, כי הזזת פוסט קדימה נראית תמימה.
+print("\n═══ תדירות הדיוקן ═══")
+FACE_FMT = {"portrait", "portraitfull"}
+ig_lib = {q["slug"]: q for q in ig}
+
+
+def has_face(sl):
+    q = ig_lib.get(sl) or {}
+    fmt = (q.get("cover") or {}).get("format") or ("portraitfull" if q.get("day") == "שבת" else "")
+    return fmt in FACE_FMT
+
+
+if TOKEN:
+    d = gql(POSTS_Q, {"i": {"organizationId": ORG, "filter": {"channelIds": [CH["אינסטגרם"]]}}})
+    nodes = [x["node"] for x in d["data"]["posts"]["edges"]]
+    dated = []
+    for n in nodes:
+        when = n.get("sentAt") or n["dueAt"]
+        sl = None
+        for a in n["assets"]:
+            m = re.search(r"/ig/([^/]+)/", a.get("source") or "")
+            if m:
+                sl = m.group(1); break
+        if sl and has_face(sl):
+            dated.append((when[:10], sl))
+    dated.sort()
+    if not dated:
+        print("  אין פוסט־דיוקן בחלון הנוכחי")
+    for day, sl in dated:
+        print("  %s  %s" % (day, sl))
+    # שני פוסטי־פנים בתוך פחות מ-7 ימים = הפרה
+    for i in range(1, len(dated)):
+        d0 = datetime.datetime.strptime(dated[i - 1][0], "%Y-%m-%d")
+        d1 = datetime.datetime.strptime(dated[i][0], "%Y-%m-%d")
+        gap = (d1 - d0).days
+        if gap < 7:
+            problems.append("דיוקן פעמיים תוך %d ימים (%s ו-%s) — הכלל הוא פעם בשבוע"
+                            % (gap, dated[i - 1][1], dated[i][1]))
+    if len(dated) >= 2:
+        print("  מרווח מינימלי בפועל: %d ימים" % min(
+            (datetime.datetime.strptime(dated[i][0], "%Y-%m-%d")
+             - datetime.datetime.strptime(dated[i - 1][0], "%Y-%m-%d")).days
+            for i in range(1, len(dated))))
+
+
 print("\n═══ האתר ═══")
 for path in ("/", "/practice/", "/articles/", "/sitemap.xml", "/og.jpg"):
     c = head(SITE + path)
