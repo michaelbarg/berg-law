@@ -15,16 +15,17 @@ const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g,
 const nl = s => esc(s).replace(/\n/g, "<br>");
 const enc = svg => "data:image/svg+xml;utf8," + encodeURIComponent(svg).replace(/'/g, "%27");
 const du = f => enc(fs.readFileSync(path.join(ROOT, "assets", f), "utf8"));
+const dj = f => "data:image/jpeg;base64," + fs.readFileSync(path.join(ROOT, "assets", f)).toString("base64");
 const hash = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
 
 /* ── קרקעות. הטווח הטונלי הרחב הוא מה שפתר את ה״אנמי״ ── */
 const GROUNDS = {
   deep:  { bg: "linear-gradient(168deg,#143A2E 0%,#0F2A21 44%,#0A1A15 80%,#081512 100%)",
-           fg: "#EDF1EC", dim: "#ABB8B0", acc: "#EDBFB8", rule: "rgba(205,212,206,.30)", hair: "rgba(205,212,206,.13)", ink: "#CDD4CE" },
+           fg: "#EDF1EC", dim: "#ABB8B0", acc: "#EDBFB8", rule: "rgba(205,212,206,.30)", hair: "rgba(205,212,206,.13)", ink: "#CDD4CE", bgFlat: "#0F2A21" },
   paper: { bg: "radial-gradient(120% 80% at 76% -14%,#FCFAF4 0%,rgba(252,250,244,0) 58%),#F5F2EA",
-           fg: "#1B211E", dim: "#525A56", acc: "#8C4A4E", rule: "rgba(27,33,30,.22)", hair: "rgba(27,33,30,.10)", ink: "#5B6863" },
+           fg: "#1B211E", dim: "#525A56", acc: "#8C4A4E", rule: "rgba(27,33,30,.22)", hair: "rgba(27,33,30,.10)", ink: "#5B6863", bgFlat: "#F5F2EA" },
   verde: { bg: "linear-gradient(168deg,#247056 0%,#20604A 46%,#1C4737 78%,#143528 100%)",
-           fg: "#F5F2EA", dim: "#B9D6C7", acc: "#88CDA9", rule: "rgba(245,242,234,.30)", hair: "rgba(245,242,234,.13)", ink: "#D9E1DB" },
+           fg: "#F5F2EA", dim: "#B9D6C7", acc: "#88CDA9", rule: "rgba(245,242,234,.30)", hair: "rgba(245,242,234,.13)", ink: "#D9E1DB", bgFlat: "#20604A" },
 };
 const ORDER = ["deep", "paper", "verde"];
 /* (n + floor(n/3)) % 3 — ריבוע לטיני: אף שתי משבצות צמודות (אופקית או אנכית)
@@ -178,6 +179,21 @@ const COVER = {
      background:url('${schemaFlow(t.nodes, g.ink, g.acc, g.fg)}') center/contain no-repeat"></div>
    <div class="lower"><div class="kick">${esc(t.kick)}</div><h1 class="m">${nl(t.title)}</h1></div>`,
 
+
+  /* LEXICON — ערך מילוני. עמודת מילון: קו תוחם, המונח גדול, וההגדרה בהזחה תלויה. */
+  lexicon: (t, g) => `
+   <div style="position:absolute;right:96px;top:150px;bottom:246px;width:1px;background:${g.rule};z-index:2"></div>
+   <div style="position:absolute;right:88px;bottom:640px;width:17px;height:17px;border-radius:50%;
+     border:1px solid ${g.acc};background:${g.bgFlat};z-index:3"></div>
+   <div style="position:absolute;left:0;top:210px;width:560px;height:560px;z-index:1;
+     background:url('${sealRing(t.seed, g.ink)}') -22% 46%/620px no-repeat;opacity:.5"></div>
+   <div style="position:absolute;right:150px;left:96px;bottom:246px;z-index:4">
+     <div style="font-size:23px;font-weight:600;letter-spacing:.14em;color:${g.acc};margin-bottom:20px">${esc(t.kick)}</div>
+     <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:112px;line-height:1.10;
+       color:${g.fg};text-wrap:balance">${nl(t.title)}</div>
+     <div style="width:100%;height:1px;background:${g.rule};margin:34px 0 30px"></div>
+     <div style="font-size:33px;line-height:1.56;color:${g.dim};padding-right:34px;
+       border-right:2px solid ${g.hair}">${nl(t.line)}</div></div>`,
   /* שאלה מהשטח — סימן שאלה חתוך בשוליים. הפורמט היחיד בקולו של הקורא */
   question: (t, g) => `
    <div style="position:absolute;left:-20px;top:128px;z-index:1;font-family:'Frank Ruhl Libre',serif;font-weight:300;
@@ -189,6 +205,17 @@ const COVER = {
    <div class="lower"><div class="rule" style="margin-bottom:36px"></div>
      <div style="font-size:31px;line-height:1.55;color:${g.dim}">${nl(t.line)}</div></div>`,
 
+
+  /* PORTRAIT — פורמט היכרות. הפנים נושאות את הקאדר, הטיפוגרפיה מלווה. */
+  portrait: (t, g) => `
+   <div style="position:absolute;left:96px;top:150px;width:452px;height:900px;z-index:3;
+     background:url('${dj("mb-portrait-wide.jpg")}') center 12%/cover no-repeat;
+     border:1px solid ${g.rule};box-shadow:0 0 0 7px ${g.bgFlat},0 0 0 8px ${g.hair}"></div>
+   <div style="position:absolute;right:96px;left:600px;top:214px;z-index:4">
+     <div class="kick">${esc(t.kick)}</div>
+     <h1 class="m" style="margin-bottom:22px">${nl(t.title)}</h1>
+     <div style="width:64px;height:1px;background:${g.acc};margin-bottom:22px"></div>
+     <div style="font-size:31px;line-height:1.55;color:${g.dim}">${nl(t.line)}</div></div>`,
   /* לסוף השבוע — עיטור מלא. הפורמט היחיד שבו התמונה גוברת על הטיפוגרפיה */
   plate: (t, g) => `
    <div style="position:absolute;inset:0;z-index:1;background:url('${du("plate-guilloche.svg")}') 30% 24%/175% no-repeat;
@@ -209,7 +236,26 @@ const body = (head, rest, g, fmt, seed, idx) => {
      <div class="lede${long ? " sm" : ""}">${nl(rest)}</div></div>`;
 };
 
-const closing = g => `
+/* כרטיס חתימה עם דיוקן — פעם בשבוע בלבד, בפוסט "שאלה מהשטח":
+   הפורמט היחיד שכתוב בקולו של הקורא, ולכן החתימה של מי שעונה שייכת דווקא שם. */
+const PORTRAIT_DAY = "שישי";
+
+const closingPortrait = () => {
+  const g = GROUNDS.paper;
+  return `<div style="position:absolute;left:96px;top:150px;width:430px;height:780px;z-index:3;
+      background:url('${dj("mb-portrait-duo.jpg")}') center/cover no-repeat;
+      border:1px solid ${g.rule};box-shadow:0 0 0 7px ${g.bgFlat},0 0 0 8px ${g.hair}"></div>
+    <div style="position:absolute;right:96px;left:580px;top:214px;z-index:4">
+      <div class="kick">מייקל ברג · עורך דין</div>
+      <div style="font-family:'Frank Ruhl Libre',serif;font-weight:500;font-size:62px;line-height:1.30;
+        color:${g.fg};text-wrap:balance">רוצים לדבר<br>על זה לגבי<br><b style="color:${g.acc};font-weight:600">העסק שלכם</b>?</div>
+    </div>
+    <div class="lower"><div class="rule" style="margin-bottom:34px"></div>
+      <div style="font-size:31px;line-height:1.6;color:${g.dim}">
+        שיחת היכרות ומיפוי צרכים · קישור בביו · הודעה בדיירקט</div></div>`;
+};
+
+const closingPlain = g => `
   <div style="position:absolute;inset:0;z-index:1;background:url('${du("plate-arcade.svg")}') 40% 30%/260% no-repeat;
     opacity:.4;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 46%,transparent 82%)"></div>
   <div class="lower"><div class="rule" style="margin-bottom:38px"></div>
@@ -220,8 +266,8 @@ const closing = g => `
 /* ══════════ גזירת נתוני שער מתוכן קיים — בלי להמציא ניסוח משפטי ══════════ */
 const PILLAR_FMT = {
   "סעיף השבוע": "clause", "טעות שעולה כסף": "numeral", "עיקרון בשורה אחת": "maxim",
-  "מה בודקים לפני ש…": "schema", "מילון": "schema", "שאלה מהשטח": "question",
-  "לסוף השבוע": "plate", "מן הפסיקה": "docket",
+  "מה בודקים לפני ש…": "schema", "מילון": "lexicon", "שאלה מהשטח": "question",
+  "לסוף השבוע": "plate", "מן הפסיקה": "docket", "היכרות": "portrait",
 };
 const firstLine = s => String(s || "").split("\n")[0].replace(/[:：]\s*$/, "").trim();
 const capLead = p => String(p.caption || "").split("\n").filter(Boolean)[0] || "";
@@ -235,6 +281,7 @@ function coverData(p, seqInPillar) {
   if (fmt === "numeral") base.num = c.num || String(seqInPillar).padStart(2, "0");
   if (fmt === "maxim") { base.line = c.line || capLead(p) || shortTitle; base.title = shortTitle; }
   if (fmt === "question") { base.title = c.title || firstLine(p.slides[1] || "").replace(/^השאלה\s*/, "") || shortTitle; base.line = c.line || capLead(p); }
+  if (fmt === "lexicon") base.seed = hash(p.slug);
   if (fmt === "schema") base.nodes = c.nodes || p.slides.slice(1, 4).map(s => firstLine(s).slice(0, 22));
   if (fmt === "docket") { base.court = c.court || ""; base.field = c.field || ""; base.docketNo = c.docketNo || ""; base.line = c.holding || ""; base.title = c.source || ""; }
   return { fmt, t: base };
@@ -261,18 +308,19 @@ function gate(p, fmt) {
     const seed = hash(post.slug);
     const { fmt, t } = coverData(post, post._seq);
     gate(post, fmt);
-    const gk = groundFor(n), gAlt = other(gk);
+    const gk = fmt === "portrait" ? "paper" : groundFor(n), gAlt = other(gk);
+    const withPortrait = post.day === PORTRAIT_DAY && fmt !== "portrait";   /* דיוקן פעם בשבוע, ולא פעמיים באותו פוסט */
     const dir = path.join(ROOT, "ig", post.slug);
     fs.mkdirSync(dir, { recursive: true });
     const total = post.slides.length + 1;
 
     for (let i = 0; i < total; i++) {
       /* קצב ABA בתוך הקרוסלה: הציר (3) והסיום מתהפכים — שקופית הסיום היא זו שמצלמים */
-      const key = (i === 2 || i === total - 1) ? gAlt : gk;
+      const key = (i === total - 1 && withPortrait) ? "paper" : ((i === 2 || i === total - 1) ? gAlt : gk);
       const g = GROUNDS[key];
       let inner;
       if (i === 0) inner = COVER[fmt](t, g, seed);
-      else if (i === total - 1) inner = closing(g);
+      else if (i === total - 1) inner = withPortrait ? closingPortrait() : closingPlain(g);
       else {
         const parts = (post.slides[i] || "").split("\n");
         const head = parts.length > 1 && parts[0].trim().endsWith(":") ? parts[0].replace(/:$/, "") : "";
@@ -294,7 +342,7 @@ function gate(p, fmt) {
     }
     fs.writeFileSync(path.join(dir, "caption.txt"),
       post.caption + "\n\n" + post.tags + "\n\nהאמור אינו ייעוץ משפטי ואינו תחליף לו. כל מקרה נבחן לגופו.");
-    console.log(`${String(n).padStart(2, "0")} ${post.slug.padEnd(26)} ${fmt.padEnd(9)} ${gk.padEnd(6)} ${total} slides`);
+    console.log(`${String(n).padStart(2, "0")} ${post.slug.padEnd(26)} ${fmt.padEnd(9)} ${gk.padEnd(6)} ${total} slides${withPortrait ? "  +portrait" : ""}`);
   }
   await browser.close();
 })().catch(e => { console.error("FATAL", e.message); process.exit(1); });
