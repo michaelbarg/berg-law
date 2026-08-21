@@ -1,100 +1,156 @@
 [
-  {
-    "id": "T1",
-    "title": "חידוש טוקן Netlify — \"cluade\" פג 21.08",
-    "status": "cancelled",
-    "owner": "michael",
-    "note": "CI עובר עם build hook (deploy.yml) — לא צריך CLI token בייצור. הטוקן המקומי עדיין בתוקף."
-  },
-  {
-    "id": "T4",
-    "title": "פסקת רומנטקס — החלטה פומבית",
-    "status": "done",
-    "owner": "michael",
-    "note": "מייקל אישר 16.08: להשאיר כמות שהיא. הסיפור צריך להישמע."
-  },
-  {
-    "id": "T5",
-    "title": "זמני תגובה פומביים — 24 שעות / 8 שעות עבודה",
-    "status": "blocked",
-    "owner": "michael",
-    "note": "התחייבות פומבית. ממתין לתשובת מייקל אם לשנות."
-  },
-  {
-    "id": "T6",
-    "title": "מטא — og:description, theme-color, og:locale",
-    "status": "done",
-    "owner": "code",
-    "note": "בוצע 16.08: og:description עודכן, locale כבר תקין."
-  },
-  {
-    "id": "T7",
-    "title": "Buffer — מילוי תורים (אינסטגרם/לינקדאין/GBP)",
-    "status": "done",
-    "owner": "code",
-    "note": "19.08: שלושת הערוצים 10/10. topup אוטומטי ב-social.yml (יומי 06:00Z). GBP תאריכים הוזזו 21-27→20-26.08."
-  },
-  {
-    "id": "T8",
-    "title": "ניקיון claude/pending-queue.md — רשומות 09.08 ו-10.08 לסמן בוטלה",
-    "status": "cancelled",
-    "owner": "code",
-    "note": "תיקייה claude/ לא קיימת בריפו. pending-queue.md לא נמצא."
-  },
-  {
-    "id": "T10",
-    "title": "תיקיית claude/ חשופה בריפו ציבורי",
-    "status": "cancelled",
-    "owner": "michael",
-    "note": "תיקייה לא קיימת — אין חשיפה."
-  },
-  {
-    "id": "T11",
-    "title": "Disallow /ops/ ב-robots.txt ומחוץ לסייטמאפ",
-    "status": "done",
-    "owner": "code",
-    "note": "robots.txt עודכן 16.08. ops/ לא בסייטמאפ."
-  },
-  {
-    "id": "T12",
-    "title": "CI: deploy.yml — build + Netlify hook on push to main",
-    "status": "done",
-    "owner": "code",
-    "note": "19.08: deploy.yml חי — asset verification + build + curl hook. Secret NETLIFY_BUILD_HOOK מוגדר."
-  },
-  {
-    "id": "T13",
-    "title": "CI: social.yml — daily topup לשלושת הערוצים",
-    "status": "done",
-    "owner": "code",
-    "note": "19.08: social.yml — cron 06:00Z + workflow_dispatch. Instagram + LinkedIn + GBP. Secret BUFFER_ACCESS_TOKEN מוגדר."
-  },
-  {
-    "id": "T14",
-    "title": "E-E-A-T: חתימת מחבר + BlogPosting schema על כל הכתבות",
-    "status": "done",
-    "owner": "code",
-    "note": "17.08: Person #michael-berg, Attorney #org, BlogPosting ×29, byline, /about-michael-berg. 5/5 אימות חי."
-  },
-  {
-    "id": "T15",
-    "title": "פורמט כתבות — שבוע פיילוט (qa/term/didyouknow/bureaucracy/fear/history)",
-    "status": "done",
-    "owner": "code",
-    "note": "19.08: 6 כתבות עם format chip ויזואלי + סינון בארכיון. 29/29 validation. CI deployed."
-  },
-  {
-    "id": "T16",
-    "title": "push_posts.py --topup + חיווט לינקדאין/GBP ב-social.yml",
-    "status": "done",
-    "owner": "code",
-    "note": "19.08: push_posts.py שוכתב עם argparse + --topup. מחווט ב-CI. 10/10 בכל ערוץ."
-  },
-  {
-    "id": "T17",
-    "title": "פורטרט מחבר בעמוד about-michael-berg + Person schema image",
-    "status": "done",
-    "owner": "code",
-    "note": "21.08: michael-berg-2026.jpg (114KB) בעמוד + image בסכמת Person (index.html + about page)."
-  }
+ {
+  "id": "T1",
+  "title": "חידוש טוקן Netlify — \"cluade\" פג 21.08",
+  "status": "cancelled",
+  "owner": "michael",
+  "note": "CI עובר עם build hook (deploy.yml) — לא צריך CLI token בייצור. הטוקן המקומי עדיין בתוקף."
+ },
+ {
+  "id": "T4",
+  "title": "פסקת רומנטקס — החלטה פומבית",
+  "status": "done",
+  "owner": "michael",
+  "note": "מייקל אישר 16.08: להשאיר כמות שהיא. הסיפור צריך להישמע."
+ },
+ {
+  "id": "T5",
+  "title": "זמני תגובה פומביים — 24 שעות / 8 שעות עבודה",
+  "status": "blocked",
+  "owner": "michael",
+  "note": "התחייבות פומבית. ממתין לתשובת מייקל אם לשנות."
+ },
+ {
+  "id": "T6",
+  "title": "מטא — og:description, theme-color, og:locale",
+  "status": "done",
+  "owner": "code",
+  "note": "בוצע 16.08: og:description עודכן, locale כבר תקין."
+ },
+ {
+  "id": "T7",
+  "title": "Buffer — מילוי תורים (אינסטגרם/לינקדאין/GBP)",
+  "status": "done",
+  "owner": "code",
+  "note": "19.08: שלושת הערוצים 10/10. topup אוטומטי ב-social.yml (יומי 06:00Z). GBP תאריכים הוזזו 21-27→20-26.08."
+ },
+ {
+  "id": "T8",
+  "title": "ניקיון claude/pending-queue.md — רשומות 09.08 ו-10.08 לסמן בוטלה",
+  "status": "cancelled",
+  "owner": "code",
+  "note": "תיקייה claude/ לא קיימת בריפו. pending-queue.md לא נמצא."
+ },
+ {
+  "id": "T10",
+  "title": "תיקיית claude/ חשופה בריפו ציבורי",
+  "status": "cancelled",
+  "owner": "michael",
+  "note": "תיקייה לא קיימת — אין חשיפה."
+ },
+ {
+  "id": "T11",
+  "title": "Disallow /ops/ ב-robots.txt ומחוץ לסייטמאפ",
+  "status": "done",
+  "owner": "code",
+  "note": "robots.txt עודכן 16.08. ops/ לא בסייטמאפ."
+ },
+ {
+  "id": "T12",
+  "title": "CI: deploy.yml — build + Netlify hook on push to main",
+  "status": "done",
+  "owner": "code",
+  "note": "19.08: deploy.yml חי — asset verification + build + curl hook. Secret NETLIFY_BUILD_HOOK מוגדר."
+ },
+ {
+  "id": "T13",
+  "title": "CI: social.yml — daily topup לשלושת הערוצים",
+  "status": "done",
+  "owner": "code",
+  "note": "19.08: social.yml — cron 06:00Z + workflow_dispatch. Instagram + LinkedIn + GBP. Secret BUFFER_ACCESS_TOKEN מוגדר."
+ },
+ {
+  "id": "T14",
+  "title": "E-E-A-T: חתימת מחבר + BlogPosting schema על כל הכתבות",
+  "status": "done",
+  "owner": "code",
+  "note": "17.08: Person #michael-berg, Attorney #org, BlogPosting ×29, byline, /about-michael-berg. 5/5 אימות חי."
+ },
+ {
+  "id": "T15",
+  "title": "פורמט כתבות — שבוע פיילוט (qa/term/didyouknow/bureaucracy/fear/history)",
+  "status": "done",
+  "owner": "code",
+  "note": "19.08: 6 כתבות עם format chip ויזואלי + סינון בארכיון. 29/29 validation. CI deployed."
+ },
+ {
+  "id": "T16",
+  "title": "push_posts.py --topup + חיווט לינקדאין/GBP ב-social.yml",
+  "status": "done",
+  "owner": "code",
+  "note": "19.08: push_posts.py שוכתב עם argparse + --topup. מחווט ב-CI. 10/10 בכל ערוץ."
+ },
+ {
+  "id": "T17",
+  "title": "פורטרט מחבר בעמוד about-michael-berg + Person schema image",
+  "status": "done",
+  "owner": "code",
+  "note": "21.08: michael-berg-2026.jpg (114KB) בעמוד + image בסכמת Person (index.html + about page)."
+ },
+ {
+  "id": "T2",
+  "title": "אינסטגרם — עיצוב מחדש: 9 פורמטים, שזירת רשת, פסיקה, דיוקן",
+  "status": "done",
+  "owner": "code",
+  "note": "21.08: commits e00d6c3 / 9b2b3a8 / da836b8 / b5142e6. באוויר ומאומת.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T3",
+  "title": "להעלות תמונת פרופיל לאינסטגרם — assets/mb-avatar.jpg",
+  "status": "blocked",
+  "owner": "michael",
+  "note": "הקובץ מוכן בריפו. ההעלאה ידנית באפליקציה.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T9",
+  "title": "לנעוץ את פוסט ההיכרות בראש הפרופיל",
+  "status": "blocked",
+  "owner": "michael",
+  "note": "intro-who מתפרסם 22.08 08:00Z. נעיצה ידנית.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T18",
+  "title": "לאמת שקישורי אינסטגרם/לינקדאין בפוטר נוחתים נכון",
+  "status": "blocked",
+  "owner": "michael",
+  "note": "נלקחו משמות הערוצים בבאפר; לא ניתן לאמת אוטומטית.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T19",
+  "title": "צילומי מרקם למשפחת תמונות D",
+  "status": "blocked",
+  "owner": "michael",
+  "note": "נייר משרד באור נמוך, צל תריס, שלט פליז, חוד תיק כרוך. בלי אנשים ובלי נכס מזוהה.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T20",
+  "title": "npm מקומי שבור — מדווח up to date ולא מתקין",
+  "status": "open",
+  "owner": "code",
+  "note": "חוסם node scripts/make-ig.js על המק. עקיפה: רינדור בענן. לא חוסם ייצור.",
+  "added": "2026-08-21"
+ },
+ {
+  "id": "T21",
+  "title": "ספריית אינסטגרם מתקרבת לסוף — 11 פוסטים",
+  "status": "open",
+  "owner": "code",
+  "note": "כשיורד מתחת ל-7: לכתוב חדשים לפי מפת השבוע ב-berg-ig-format-library.md. Actions לא כותב תוכן.",
+  "added": "2026-08-21"
+ }
 ]

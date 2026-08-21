@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-21T10:21:15.641Z",
+  "generatedAt": "2026-08-21T11:30:33.563Z",
   "git": {
-    "sha": "9b2b3a8023c47ec3395cfb46d63942a60128d1eb",
-    "committedAt": "2026-08-21T11:29:07+03:00",
+    "sha": "b5142e6e4e07d2db4b94e77979878b1b18257ecd",
+    "committedAt": "2026-08-21T13:28:54+03:00",
     "branch": "main"
   },
   "articles": {
@@ -137,6 +137,62 @@
       "status": "done",
       "owner": "code",
       "note": "21.08: michael-berg-2026.jpg (114KB) בעמוד + image בסכמת Person (index.html + about page)."
+    },
+    {
+      "id": "T2",
+      "title": "אינסטגרם — עיצוב מחדש: 9 פורמטים, שזירת רשת, פסיקה, דיוקן",
+      "status": "done",
+      "owner": "code",
+      "note": "21.08: commits e00d6c3 / 9b2b3a8 / da836b8 / b5142e6. באוויר ומאומת.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T3",
+      "title": "להעלות תמונת פרופיל לאינסטגרם — assets/mb-avatar.jpg",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "הקובץ מוכן בריפו. ההעלאה ידנית באפליקציה.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T9",
+      "title": "לנעוץ את פוסט ההיכרות בראש הפרופיל",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "intro-who מתפרסם 22.08 08:00Z. נעיצה ידנית.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T18",
+      "title": "לאמת שקישורי אינסטגרם/לינקדאין בפוטר נוחתים נכון",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "נלקחו משמות הערוצים בבאפר; לא ניתן לאמת אוטומטית.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T19",
+      "title": "צילומי מרקם למשפחת תמונות D",
+      "status": "blocked",
+      "owner": "michael",
+      "note": "נייר משרד באור נמוך, צל תריס, שלט פליז, חוד תיק כרוך. בלי אנשים ובלי נכס מזוהה.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T20",
+      "title": "npm מקומי שבור — מדווח up to date ולא מתקין",
+      "status": "open",
+      "owner": "code",
+      "note": "חוסם node scripts/make-ig.js על המק. עקיפה: רינדור בענן. לא חוסם ייצור.",
+      "added": "2026-08-21"
+    },
+    {
+      "id": "T21",
+      "title": "ספריית אינסטגרם מתקרבת לסוף — 11 פוסטים",
+      "status": "open",
+      "owner": "code",
+      "note": "כשיורד מתחת ל-7: לכתוב חדשים לפי מפת השבוע ב-berg-ig-format-library.md. Actions לא כותב תוכן.",
+      "added": "2026-08-21"
     }
   ]
 }
