@@ -89,5 +89,12 @@
     "status": "done",
     "owner": "code",
     "note": "19.08: push_posts.py שוכתב עם argparse + --topup. מחווט ב-CI. 10/10 בכל ערוץ."
+  },
+  {
+    "id": "T17",
+    "title": "פורטרט מחבר בעמוד about-michael-berg + Person schema image",
+    "status": "done",
+    "owner": "code",
+    "note": "21.08: michael-berg-2026.jpg (114KB) בעמוד + image בסכמת Person (index.html + about page)."
   }
 ]

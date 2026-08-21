@@ -464,6 +464,7 @@ ${FAVICON}
 "name":"מייקל ברג","jobTitle":"עורך דין",
 "url":"https://berg-law.co.il/about-michael-berg",
 "worksFor":{"@id":"https://berg-law.co.il/#org"},
+"image":"${SITE}/assets/michael-berg-2026.jpg",
 "knowsAbout":["דיני חוזים","דיני חברות","מקרקעין","דיני עבודה","קניין רוחני","הגנת הפרטיות"],
 "sameAs":["https://www.linkedin.com/in/michael-barg-passparto/"]}
 </script>
@@ -476,6 +477,9 @@ ${FONTS}
 <style>${BASE_CSS}
 main{max-width:730px;margin:0 auto;padding:54px 22px 24px}
 h1{font-size:clamp(28px,4.2vw,39px);line-height:1.36;margin-bottom:22px}
+.portrait{float:inline-start;width:180px;margin:0 28px 20px 0;border:1px solid var(--line-strong)}
+.portrait img{width:100%;height:auto;display:block;filter:grayscale(.15)}
+@media(max-width:500px){.portrait{float:none;width:140px;margin:0 auto 20px}}
 .bio p{margin-bottom:17px;line-height:1.85}
 .creds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:32px 0}
 .cred-card{border:1px solid var(--line-strong);padding:20px 22px}
@@ -495,6 +499,7 @@ ${HEADER}
 <main>
 <div class="crumb"><a href="/">דף הבית</a> › עו״ד מייקל ברג</div>
 <h1>עו״ד מייקל ברג</h1>
+<div class="portrait"><img src="/assets/michael-berg-2026.jpg" width="900" height="1125" alt="עו״ד מייקל ברג — ברג ושות׳, משרד עורכי דין" loading="eager"></div>
 <div class="bio">
 <p>עורך דין, חבר לשכת עורכי הדין בישראל, העוסק בליווי משפטי שוטף לעסקים, בדיני חוזים ובמקרקעין. המשרד נבנה על עיקרון פשוט: לבעל עסק מגיע עורך דין שעונה מהר, מדבר ברור, ומתמחר מראש.</p>
 <p>לצד העבודה המשפטית, מייקל הוא יזם בעצמו — ומכיר מקרוב את האתגרים של ניהול עסק בישראל: תזרים, ספקים, עובדים ורגולציה. הניסיון הזה מתורגם לייעוץ פרקטי שמכוון לשורה התחתונה.</p>
