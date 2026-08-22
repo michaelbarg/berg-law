@@ -69,7 +69,9 @@ else:
             print("               פורסם לאחרונה לפני %.0f שעות" % age)
             if age > 48 and sched:
                 problems.append("%s: לא פורסם דבר %.0f שעות למרות שיש תור" % (name, age))
-            days = sorted({n["sentAt"][:10] for n in sent})[-8:]
+            # רק 14 הימים האחרונים — פוסט ישן מ-2020 בתור ייתן "חור של 2334 ימים"
+            cutoff = (datetime.datetime.utcnow() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+            days = sorted({n["sentAt"][:10] for n in sent if n["sentAt"][:10] >= cutoff})
             if len(days) > 1:
                 gaps = [(datetime.datetime.strptime(days[i], "%Y-%m-%d")
                          - datetime.datetime.strptime(days[i - 1], "%Y-%m-%d")).days
