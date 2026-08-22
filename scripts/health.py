@@ -51,7 +51,11 @@ else:
         ns = [x["node"] for x in d["data"]["posts"]["edges"]]
         sched = sorted((n for n in ns if n["status"] == "scheduled"), key=lambda n: n["dueAt"])
         errs = [n for n in ns if n.get("error")]
-        sent = sorted((n for n in ns if n.get("sentAt")), key=lambda n: n["sentAt"])
+        # חובה לסנן status=sent במפורש — בלי זה מוחזר חלון חלקי בלבד
+        ds = gql(POSTS_Q, {"i": {"organizationId": ORG,
+                                 "filter": {"channelIds": [cid], "status": ["sent"]}}})
+        sent = sorted((x["node"] for x in ds["data"]["posts"]["edges"]
+                       if x["node"].get("sentAt")), key=lambda n: n["sentAt"])
         through = sched[-1]["dueAt"][:10] if sched else "—"
         print("  %-12s בתור %-3d עד %-11s שגיאות %d" % (name, len(sched), through, len(errs)))
         for n in errs:
@@ -65,6 +69,14 @@ else:
             print("               פורסם לאחרונה לפני %.0f שעות" % age)
             if age > 48 and sched:
                 problems.append("%s: לא פורסם דבר %.0f שעות למרות שיש תור" % (name, age))
+            days = sorted({n["sentAt"][:10] for n in sent})[-8:]
+            if len(days) > 1:
+                gaps = [(datetime.datetime.strptime(days[i], "%Y-%m-%d")
+                         - datetime.datetime.strptime(days[i - 1], "%Y-%m-%d")).days
+                        for i in range(1, len(days))]
+                print("               ימי פרסום אחרונים: %s" % " ".join(d[5:] for d in days))
+                if max(gaps) > 2:
+                    problems.append("%s: חור של %d ימים בפרסום בשבוע האחרון" % (name, max(gaps)))
         elif sched:
             problems.append("%s: מעולם לא פורסם פוסט" % name)
         seen = {}
