@@ -36,7 +36,7 @@ def head(url, timeout=10):
         return 0
 
 
-POSTS_Q = """query($i:PostsInput!){ posts(input:$i){ edges{ node{ status dueAt sentAt
+POSTS_Q = """query($i:PostsInput!){ posts(input:$i){ edges{ node{ status dueAt sentAt text
  error{ ... on PostPublishingError { message } }
  assets{ ... on ImageAsset { source } } } } } }"""
 
@@ -67,6 +67,12 @@ else:
                 problems.append("%s: לא פורסם דבר %.0f שעות למרות שיש תור" % (name, age))
         elif sched:
             problems.append("%s: מעולם לא פורסם פוסט" % name)
+        seen = {}
+        for n in sched:
+            k = (n["dueAt"], (n.get("text") or "")[:120])
+            if k in seen:
+                problems.append("%s: פוסט כפול ב-%s — יתפרסם פעמיים" % (name, n["dueAt"][:16]))
+            seen[k] = 1
         if name == "אינסטגרם":
             for n in sched:
                 ig_urls += [a["source"] for a in n["assets"] if a.get("source")]
